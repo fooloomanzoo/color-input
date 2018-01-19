@@ -15,9 +15,7 @@
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
         .result {
-          margin: 0.75em;
           padding: 0.5em;
-          line-height: 1.5;
         }
       </style>
     </custom-style>
@@ -32,16 +30,15 @@
           <dom-bind>
             <template is="dom-bind">
               <style>
-                .custom {
-                  border-radius: 16px;
-                  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+                input[type="number"] {
+                  margin: 4px;
                 }
               </style>
-              <color-input class="input" value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-input>
+              <color-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-input>
               <div class="vertical-section-container result">
                 <p>
                   <span>color </span>
-                  <input list="colors" value="{{color::input}}">
+                  <input list="colors" value="{{color::change}}">
                   <datalist id="colors">
                     <option value=""></option>
                     <option value="#72a13f">#72a13f</option>
@@ -64,14 +61,35 @@
                     <option value="hsl">hsl</option>
                   </select>
                   <h4>Results</h4>
-                  <span>red: [[r]]</span>
-                  <span>green: [[g]]</span>
-                  <span>blue: [[b]]</span>
-                  <span>hue: [[h]]</span>
-                  <span>saturation: [[s]]</span>
-                  <span>lightness: [[l]]</span>
+                  <span>red: <input type="number" value="{{r::input}}"></span>
+                  <span>green: <input type="number" value="{{g::input}}"></span>
+                  <span>blue: <input type="number" value="{{b::input}}"></span>
+                  <span>hue: <input type="number" value="{{h::input}}"></span>
+                  <span>saturation: <input type="number" min="0" max="1" step="0.001" value="{{s::input}}"></span>
+                  <span>lightness: <input type="number" min="0" max="1" step="0.001" value="{{l::input}}"></span>
                 </p>
               </div>
+            </template>
+          </dom-bind>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>convert beetween the formats, right click on the color generates a random color</h3>
+      <demo-snippet>
+        <template>
+          <dom-bind>
+            <template is="dom-bind">
+              <style>
+                .custom {
+                  margin-bottom: 12px;
+                }
+              </style>
+              <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="hex"></color-input><br>
+              <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="rgb"></color-input><br>
+              <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="hsl"></color-input><br>
+              <input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}">
             </template>
           </dom-bind>
         </template>

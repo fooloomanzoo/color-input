@@ -31,7 +31,7 @@
       return `
         ${super.customStyleContent || ''}
         :host {
-          --color-badge-border-radius: 8px;
+          --color-badge-border-radius: 6px;
         }
         #colorInput {
           display: inline-flex;
@@ -42,21 +42,22 @@
           position: relative;
         }
         #valueInput {
-          margin-left: 4px;
+          margin-left: 6px;
           --text-input-allign: center;
           --text-input: {
+            border-color: rgba(0,0,0,0.1);
             border-bottom-width: thin;
             transition: background-color 250ms ease-in-out;
             @apply --text-input;
           };
           --text-input-focus: {
-            border-color: #555;
+            border-color: rgba(0,0,0,0.25);
             border-style: solid;
             background: rgba(0, 0, 0, 0.1);
           };
           --text-input-invalid: {
             background: rgba(255, 0, 0, 0.2);
-            border-color: #999;
+            border-color: rgba(0,0,0,0.5);
             border-style: dashed;
           };
         }
@@ -66,7 +67,7 @@
     static get colorInputTemplate() {
       return `
         ${super.colorInputTemplate || ''}
-        <div id="colorInput" on-contextmenu="random">
+        <div id="colorInput">
           ${this.colorBadgeTemplate || ''}
           <text-input id="valueInput" value="{{value}}" pattern="[[_computeFormatPattern(format)]]" minlength="4"></text-input>
         </div>
@@ -98,13 +99,6 @@
       }
     }
 
-    random(e) {
-      if (e && e.preventDefault) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      super.random();
-    }
     validate() {
       this._setValue();
       return super.validate();

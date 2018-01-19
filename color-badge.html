@@ -70,7 +70,7 @@
       return `
         <div id="colorBadge">
           <div class="transparency"></div>
-          <canvas id="badge" width$="[[width]]" height="[[height]]"></canvas>
+          <canvas id="badge" on-contextmenu="random" width$="[[width]]" height="[[height]]"></canvas>
           ${this.colorBadgeSlotTemplate || ''}
         </div>
       `
@@ -115,6 +115,14 @@
       return [
         '_computeStyle(width, height)'
       ];
+    }
+
+    random(e) {
+      if (e && e.preventDefault) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      super.random();
     }
 
     _computeStyle(width, height) {
