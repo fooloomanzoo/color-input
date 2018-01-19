@@ -99,6 +99,11 @@
       }
     }
 
+    validate() {
+      this._setValue();
+      return super.validate();
+    }
+
     _computeFormatPattern(format) {
       switch (format) {
         case 'hsl':
