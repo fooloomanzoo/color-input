@@ -39,8 +39,9 @@
           overflow: hidden;
           z-index: auto;
           border-radius: var(--color-badge-border-radius, 0px);
+          box-shadow(--color-badge-shadow, box-shadow: 0 1px 4px 1px rgba(0,0,0,.06));
         }
-        :host(:not([hide-transparency-pattern])) #colorBadge > .transparency {
+        :host(:not([hide-transparency-pattern])) .transparency {
           position: absolute;
           top: 0; right: 0; bottom: 0; left: 0;
           pointer-events: none;
