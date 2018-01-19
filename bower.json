@@ -20,8 +20,8 @@
   "licence": "https://github.com/fooloomanzoo/color-input/raw/master/LICENSE.txt",
   "dependencies": {
     "polymer": "Polymer/polymer#2",
-    "number-input": "fooloomanzoo/number-input#2",
     "property-mixins": "fooloomanzoo/property-mixins#2",
+    "text-input": "fooloomanzoo/text-input#2",
     "input-picker-pattern": "fooloomanzoo/input-picker-pattern#2"
   },
   "devDependencies": {
