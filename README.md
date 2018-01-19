@@ -38,10 +38,9 @@ If you are looking for a picker for color, please have a look at [color-picker](
 ```
 -->
 ```html
-<color-input value="{{value}}"></color-input>
-<p>
-  <code>color</code>: <b>[[value]]</b>
-</p>
+<color-input></color-input><br>
+<color-input format="rgb"></color-input><br>
+<color-input format="hsl"></color-input><br>
 ```
 
 ### Installation
