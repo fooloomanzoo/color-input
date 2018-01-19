@@ -1,5 +1,4 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../number-input/number-input.html">
 <link rel="import" href="../text-input/text-input.html">
 <link rel="import" href="../input-picker-pattern/form-element-mixin.html">
 <link rel="import" href="color-badge.html">
@@ -99,6 +98,13 @@
       }
     }
 
+    random(e) {
+      if (e && e.preventDefault) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      super.random();
+    }
     validate() {
       this._setValue();
       return super.validate();
