@@ -1,0 +1,187 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../property-mixins/color-mixin.html">
+
+<script>
+  /**
+   * Mixin for color-badge
+   *
+   * @appliesMixin ColorMixin
+   *
+   * @mixinFunction
+   * @polymer
+   */
+  const ColorBadgePattern = (superClass) => class extends ColorMixin(superClass) { // eslint-disable-line no-unused-vars, no-undef
+
+    static get styleTemplate() {
+      return `
+        <style include="${this.customStyleToInclude}">
+          ${this.customStyleContent}
+        </style>
+      `;
+    }
+
+    static get customStyleToInclude() {
+      return '';
+    }
+
+    static get customStyleContent() {
+      return `
+        ${super.customStyleContent || ''}
+        :host {
+          display: inline-flex;
+          position: relative;
+          padding: 0 !important;
+          box-sizing: content-box;
+        }
+        #colorBadge {
+          display: inline-flex;
+          box-sizing: content-box;
+          overflow: hidden;
+          z-index: auto;
+          border-radius: var(--color-badge-border-radius, 0px);
+        }
+        :host(:not([hide-transparency-pattern])) #colorBadge > .transparency {
+          position: absolute;
+          top: 0; right: 0; bottom: 0; left: 0;
+          pointer-events: none;
+          background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
+          linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+          background-size: 16px 16px;
+          background-position:0 0, 8px 8px;
+          background-repeat: repeat;
+          opacity: .1;
+          @apply --transparency-pattern;
+          z-index: 0;
+        }
+        #colorBadge > #badge {
+          z-index: 1;
+        }
+        #colorBadge > .slot {
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          @apply --color-badge-slot;
+          z-index: 2;
+        }
+      `;
+    }
+
+    static get colorBadgeTemplate() {
+      return `
+        <div id="colorBadge">
+          <div class="transparency"></div>
+          <canvas id="badge" width$="[[width]]" height="[[height]]"></canvas>
+          ${this.colorBadgeSlotTemplate || ''}
+        </div>
+      `
+    }
+
+    static get colorBadgeSlotTemplate() {
+      return `
+        <div class="slot"><slot></slot></div>
+      `
+    }
+
+    static get properties() {
+      return {
+        /**
+         * width of the badge in pixels
+         * @type {number}
+         */
+        width: {
+          type: Number,
+          value: 96
+        },
+        /**
+         * height of the badge in pixels
+         * @type {number}
+         */
+        height: {
+          type: Number,
+          value: 24
+        },
+        /**
+         * height of the badge in pixels
+         * @type {number}
+         */
+        hideTransparencyPattern: {
+          type: Boolean,
+          reflectToAttribute: true
+        }
+      }
+    }
+
+    static get observers() {
+      return [
+        '_computeStyle(width, height)'
+      ];
+    }
+
+    _computeStyle(width, height) {
+      this.style.minWidth = `${width}px`;
+      this.style.minHeight = `${height}px`;
+    }
+
+    _valueChanged(value, oldValue) {
+      super._valueChanged(value, oldValue);
+      if (value === undefined) return;
+      if (this._context === undefined) {
+        this._context = this.$.badge.getContext("2d");
+      }
+      this._drawBadge(value);
+    }
+
+    _drawBadge(value) {
+      this._context.clearRect(0, 0, this.width, this.height);
+      this._context.fillStyle = value;
+      this._context.fillRect(0, 0, this.width, this.height);
+    }
+  }
+</script>
+
+<dom-module id="color-badge">
+  <script>
+  /**
+  * `<color-badge>` is a badge that displays a color as a rectangle with a specified height and width.
+  * The transparency of the color will be displayed. It can slot elements and they are automatically centered. Because of using a canvas to draw the color, it needs to be explicitly sized via the width- and height-attribute.
+  *
+  *   ```html
+  *     <color-badge height="24" width="96" value="[[color]]">
+  *       <span>[[color]]</span>
+  *     </color-badge>
+  *   ```
+  *
+  * Custom property | Description | Default
+  * ----------------|-------------|----------
+  * `--transparency-pattern` | margin of the single color-picker | `{
+    background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
+    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+    background-size: 16px 16px;
+    background-position:0 0, 8px 8px;
+    opacity: .1;
+  }`
+  *
+  * @customElement
+  * @polymer
+  *
+  * @appliesMixin ColorBadgePattern
+  *
+  * @demo demo/badge.html
+  **/
+    class ColorBadge extends ColorBadgePattern(Polymer.Element) { // eslint-disable-line no-undef
+
+      static get is() {
+        return 'color-badge';
+      }
+
+      static get template() {
+        return `
+          ${this.styleTemplate}
+          ${this.colorBadgeTemplate}
+        `
+      }
+
+    }
+    window.customElements.define(ColorBadge.is, ColorBadge);
+  </script>
+</dom-module>

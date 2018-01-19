@@ -1,0 +1,153 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../number-input/number-input.html">
+<link rel="import" href="../text-input/text-input.html">
+<link rel="import" href="../input-picker-pattern/form-element-mixin.html">
+<link rel="import" href="color-badge.html">
+
+<script>
+  /**
+   * Mixin for color-input
+   *
+   * @appliesMixin ColorBadgePattern
+   * @appliesMixin FormElementMixin
+   *
+   * @mixinFunction
+   * @polymer
+   */
+  const ColorInputPattern = (superClass) => class extends ColorBadgePattern(FormElementMixin(superClass)) { // eslint-disable-line no-unused-vars, no-undef
+
+    static get styleTemplate() {
+      return `
+        <style include="${this.customStyleToInclude}">
+          ${this.customStyleContent}
+        </style>
+      `;
+    }
+
+    static get customStyleToInclude() {
+      return '';
+    }
+
+    static get customStyleContent() {
+      return `
+        ${super.customStyleContent || ''}
+        :host {
+          --color-badge-border-radius: 8px;
+        }
+        #colorInput {
+          display: inline-flex;
+          flex-direction: row;
+          align-items: center;
+        }
+        #colorBadge {
+          position: relative;
+        }
+        #valueInput {
+          margin-left: 4px;
+          --text-input-allign: center;
+          --text-input: {
+            border-bottom-width: thin;
+            transition: background-color 250ms ease-in-out;
+            @apply --text-input;
+          };
+          --text-input-focus: {
+            border-color: #555;
+            border-style: solid;
+            background: rgba(0, 0, 0, 0.1);
+          };
+          --text-input-invalid: {
+            background: rgba(255, 0, 0, 0.2);
+            border-color: #999;
+            border-style: dashed;
+          };
+        }
+      `;
+    }
+
+    static get colorInputTemplate() {
+      return `
+        ${super.colorInputTemplate || ''}
+        <div id="colorInput" on-contextmenu="random">
+          ${this.colorBadgeTemplate || ''}
+          <text-input id="valueInput" value="{{value}}" pattern="[[_computeFormatPattern(format)]]" minlength="4"></text-input>
+        </div>
+      `
+    }
+
+    static get colorBadgeSlotTemplate() {
+      return '';
+    }
+
+    static get properties() {
+      return {
+        /**
+         * width of the badge in pixels
+         * @type {number}
+         */
+        width: {
+          type: Number,
+          value: 32
+        },
+        /**
+         * height of the badge in pixels
+         * @type {number}
+         */
+        height: {
+          type: Number,
+          value: 32
+        }
+      }
+    }
+
+    _computeFormatPattern(format) {
+      switch (format) {
+        case 'hsl':
+          return this._validateHsl.toString().slice(1,-1);
+          break;
+        default:
+          return '^(?:' + this._validateRgb.toString().slice(2,-2) + '|' + this._validateHex.toString().slice(2,-2) + ')$';
+      }
+    }
+
+  }
+</script>
+
+<dom-module id="color-input">
+  <script>
+  /**
+  * `<color-input>` adds a color input to your page using Polymer.
+  *
+  *   ```html
+  *     <color-input value="{{color}}"></color-input>
+  *   ```
+  *
+  *
+  * The following custom properties and mixins are also available for styling:
+  *
+  * Custom property | Description | Default
+  * ----------------|-------------|----------
+  *
+  * @customElement
+  * @polymer
+  *
+  * @appliesMixin ColorInputPattern
+  *
+  * @demo demo/input.html
+  **/
+    class ColorSelector extends ColorInputPattern(Polymer.Element) { // eslint-disable-line no-undef
+
+      static get is() {
+        return 'color-input';
+      }
+
+      static get template() {
+        return `
+          ${this.styleTemplate}
+          ${this.colorInputTemplate}
+        `
+      }
+
+    }
+    window.customElements.define(ColorSelector.is, ColorSelector);
+  </script>
+</dom-module>
