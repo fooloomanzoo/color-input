@@ -31,7 +31,7 @@
       return `
         ${super.customStyleContent || ''}
         :host {
-          --color-badge-border-radius: 6px;
+          --color-badge-border-radius: 4px;
         }
         #colorInput {
           display: inline-flex;
@@ -43,20 +43,22 @@
         }
         #valueInput {
           margin-left: 6px;
+          height: 100%;
           --text-input-allign: center;
           --text-input: {
+            height: 100%;
+            box-sizing: border-box;
             border-color: rgba(0,0,0,0.1);
             border-bottom-width: thin;
             transition: background-color 250ms ease-in-out;
-            @apply --text-input;
           };
           --text-input-focus: {
-            border-color: rgba(0,0,0,0.25);
+            border-color: rgba(0,0,0,0.2);
             border-style: solid;
             background: rgba(0, 0, 0, 0.1);
           };
           --text-input-invalid: {
-            background: rgba(255, 0, 0, 0.2);
+            background: rgba(255,0,0,0.2);
             border-color: rgba(0,0,0,0.5);
             border-style: dashed;
           };
@@ -86,7 +88,7 @@
          */
         width: {
           type: Number,
-          value: 32
+          value: 28
         },
         /**
          * height of the badge in pixels
@@ -94,7 +96,7 @@
          */
         height: {
           type: Number,
-          value: 32
+          value: 24
         }
       }
     }

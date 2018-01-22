@@ -51,8 +51,7 @@
                     <option value="hsla(44,75.4%,55%,0.9)">hsla(44,75.4%,55%,0.9)</option>
                   </datalist>
                   <br>
-                  <span>alpha </span><input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}">
-                  <number-input min="0" max="1" step="0.01" value="{{alpha}}"></number-input>
+                  <span>alpha: </span><input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}"> [[alpha]]
                   <br>
                   <span>format </span>
                   <select id="formats" value="{{format::change}}">
@@ -61,12 +60,12 @@
                     <option value="hsl">hsl</option>
                   </select>
                   <h4>Results</h4>
-                  <span>red: <input type="number" value="{{r::input}}"></span>
-                  <span>green: <input type="number" value="{{g::input}}"></span>
-                  <span>blue: <input type="number" value="{{b::input}}"></span>
-                  <span>hue: <input type="number" value="{{h::input}}"></span>
-                  <span>saturation: <input type="number" min="0" max="1" step="0.001" value="{{s::input}}"></span>
-                  <span>lightness: <input type="number" min="0" max="1" step="0.001" value="{{l::input}}"></span>
+                  <span>red: <input type="range" min="0" max="255" step="1" value="{{r::input}}"></span>[[r]]
+                  <span>green: <input type="range" min="0" max="255" step="1" value="{{g::input}}"></span>[[g]]
+                  <span>blue: <input type="range" min="0" max="255" step="1" value="{{b::input}}"></span>[[b]]
+                  <span>hue:  <input type="range" min="0" max="360" step="1" value="{{h::input}}"></span>[[h]]
+                  <span>saturation: <input type="range" min="0" max="1" step="0.001" value="{{s::input}}"></span>[[s]]
+                  <span>lightness: <input type="range" min="0" max="1" step="0.001" value="{{l::input}}"></span>[[l]]
                 </p>
               </div>
             </template>
