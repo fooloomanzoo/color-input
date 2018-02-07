@@ -1,12 +1,11 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../number-input/number-input.html">
-<link rel="import" href="../number-input/integer-input.html">
+<link rel="import" href="../text-input/text-input.html">
 <link rel="import" href="../input-picker-pattern/form-element-mixin.html">
 <link rel="import" href="color-badge.html">
 
 <script>
   /**
-   * Mixin for color-input
+   * Mixin for color-text-input
    *
    * @appliesMixin ColorBadgePattern
    * @appliesMixin FormElementMixin
@@ -14,7 +13,7 @@
    * @mixinFunction
    * @polymer
    */
-  const ColorInputPattern = (superClass) => class extends ColorBadgePattern(FormElementMixin(superClass)) { // eslint-disable-line no-unused-vars, no-undef
+  const ColorTextInputPattern = (superClass) => class extends ColorBadgePattern(FormElementMixin(superClass)) { // eslint-disable-line no-unused-vars, no-undef
 
     static get styleTemplate() {
       return `
@@ -127,13 +126,13 @@
   }
 </script>
 
-<dom-module id="color-input">
+<dom-module id="color-text-input">
   <script>
   /**
-  * `<color-input>` adds a color input to your page using Polymer.
+  * `<color-text-input>` adds a color input to your page using Polymer.
   *
   *   ```html
-  *     <color-input value="{{color}}"></color-input>
+  *     <color-text-input value="{{color}}"></color-text-input>
   *   ```
   *
   *
@@ -145,15 +144,15 @@
   * @customElement
   * @polymer
   *
-  * @appliesMixin ColorInputPattern
+  * @appliesMixin ColorTextInputPattern
   *
   * @demo demo/input.html
   * @demo demo/form.html in a form
   **/
-    class ColorSelector extends ColorInputPattern(Polymer.Element) { // eslint-disable-line no-undef
+    class ColorSelector extends ColorTextInputPattern(Polymer.Element) { // eslint-disable-line no-undef
 
       static get is() {
-        return 'color-input';
+        return 'color-text-input';
       }
 
       static get template() {

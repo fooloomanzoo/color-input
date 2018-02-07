@@ -1585,11 +1585,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 37,
+              "line": 48,
               "column": 10
             },
             "end": {
-              "line": 39,
+              "line": 50,
               "column": 11
             }
           },
@@ -1701,18 +1701,18 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 89,
               "column": 8
             },
             "end": {
-              "line": 90,
+              "line": 92,
               "column": 9
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "32",
+          "defaultValue": "28",
           "inheritedFrom": "ColorInputPattern"
         },
         {
@@ -1722,18 +1722,18 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 97,
               "column": 8
             },
             "end": {
-              "line": 98,
+              "line": 100,
               "column": 9
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "32",
+          "defaultValue": "24",
           "inheritedFrom": "ColorInputPattern"
         },
         {
@@ -1769,12 +1769,35 @@
               "column": 10
             },
             "end": {
-              "line": 18,
+              "line": 19,
               "column": 11
             }
           },
           "metadata": {
             "polymer": {}
+          },
+          "inheritedFrom": "FormElementMixin"
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "required attribute",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
+            "start": {
+              "line": 24,
+              "column": 10
+            },
+            "end": {
+              "line": 28,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
           },
           "inheritedFrom": "FormElementMixin"
         },
@@ -1786,11 +1809,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 23,
+              "line": 33,
               "column": 10
             },
             "end": {
-              "line": 25,
+              "line": 36,
               "column": 11
             }
           },
@@ -1807,11 +1830,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 30,
+              "line": 41,
               "column": 10
             },
             "end": {
-              "line": 32,
+              "line": 43,
               "column": 11
             }
           },
@@ -1819,6 +1842,26 @@
             "polymer": {}
           },
           "inheritedFrom": "FormElementMixin"
+        },
+        {
+          "name": "default",
+          "type": "number",
+          "description": "default value of the input",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 105,
+              "column": 8
+            },
+            "end": {
+              "line": 107,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "ColorInputPattern"
         }
       ],
       "methods": [
@@ -2391,16 +2434,42 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
+          "name": "_computeInvalid",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
+            "start": {
+              "line": 54,
+              "column": 6
+            },
+            "end": {
+              "line": 56,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "required"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "inheritedFrom": "FormElementMixin"
+        },
+        {
           "name": "validate",
           "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 111,
               "column": 4
             },
             "end": {
-              "line": 105,
+              "line": 114,
               "column": 5
             }
           },
@@ -2414,11 +2483,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 116,
               "column": 4
             },
             "end": {
-              "line": 115,
+              "line": 123,
               "column": 5
             }
           },
@@ -2436,16 +2505,20 @@
         {
           "url": "demo/input.html",
           "description": ""
+        },
+        {
+          "url": "demo/form.html",
+          "description": "in a form"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 142,
+          "line": 151,
           "column": 4
         },
         "end": {
-          "line": 155,
+          "line": 164,
           "column": 5
         }
       },
@@ -2657,11 +2730,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 37,
+              "line": 48,
               "column": 10
             },
             "end": {
-              "line": 39,
+              "line": 50,
               "column": 11
             }
           },
@@ -2674,11 +2747,11 @@
           "description": "width of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 89,
               "column": 8
             },
             "end": {
-              "line": 90,
+              "line": 92,
               "column": 9
             }
           },
@@ -2691,11 +2764,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 97,
               "column": 8
             },
             "end": {
-              "line": 98,
+              "line": 100,
               "column": 9
             }
           },
@@ -2731,7 +2804,25 @@
               "column": 10
             },
             "end": {
-              "line": 18,
+              "line": 19,
+              "column": 11
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "FormElementMixin"
+        },
+        {
+          "name": "invalid",
+          "description": "required attribute",
+          "sourceRange": {
+            "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
+            "start": {
+              "line": 24,
+              "column": 10
+            },
+            "end": {
+              "line": 28,
               "column": 11
             }
           },
@@ -2745,11 +2836,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 23,
+              "line": 33,
               "column": 10
             },
             "end": {
-              "line": 25,
+              "line": 36,
               "column": 11
             }
           },
@@ -2763,17 +2854,34 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 30,
+              "line": 41,
               "column": 10
             },
             "end": {
-              "line": 32,
+              "line": 43,
               "column": 11
             }
           },
           "metadata": {},
           "type": "string",
           "inheritedFrom": "FormElementMixin"
+        },
+        {
+          "name": "default",
+          "description": "default value of the input",
+          "sourceRange": {
+            "start": {
+              "line": 105,
+              "column": 8
+            },
+            "end": {
+              "line": 107,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "type": "number",
+          "inheritedFrom": "ColorInputPattern"
         }
       ],
       "events": [],
@@ -4356,11 +4464,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 37,
+              "line": 48,
               "column": 10
             },
             "end": {
-              "line": 39,
+              "line": 50,
               "column": 11
             }
           },
@@ -4472,18 +4580,18 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 89,
               "column": 8
             },
             "end": {
-              "line": 90,
+              "line": 92,
               "column": 9
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "32"
+          "defaultValue": "28"
         },
         {
           "name": "height",
@@ -4492,18 +4600,18 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 97,
               "column": 8
             },
             "end": {
-              "line": 98,
+              "line": 100,
               "column": 9
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "32"
+          "defaultValue": "24"
         },
         {
           "name": "hideTransparencyPattern",
@@ -4538,12 +4646,35 @@
               "column": 10
             },
             "end": {
-              "line": 18,
+              "line": 19,
               "column": 11
             }
           },
           "metadata": {
             "polymer": {}
+          },
+          "inheritedFrom": "FormElementMixin"
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "required attribute",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
+            "start": {
+              "line": 24,
+              "column": 10
+            },
+            "end": {
+              "line": 28,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
           },
           "inheritedFrom": "FormElementMixin"
         },
@@ -4555,11 +4686,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 23,
+              "line": 33,
               "column": 10
             },
             "end": {
-              "line": 25,
+              "line": 36,
               "column": 11
             }
           },
@@ -4576,11 +4707,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 30,
+              "line": 41,
               "column": 10
             },
             "end": {
-              "line": 32,
+              "line": 43,
               "column": 11
             }
           },
@@ -4588,6 +4719,25 @@
             "polymer": {}
           },
           "inheritedFrom": "FormElementMixin"
+        },
+        {
+          "name": "default",
+          "type": "number",
+          "description": "default value of the input",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 105,
+              "column": 8
+            },
+            "end": {
+              "line": 107,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
         }
       ],
       "methods": [
@@ -5160,16 +5310,42 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
+          "name": "_computeInvalid",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
+            "start": {
+              "line": 54,
+              "column": 6
+            },
+            "end": {
+              "line": 56,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "required"
+            },
+            {
+              "name": "value"
+            }
+          ],
+          "inheritedFrom": "FormElementMixin"
+        },
+        {
           "name": "validate",
           "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 111,
               "column": 4
             },
             "end": {
-              "line": 105,
+              "line": 114,
               "column": 5
             }
           },
@@ -5182,11 +5358,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 116,
               "column": 4
             },
             "end": {
-              "line": 115,
+              "line": 123,
               "column": 5
             }
           },
@@ -5207,7 +5383,7 @@
           "column": 2
         },
         "end": {
-          "line": 117,
+          "line": 125,
           "column": 3
         }
       },
@@ -5418,11 +5594,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 37,
+              "line": 48,
               "column": 10
             },
             "end": {
-              "line": 39,
+              "line": 50,
               "column": 11
             }
           },
@@ -5435,11 +5611,11 @@
           "description": "width of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 89,
               "column": 8
             },
             "end": {
-              "line": 90,
+              "line": 92,
               "column": 9
             }
           },
@@ -5451,11 +5627,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 97,
               "column": 8
             },
             "end": {
-              "line": 98,
+              "line": 100,
               "column": 9
             }
           },
@@ -5490,7 +5666,25 @@
               "column": 10
             },
             "end": {
-              "line": 18,
+              "line": 19,
+              "column": 11
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "FormElementMixin"
+        },
+        {
+          "name": "invalid",
+          "description": "required attribute",
+          "sourceRange": {
+            "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
+            "start": {
+              "line": 24,
+              "column": 10
+            },
+            "end": {
+              "line": 28,
               "column": 11
             }
           },
@@ -5504,11 +5698,11 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 23,
+              "line": 33,
               "column": 10
             },
             "end": {
-              "line": 25,
+              "line": 36,
               "column": 11
             }
           },
@@ -5522,17 +5716,33 @@
           "sourceRange": {
             "file": "bower_components\\input-picker-pattern\\form-element-mixin.html",
             "start": {
-              "line": 30,
+              "line": 41,
               "column": 10
             },
             "end": {
-              "line": 32,
+              "line": 43,
               "column": 11
             }
           },
           "metadata": {},
           "type": "string",
           "inheritedFrom": "FormElementMixin"
+        },
+        {
+          "name": "default",
+          "description": "default value of the input",
+          "sourceRange": {
+            "start": {
+              "line": 105,
+              "column": 8
+            },
+            "end": {
+              "line": 107,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "type": "number"
         }
       ],
       "events": [],

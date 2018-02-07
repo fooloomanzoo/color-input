@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>color-input in iron-Form</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-form/iron-form.html">
+    <link rel="import" href="../../paper-styles/shadow.html">
+
+    <link rel="import" href="../color-input.html">
+    <link rel="import" href="../date-picker.html">
+    <link rel="import" href="../time-picker.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        input {
+          margin-bottom: 4px;
+          margin-left: 8px;
+        }
+        color-input {
+          margin-bottom: 4px;
+          margin-left: 8px;
+        }
+        iron-form {
+          @apply --shadow-elevation-2dp;
+          padding: 20px;
+        }
+        .output {
+          color: #333;
+          margin-top: 20px;
+          padding: 6px;
+          word-wrap: break-word;
+          font-family: monospace;
+          background: rgba(0, 0, 0, 0.05);
+          border-color: #555;
+          border-width: thin;
+          border-style: dashed;
+        }
+      </style>
+    </custom-style>
+  </head>
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h3>color-input in <code>iron-form</code></h3>
+      <demo-snippet>
+        <template>
+          <dom-bind>
+            <template>
+              <label>
+                <input type="checkbox" checked onchange="form1.allowRedirect = !this.checked;">Prevent automatic form redirection
+              </label>
+              <br><br>
+
+              <iron-form id="form1">
+                <form action="/foo" method="get">
+                  name: <input name="name" required value="Batman"/><br>
+                  job: <input name="job" required value="Hero"/><br>
+                  <br>
+                  <p>
+                    color format:
+                    <select id="formats" value="{{format::change}}">
+                      <option value="hex">hex</option>
+                      <option value="rgb">rgb</option>
+                      <option value="hsl">hsl</option>
+                    </select>
+                  </p>
+                  color of the cape: <color-text-input default="#333" format="[[format]]" name="cape"></color-text-input><br>
+                  color of the glasses: <color-input required format="[[format]]" name="glasses" alpha="0.5"></color-input><br>
+                </form>
+                <div class="output"></div>
+              </iron-form>
+              <script>
+                form1.addEventListener('iron-form-submit', function(event) {
+                  this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+                });
+              </script>
+            </template>
+          </dom-bind>
+        </template>
+      </demo-snippet>
+    </div>
+
+  </body>
+</html>
