@@ -101,7 +101,7 @@
   * ----------------|-------------|----------
   * `--transparency-pattern` | background pattern for the transparency layer | { background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000); background-size: 16px 16px; background-position:0 0, 8px 8px; opacity: .1; }
   * `--color-badge-border-radius` | border-radius of the badge | 0px
-  * 
+  *
   * @customElement
   * @polymer
   *
@@ -116,12 +116,6 @@
         return 'color-input';
       }
 
-      static get template() {
-        return `
-          ${this.styleTemplate}
-          ${this.colorInputTemplate}
-        `
-      }
     }
     window.customElements.define(ColorInput.is, ColorInput);
   </script>

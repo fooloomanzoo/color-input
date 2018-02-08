@@ -12,6 +12,13 @@
    */
   const ColorBadgePattern = (superClass) => class extends ColorMixin(superClass) { // eslint-disable-line no-unused-vars, no-undef
 
+    static get template() {
+      return `
+        ${this.styleTemplate}
+        ${this.colorBadgeTemplate}
+      `
+    }
+
     static get styleTemplate() {
       return `
         <style include="${this.customStyleToInclude}">
@@ -179,13 +186,6 @@
 
       static get is() {
         return 'color-badge';
-      }
-
-      static get template() {
-        return `
-          ${this.styleTemplate}
-          ${this.colorBadgeTemplate}
-        `
       }
 
     }
