@@ -9,7 +9,7 @@ _[Demo](https://fooloomanzoo.github.io/color-input/components/color-input/#/elem
 
 An input for color.
 
-If you are looking for a picker for color, please have a look at [color-picker](https://github.com/fooloomanzoo/color-picker).
+<!--If you are looking for a picker for color, please have a look at [color-picker](https://github.com/fooloomanzoo/color-picker).-->
 
 ### Example
 
@@ -18,6 +18,7 @@ If you are looking for a picker for color, please have a look at [color-picker](
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="color-text-input.html">
     <link rel="import" href="color-input.html">
 
     <dom-bind>
@@ -38,9 +39,9 @@ If you are looking for a picker for color, please have a look at [color-picker](
 ```
 -->
 ```html
-<color-input></color-input><br>
-<color-input format="rgb"></color-input><br>
-<color-input format="hsl"></color-input><br>
+<color-text-input format="hsl"></color-text-input><br><br>
+<color-text-input format="rgb"></color-text-input><br><br>
+<color-input format="hsl"></color-input>
 ```
 
 ### Installation
