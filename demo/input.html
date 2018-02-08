@@ -11,11 +11,15 @@
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 
     <link rel="import" href="../color-input.html">
+    <link rel="import" href="../color-text-input.html">
     <link rel="import" href="../color-badge.html">
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
         .result {
           padding: 0.5em;
+        }
+        input {
+          vertical-align: middle;
         }
       </style>
     </custom-style>
@@ -34,11 +38,37 @@
                   margin: 4px;
                 }
               </style>
-              <color-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-input>
+              <span>color-input </span><color-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-input>
+              <br>
+              <br>
+              <span>color-text-input </span><color-text-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-text-input>
+              <br>
               <div class="vertical-section-container result">
                 <p>
-                  <span>color </span>
-                  <input list="colors" value="{{color::change}}">
+                  <span>format </span>
+                  <select id="formats" value="{{format::change}}">
+                    <option value="rgb">rgb</option>
+                    <option value="hex">hex</option>
+                    <option value="hsl">hsl</option>
+                  </select>
+                  <br>
+                  <input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}"><span> alpha: [[alpha]] </span>
+                  <br>
+                  <input type="range" min="0" max="255" step="1" value="{{r::input}}"><span> red: [[r]] </span>
+                  <br>
+                  <input type="range" min="0" max="255" step="1" value="{{g::input}}"><span> green: [[g]] </span>
+                  <br>
+                  <input type="range" min="0" max="255" step="1" value="{{b::input}}"><span> blue: [[b]] </span>
+                  <br>
+                  <input type="range" min="0" max="360" step="1" value="{{h::input}}"><span> hue: [[h]] </span>
+                  <br>
+                  <input type="range" min="0" max="1" step="0.001" value="{{s::input}}"><span> saturation: [[s]] </span>
+                  <br>
+                  <input type="range" min="0" max="1" step="0.001" value="{{l::input}}"><span> lightness: [[l]] </span>
+                  <br>
+                </p>
+                <p>
+                  <span>Result: </span><input list="colors" value="{{color::change}}">
                   <datalist id="colors">
                     <option value=""></option>
                     <option value="#72a13f">#72a13f</option>
@@ -50,22 +80,6 @@
                     <option value="hsla(144,0.25,0.35,0.22)">hsla(144,0.25,0.35,0.22)</option>
                     <option value="hsla(44,75.4%,55%,0.9)">hsla(44,75.4%,55%,0.9)</option>
                   </datalist>
-                  <br>
-                  <span>alpha: </span><input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}"> [[alpha]]
-                  <br>
-                  <span>format </span>
-                  <select id="formats" value="{{format::change}}">
-                    <option value="hex">hex</option>
-                    <option value="rgb">rgb</option>
-                    <option value="hsl">hsl</option>
-                  </select>
-                  <h4>Results</h4>
-                  <span>red: <input type="range" min="0" max="255" step="1" value="{{r::input}}"></span>[[r]]
-                  <span>green: <input type="range" min="0" max="255" step="1" value="{{g::input}}"></span>[[g]]
-                  <span>blue: <input type="range" min="0" max="255" step="1" value="{{b::input}}"></span>[[b]]
-                  <span>hue:  <input type="range" min="0" max="360" step="1" value="{{h::input}}"></span>[[h]]
-                  <span>saturation: <input type="range" min="0" max="1" step="0.001" value="{{s::input}}"></span>[[s]]
-                  <span>lightness: <input type="range" min="0" max="1" step="0.001" value="{{l::input}}"></span>[[l]]
                 </p>
               </div>
             </template>

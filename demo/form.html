@@ -15,8 +15,7 @@
     <link rel="import" href="../../paper-styles/shadow.html">
 
     <link rel="import" href="../color-input.html">
-    <link rel="import" href="../date-picker.html">
-    <link rel="import" href="../time-picker.html">
+    <link rel="import" href="../color-text-input.html">
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
@@ -63,7 +62,6 @@
                 <form action="/foo" method="get">
                   name: <input name="name" required value="Batman"/><br>
                   job: <input name="job" required value="Hero"/><br>
-                  <br>
                   <p>
                     color format:
                     <select id="formats" value="{{format::change}}">
@@ -71,9 +69,15 @@
                       <option value="rgb">rgb</option>
                       <option value="hsl">hsl</option>
                     </select>
+                    <br>
+                    <br>
+                    color of the cape:  <color-text-input required name="cape" format="[[format]]"></color-text-input>
+                    <br>
+                    <br>
+                    color of the glasses:  <color-input name="glasses" format="[[format]]" alpha="0.5"></color-input>
                   </p>
-                  color of the cape: <color-text-input default="#333" format="[[format]]" name="cape"></color-text-input><br>
-                  color of the glasses: <color-input required format="[[format]]" name="glasses" alpha="0.5"></color-input><br>
+                  <button onclick="form1.submit()">Submit</button>
+                  <button onclick="form1.validate()">Validate</button>
                 </form>
                 <div class="output"></div>
               </iron-form>
