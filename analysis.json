@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`<color-badge>` is a badge that displays a color as a rectangle with a specified height and width.\nThe transparency of the color will be displayed. It can slot elements and they are automatically centered. Because of using a canvas to draw the color, it needs to be explicitly sized via the width- and height-attribute.\n\n  ```html\n    <color-badge height=\"24\" width=\"96\" value=\"[[color]]\">\n      <span>[[color]]</span>\n    </color-badge>\n  ```\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | margin of the single color-picker | `{\n    background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),\n    linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);\n    background-size: 16px 16px;\n    background-position:0 0, 8px 8px;\n    opacity: .1;\n  }`",
+      "description": "`<color-badge>` is a badge that displays a color as a rectangle with a specified height and width.\nThe transparency of the color will be displayed. It can slot elements and they are automatically centered. Because of using a canvas to draw the color, it needs to be explicitly sized via the width- and height-attribute.\n\n  ```html\n    <color-badge height=\"24\" width=\"96\" value=\"[[color]]\">\n      <span>[[color]]</span>\n    </color-badge>\n  ```\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | { background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000); background-size: 16px 16px; background-position:0 0, 8px 8px; opacity: .1; }\n`--color-badge-border-radius` | border-radius of the badge | 0px",
       "summary": "",
       "path": "color-badge.html",
       "properties": [
@@ -391,11 +391,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 8
             },
             "end": {
-              "line": 94,
+              "line": 97,
               "column": 9
             }
           },
@@ -412,11 +412,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 102,
               "column": 8
             },
             "end": {
-              "line": 102,
+              "line": 105,
               "column": 9
             }
           },
@@ -433,11 +433,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -522,11 +522,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 133,
+              "line": 136,
               "column": 4
             },
             "end": {
-              "line": 140,
+              "line": 143,
               "column": 5
             }
           },
@@ -692,11 +692,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 120,
+              "line": 123,
               "column": 4
             },
             "end": {
-              "line": 126,
+              "line": 129,
               "column": 5
             }
           },
@@ -971,11 +971,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 131,
               "column": 4
             },
             "end": {
-              "line": 131,
+              "line": 134,
               "column": 5
             }
           },
@@ -996,11 +996,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 145,
               "column": 4
             },
             "end": {
-              "line": 146,
+              "line": 149,
               "column": 5
             }
           },
@@ -1023,11 +1023,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 179,
+          "line": 177,
           "column": 4
         },
         "end": {
-          "line": 192,
+          "line": 190,
           "column": 5
         }
       },
@@ -1256,11 +1256,11 @@
           "description": "width of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 8
             },
             "end": {
-              "line": 94,
+              "line": 97,
               "column": 9
             }
           },
@@ -1273,11 +1273,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 102,
               "column": 8
             },
             "end": {
-              "line": 102,
+              "line": 105,
               "column": 9
             }
           },
@@ -1290,11 +1290,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -1315,7 +1315,7 @@
       ]
     },
     {
-      "description": "`<color-text-input>` adds a color input to your page using Polymer.\n\n  ```html\n    <color-text-input value=\"{{color}}\"></color-text-input>\n  ```\n\n\nThe following custom properties and mixins are also available for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------",
+      "description": "`<color-text-input>` adds a color input to your page using Polymer.\n\n  ```html\n    <color-text-input value=\"{{color}}\"></color-text-input>\n  ```\n\n\nThe following custom properties and mixins are also available for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | { background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000); background-size: 16px 16px; background-position:0 0, 8px 8px; opacity: .1; }\n`--color-badge-border-radius` | border-radius of the badge | 4px",
       "summary": "",
       "path": "color-text-input.html",
       "properties": [
@@ -1701,11 +1701,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 88,
               "column": 8
             },
             "end": {
-              "line": 92,
+              "line": 91,
               "column": 9
             }
           },
@@ -1722,11 +1722,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 96,
               "column": 8
             },
             "end": {
-              "line": 100,
+              "line": 99,
               "column": 9
             }
           },
@@ -1744,11 +1744,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -1850,11 +1850,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 104,
               "column": 8
             },
             "end": {
-              "line": 107,
+              "line": 106,
               "column": 9
             }
           },
@@ -1940,11 +1940,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 133,
+              "line": 136,
               "column": 4
             },
             "end": {
-              "line": 140,
+              "line": 143,
               "column": 5
             }
           },
@@ -2111,11 +2111,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 120,
+              "line": 123,
               "column": 4
             },
             "end": {
-              "line": 126,
+              "line": 129,
               "column": 5
             }
           },
@@ -2391,11 +2391,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 128,
+              "line": 131,
               "column": 4
             },
             "end": {
-              "line": 131,
+              "line": 134,
               "column": 5
             }
           },
@@ -2417,11 +2417,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 142,
+              "line": 145,
               "column": 4
             },
             "end": {
-              "line": 146,
+              "line": 149,
               "column": 5
             }
           },
@@ -2465,11 +2465,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 110,
               "column": 4
             },
             "end": {
-              "line": 114,
+              "line": 113,
               "column": 5
             }
           },
@@ -2483,11 +2483,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 115,
               "column": 4
             },
             "end": {
-              "line": 123,
+              "line": 122,
               "column": 5
             }
           },
@@ -2514,17 +2514,17 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 151,
+          "line": 154,
           "column": 4
         },
         "end": {
-          "line": 164,
+          "line": 167,
           "column": 5
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "ColorSelector",
+      "name": "ColorTextInput",
       "attributes": [
         {
           "name": "hex",
@@ -2747,11 +2747,11 @@
           "description": "width of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 88,
               "column": 8
             },
             "end": {
-              "line": 92,
+              "line": 91,
               "column": 9
             }
           },
@@ -2764,11 +2764,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 96,
               "column": 8
             },
             "end": {
-              "line": 100,
+              "line": 99,
               "column": 9
             }
           },
@@ -2782,11 +2782,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -2871,11 +2871,11 @@
           "description": "default value of the input",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 104,
               "column": 8
             },
             "end": {
-              "line": 107,
+              "line": 106,
               "column": 9
             }
           },
@@ -2896,7 +2896,7 @@
       ]
     },
     {
-      "description": "`<color-input>` adds a color input to your page using Polymer.\n\n  ```html\n    <color-input value=\"{{color}}\"></color-input>\n  ```\n\n\nThe following custom properties and mixins are also available for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------",
+      "description": "`<color-input>` adds a color input to your page using Polymer.\n\n  ```html\n    <color-input value=\"{{color}}\"></color-input>\n  ```\n\n\nThe following custom properties and mixins are also available for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | { background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000); background-size: 16px 16px; background-position:0 0, 8px 8px; opacity: .1; }\n`--color-badge-border-radius` | border-radius of the badge | 0px",
       "summary": "",
       "path": "color-input.html",
       "properties": [
@@ -3281,12 +3281,13 @@
           "description": "width of the badge in pixels",
           "privacy": "public",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 90,
+              "line": 88,
               "column": 8
             },
             "end": {
-              "line": 93,
+              "line": 91,
               "column": 9
             }
           },
@@ -3294,7 +3295,7 @@
             "polymer": {}
           },
           "defaultValue": "28",
-          "inheritedFrom": "ColorInputPattern"
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "height",
@@ -3302,12 +3303,13 @@
           "description": "height of the badge in pixels",
           "privacy": "public",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 98,
+              "line": 96,
               "column": 8
             },
             "end": {
-              "line": 101,
+              "line": 99,
               "column": 9
             }
           },
@@ -3315,7 +3317,7 @@
             "polymer": {}
           },
           "defaultValue": "24",
-          "inheritedFrom": "ColorInputPattern"
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "hideTransparencyPattern",
@@ -3325,11 +3327,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -3430,17 +3432,40 @@
           "description": "default value of the input",
           "privacy": "public",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 106,
+              "line": 104,
               "column": 8
             },
             "end": {
-              "line": 108,
+              "line": 106,
               "column": 9
             }
           },
           "metadata": {
             "polymer": {}
+          },
+          "inheritedFrom": "ColorTextInputPattern"
+        },
+        {
+          "name": "_computedHexPatternString",
+          "type": "string",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 8
+            },
+            "end": {
+              "line": 70,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
           },
           "inheritedFrom": "ColorInputPattern"
         }
@@ -3521,11 +3546,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 133,
+              "line": 136,
               "column": 4
             },
             "end": {
-              "line": 140,
+              "line": 143,
               "column": 5
             }
           },
@@ -3692,11 +3717,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 120,
+              "line": 123,
               "column": 4
             },
             "end": {
-              "line": 126,
+              "line": 129,
               "column": 5
             }
           },
@@ -3972,11 +3997,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 128,
+              "line": 131,
               "column": 4
             },
             "end": {
-              "line": 131,
+              "line": 134,
               "column": 5
             }
           },
@@ -3998,11 +4023,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 142,
+              "line": 145,
               "column": 4
             },
             "end": {
-              "line": 146,
+              "line": 149,
               "column": 5
             }
           },
@@ -4045,30 +4070,32 @@
           "description": "",
           "privacy": "public",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 112,
+              "line": 110,
               "column": 4
             },
             "end": {
-              "line": 115,
+              "line": 113,
               "column": 5
             }
           },
           "metadata": {},
           "params": [],
-          "inheritedFrom": "ColorInputPattern"
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "_computeFormatPattern",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 117,
+              "line": 115,
               "column": 4
             },
             "end": {
-              "line": 124,
+              "line": 122,
               "column": 5
             }
           },
@@ -4076,6 +4103,53 @@
           "params": [
             {
               "name": "format"
+            }
+          ],
+          "inheritedFrom": "ColorTextInputPattern"
+        },
+        {
+          "name": "_equals",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 4
+            },
+            "end": {
+              "line": 76,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "a"
+            },
+            {
+              "name": "b"
+            }
+          ],
+          "inheritedFrom": "ColorInputPattern"
+        },
+        {
+          "name": "_computeHexPatternString",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 4
+            },
+            "end": {
+              "line": 80,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "_validateHex"
             }
           ],
           "inheritedFrom": "ColorInputPattern"
@@ -4095,17 +4169,17 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 152,
+          "line": 112,
           "column": 4
         },
         "end": {
-          "line": 165,
+          "line": 124,
           "column": 5
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "ColorSelector",
+      "name": "ColorInput",
       "attributes": [
         {
           "name": "hex",
@@ -4327,35 +4401,37 @@
           "name": "width",
           "description": "width of the badge in pixels",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 90,
+              "line": 88,
               "column": 8
             },
             "end": {
-              "line": 93,
+              "line": 91,
               "column": 9
             }
           },
           "metadata": {},
           "type": "number",
-          "inheritedFrom": "ColorInputPattern"
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "height",
           "description": "height of the badge in pixels",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 98,
+              "line": 96,
               "column": 8
             },
             "end": {
-              "line": 101,
+              "line": 99,
               "column": 9
             }
           },
           "metadata": {},
           "type": "number",
-          "inheritedFrom": "ColorInputPattern"
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "hide-transparency-pattern",
@@ -4363,11 +4439,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -4451,18 +4527,19 @@
           "name": "default",
           "description": "default value of the input",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 106,
+              "line": 104,
               "column": 8
             },
             "end": {
-              "line": 108,
+              "line": 106,
               "column": 9
             }
           },
           "metadata": {},
           "type": "number",
-          "inheritedFrom": "ColorInputPattern"
+          "inheritedFrom": "ColorTextInputPattern"
         }
       ],
       "events": [],
@@ -4868,11 +4945,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 8
             },
             "end": {
-              "line": 94,
+              "line": 97,
               "column": 9
             }
           },
@@ -4888,11 +4965,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 102,
               "column": 8
             },
             "end": {
-              "line": 102,
+              "line": 105,
               "column": 9
             }
           },
@@ -4908,11 +4985,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -4996,11 +5073,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 133,
+              "line": 136,
               "column": 4
             },
             "end": {
-              "line": 140,
+              "line": 143,
               "column": 5
             }
           },
@@ -5165,11 +5242,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 120,
+              "line": 123,
               "column": 4
             },
             "end": {
-              "line": 126,
+              "line": 129,
               "column": 5
             }
           },
@@ -5443,11 +5520,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 131,
               "column": 4
             },
             "end": {
-              "line": 131,
+              "line": 134,
               "column": 5
             }
           },
@@ -5467,11 +5544,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 145,
               "column": 4
             },
             "end": {
-              "line": 146,
+              "line": 149,
               "column": 5
             }
           },
@@ -5492,7 +5569,7 @@
           "column": 2
         },
         "end": {
-          "line": 147,
+          "line": 150,
           "column": 3
         }
       },
@@ -5720,11 +5797,11 @@
           "description": "width of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 8
             },
             "end": {
-              "line": 94,
+              "line": 97,
               "column": 9
             }
           },
@@ -5736,11 +5813,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 102,
               "column": 8
             },
             "end": {
-              "line": 102,
+              "line": 105,
               "column": 9
             }
           },
@@ -5752,11 +5829,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -6161,11 +6238,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 88,
               "column": 8
             },
             "end": {
-              "line": 92,
+              "line": 91,
               "column": 9
             }
           },
@@ -6181,11 +6258,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 96,
               "column": 8
             },
             "end": {
-              "line": 100,
+              "line": 99,
               "column": 9
             }
           },
@@ -6202,11 +6279,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -6308,11 +6385,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 104,
               "column": 8
             },
             "end": {
-              "line": 107,
+              "line": 106,
               "column": 9
             }
           },
@@ -6397,11 +6474,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 133,
+              "line": 136,
               "column": 4
             },
             "end": {
-              "line": 140,
+              "line": 143,
               "column": 5
             }
           },
@@ -6568,11 +6645,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 120,
+              "line": 123,
               "column": 4
             },
             "end": {
-              "line": 126,
+              "line": 129,
               "column": 5
             }
           },
@@ -6848,11 +6925,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 128,
+              "line": 131,
               "column": 4
             },
             "end": {
-              "line": 131,
+              "line": 134,
               "column": 5
             }
           },
@@ -6874,11 +6951,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 142,
+              "line": 145,
               "column": 4
             },
             "end": {
-              "line": 146,
+              "line": 149,
               "column": 5
             }
           },
@@ -6922,11 +6999,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 110,
               "column": 4
             },
             "end": {
-              "line": 114,
+              "line": 113,
               "column": 5
             }
           },
@@ -6939,11 +7016,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 115,
               "column": 4
             },
             "end": {
-              "line": 123,
+              "line": 122,
               "column": 5
             }
           },
@@ -6964,7 +7041,7 @@
           "column": 2
         },
         "end": {
-          "line": 125,
+          "line": 124,
           "column": 3
         }
       },
@@ -7192,11 +7269,11 @@
           "description": "width of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 88,
               "column": 8
             },
             "end": {
-              "line": 92,
+              "line": 91,
               "column": 9
             }
           },
@@ -7208,11 +7285,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 96,
               "column": 8
             },
             "end": {
-              "line": 100,
+              "line": 99,
               "column": 9
             }
           },
@@ -7225,11 +7302,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -7314,11 +7391,11 @@
           "description": "default value of the input",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 104,
               "column": 8
             },
             "end": {
-              "line": 107,
+              "line": 106,
               "column": 9
             }
           },
@@ -7723,19 +7800,21 @@
           "description": "width of the badge in pixels",
           "privacy": "public",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 90,
+              "line": 88,
               "column": 8
             },
             "end": {
-              "line": 93,
+              "line": 91,
               "column": 9
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "28"
+          "defaultValue": "28",
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "height",
@@ -7743,19 +7822,21 @@
           "description": "height of the badge in pixels",
           "privacy": "public",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 98,
+              "line": 96,
               "column": 8
             },
             "end": {
-              "line": 101,
+              "line": 99,
               "column": 9
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "24"
+          "defaultValue": "24",
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "hideTransparencyPattern",
@@ -7765,11 +7846,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -7870,17 +7951,40 @@
           "description": "default value of the input",
           "privacy": "public",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 106,
+              "line": 104,
               "column": 8
             },
             "end": {
-              "line": 108,
+              "line": 106,
               "column": 9
             }
           },
           "metadata": {
             "polymer": {}
+          },
+          "inheritedFrom": "ColorTextInputPattern"
+        },
+        {
+          "name": "_computedHexPatternString",
+          "type": "string",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 8
+            },
+            "end": {
+              "line": 70,
+              "column": 9
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
           }
         }
       ],
@@ -7960,11 +8064,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 133,
+              "line": 136,
               "column": 4
             },
             "end": {
-              "line": 140,
+              "line": 143,
               "column": 5
             }
           },
@@ -8131,11 +8235,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 120,
+              "line": 123,
               "column": 4
             },
             "end": {
-              "line": 126,
+              "line": 129,
               "column": 5
             }
           },
@@ -8411,11 +8515,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 128,
+              "line": 131,
               "column": 4
             },
             "end": {
-              "line": 131,
+              "line": 134,
               "column": 5
             }
           },
@@ -8437,11 +8541,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 142,
+              "line": 145,
               "column": 4
             },
             "end": {
-              "line": 146,
+              "line": 149,
               "column": 5
             }
           },
@@ -8484,29 +8588,32 @@
           "description": "",
           "privacy": "public",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 112,
+              "line": 110,
               "column": 4
             },
             "end": {
-              "line": 115,
+              "line": 113,
               "column": 5
             }
           },
           "metadata": {},
-          "params": []
+          "params": [],
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "_computeFormatPattern",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 117,
+              "line": 115,
               "column": 4
             },
             "end": {
-              "line": 124,
+              "line": 122,
               "column": 5
             }
           },
@@ -8514,6 +8621,52 @@
           "params": [
             {
               "name": "format"
+            }
+          ],
+          "inheritedFrom": "ColorTextInputPattern"
+        },
+        {
+          "name": "_equals",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 4
+            },
+            "end": {
+              "line": 76,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "a"
+            },
+            {
+              "name": "b"
+            }
+          ]
+        },
+        {
+          "name": "_computeHexPatternString",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 4
+            },
+            "end": {
+              "line": 80,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "_validateHex"
             }
           ]
         }
@@ -8523,11 +8676,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 15,
           "column": 2
         },
         "end": {
-          "line": 126,
+          "line": 82,
           "column": 3
         }
       },
@@ -8754,33 +8907,37 @@
           "name": "width",
           "description": "width of the badge in pixels",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 90,
+              "line": 88,
               "column": 8
             },
             "end": {
-              "line": 93,
+              "line": 91,
               "column": 9
             }
           },
           "metadata": {},
-          "type": "number"
+          "type": "number",
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "height",
           "description": "height of the badge in pixels",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 98,
+              "line": 96,
               "column": 8
             },
             "end": {
-              "line": 101,
+              "line": 99,
               "column": 9
             }
           },
           "metadata": {},
-          "type": "number"
+          "type": "number",
+          "inheritedFrom": "ColorTextInputPattern"
         },
         {
           "name": "hide-transparency-pattern",
@@ -8788,11 +8945,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 110,
               "column": 8
             },
             "end": {
-              "line": 110,
+              "line": 113,
               "column": 9
             }
           },
@@ -8876,17 +9033,19 @@
           "name": "default",
           "description": "default value of the input",
           "sourceRange": {
+            "file": "color-text-input.html",
             "start": {
-              "line": 106,
+              "line": 104,
               "column": 8
             },
             "end": {
-              "line": 108,
+              "line": 106,
               "column": 9
             }
           },
           "metadata": {},
-          "type": "number"
+          "type": "number",
+          "inheritedFrom": "ColorTextInputPattern"
         }
       ],
       "events": [],
@@ -8896,8 +9055,7 @@
       },
       "slots": [],
       "mixins": [
-        "ColorBadgePattern",
-        "FormElementMixin"
+        "ColorTextInputPattern"
       ]
     }
   ]
