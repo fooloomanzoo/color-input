@@ -391,11 +391,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 101,
               "column": 8
             },
             "end": {
-              "line": 97,
+              "line": 104,
               "column": 9
             }
           },
@@ -412,11 +412,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 109,
               "column": 8
             },
             "end": {
-              "line": 105,
+              "line": 112,
               "column": 9
             }
           },
@@ -433,11 +433,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -522,11 +522,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 136,
+              "line": 143,
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 150,
               "column": 5
             }
           },
@@ -692,11 +692,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 129,
+              "line": 136,
               "column": 5
             }
           },
@@ -971,11 +971,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 138,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 141,
               "column": 5
             }
           },
@@ -996,11 +996,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 152,
               "column": 4
             },
             "end": {
-              "line": 149,
+              "line": 156,
               "column": 5
             }
           },
@@ -1023,7 +1023,7 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 177,
+          "line": 184,
           "column": 4
         },
         "end": {
@@ -1256,11 +1256,11 @@
           "description": "width of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 101,
               "column": 8
             },
             "end": {
-              "line": 97,
+              "line": 104,
               "column": 9
             }
           },
@@ -1273,11 +1273,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 109,
               "column": 8
             },
             "end": {
-              "line": 105,
+              "line": 112,
               "column": 9
             }
           },
@@ -1290,11 +1290,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -1744,11 +1744,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -1940,11 +1940,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 136,
+              "line": 143,
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 150,
               "column": 5
             }
           },
@@ -2111,11 +2111,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 123,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 129,
+              "line": 136,
               "column": 5
             }
           },
@@ -2391,11 +2391,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 131,
+              "line": 138,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 141,
               "column": 5
             }
           },
@@ -2417,11 +2417,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 145,
+              "line": 152,
               "column": 4
             },
             "end": {
-              "line": 149,
+              "line": 156,
               "column": 5
             }
           },
@@ -2782,11 +2782,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -3327,11 +3327,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -3546,11 +3546,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 136,
+              "line": 143,
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 150,
               "column": 5
             }
           },
@@ -3717,11 +3717,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 123,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 129,
+              "line": 136,
               "column": 5
             }
           },
@@ -3997,11 +3997,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 131,
+              "line": 138,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 141,
               "column": 5
             }
           },
@@ -4023,11 +4023,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 145,
+              "line": 152,
               "column": 4
             },
             "end": {
-              "line": 149,
+              "line": 156,
               "column": 5
             }
           },
@@ -4173,7 +4173,7 @@
           "column": 4
         },
         "end": {
-          "line": 124,
+          "line": 118,
           "column": 5
         }
       },
@@ -4439,11 +4439,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -4945,11 +4945,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 101,
               "column": 8
             },
             "end": {
-              "line": 97,
+              "line": 104,
               "column": 9
             }
           },
@@ -4965,11 +4965,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 109,
               "column": 8
             },
             "end": {
-              "line": 105,
+              "line": 112,
               "column": 9
             }
           },
@@ -4985,11 +4985,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -5073,11 +5073,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 136,
+              "line": 143,
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 150,
               "column": 5
             }
           },
@@ -5242,11 +5242,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 129,
+              "line": 136,
               "column": 5
             }
           },
@@ -5520,11 +5520,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 138,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 141,
               "column": 5
             }
           },
@@ -5544,11 +5544,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 152,
               "column": 4
             },
             "end": {
-              "line": 149,
+              "line": 156,
               "column": 5
             }
           },
@@ -5569,7 +5569,7 @@
           "column": 2
         },
         "end": {
-          "line": 150,
+          "line": 157,
           "column": 3
         }
       },
@@ -5797,11 +5797,11 @@
           "description": "width of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 101,
               "column": 8
             },
             "end": {
-              "line": 97,
+              "line": 104,
               "column": 9
             }
           },
@@ -5813,11 +5813,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 109,
               "column": 8
             },
             "end": {
-              "line": 105,
+              "line": 112,
               "column": 9
             }
           },
@@ -5829,11 +5829,11 @@
           "description": "height of the badge in pixels",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -6279,11 +6279,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -6474,11 +6474,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 136,
+              "line": 143,
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 150,
               "column": 5
             }
           },
@@ -6645,11 +6645,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 123,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 129,
+              "line": 136,
               "column": 5
             }
           },
@@ -6925,11 +6925,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 131,
+              "line": 138,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 141,
               "column": 5
             }
           },
@@ -6951,11 +6951,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 145,
+              "line": 152,
               "column": 4
             },
             "end": {
-              "line": 149,
+              "line": 156,
               "column": 5
             }
           },
@@ -7302,11 +7302,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -7846,11 +7846,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },
@@ -8064,11 +8064,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 136,
+              "line": 143,
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 150,
               "column": 5
             }
           },
@@ -8235,11 +8235,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 123,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 129,
+              "line": 136,
               "column": 5
             }
           },
@@ -8515,11 +8515,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 131,
+              "line": 138,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 141,
               "column": 5
             }
           },
@@ -8541,11 +8541,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 145,
+              "line": 152,
               "column": 4
             },
             "end": {
-              "line": 149,
+              "line": 156,
               "column": 5
             }
           },
@@ -8945,11 +8945,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 110,
+              "line": 117,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 120,
               "column": 9
             }
           },

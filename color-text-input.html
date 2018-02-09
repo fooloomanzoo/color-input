@@ -15,6 +15,13 @@
    */
   const ColorTextInputPattern = (superClass) => class extends ColorBadgePattern(FormElementMixin(superClass)) { // eslint-disable-line no-unused-vars, no-undef
 
+    static get template() {
+      return `
+        ${this.styleTemplate}
+        ${this.colorInputTemplate}
+      `
+    }
+
     static get styleTemplate() {
       return `
         <style include="${this.customStyleToInclude}">
@@ -71,7 +78,7 @@
         ${super.colorInputTemplate || ''}
         <div id="colorInput">
           ${super.colorBadgeTemplate || ''}
-          <text-input class="input" default="{{default}}" value="{{value}}" pattern="[[_computeFormatPattern(format)]]" placeholder="#000000" minlength="7"></text-input>
+          <text-input class="input" default="{{default}}" value="{{value}}" pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
         </div>
       `
     }
@@ -156,13 +163,6 @@
 
       static get is() {
         return 'color-text-input';
-      }
-
-      static get template() {
-        return `
-          ${this.styleTemplate}
-          ${this.colorInputTemplate}
-        `
       }
 
     }

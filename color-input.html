@@ -37,7 +37,7 @@
         <div id="colorInput">
           ${super.colorBadgeTemplate || ''}
           <template is="dom-if" if="[[_equals(format, 'hex')]]" restamp>
-            <text-input id="valueInput" default="{{default}}" value="{{value}}" pattern="[[_computedHexPatternString]]" placeholder="#000000" minlength="7"></text-input>
+            <text-input id="valueInput" default="{{default}}" value="{{value}}" pattern="[[_hexPatternString]]" placeholder="#000" minlength="7"></text-input>
           </template>
           <template is="dom-if" if="[[_equals(format, 'rgb')]]" restamp>
             <label>r:</label>
@@ -47,17 +47,17 @@
             <label>b:</label>
             <integer-input title="blue" value="{{b}}" min="0" max="255" minlength="3"></integer-input>
             <label>a:</label>
-            <number-input title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" minlength="3.5"></number-input>
+            <number-input title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp placeholder="1.00" step="0.01" minlength="3.5"></number-input>
           </template>
           <template is="dom-if" if="[[_equals(format, 'hsl')]]" restamp>
             <label>h:</label>
-            <number-input title="hue" value="{{h}}" min="0" max="359" no-clamp minlength="3"></number-input>
+            <number-input title="hue" placeholder="0" min="0" max="359" minlength="3" step="[[_hslStep]]" value="{{h}}"></number-input>
             <label>s:</label>
-            <number-input title="saturation" value="{{s}}" min="0" step="0.01" in-percent max="1" saturate no-clamp start-at="1" placeholder=" %" minlength="4"></number-input>
+            <number-input title="saturation" placeholder="100\u202F%" minlength="2.5" in-percent saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="1" value="{{s}}"></number-input>
             <label>l:</label>
-            <number-input title="lightness" value="{{l}}" min="0" step="0.01" in-percent max="1" saturate no-clamp start-at="0.5" placeholder=" %" minlength="4"></number-input>
+            <number-input title="lightness" placeholder="100\u202F%" minlength="2.5" in-percent saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="0.5" value="{{l}}"></number-input>
             <label>a:</label>
-            <number-input title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" start-at="1" minlength="3.5"></number-input>
+            <number-input title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" placeholder="1.00" start-at="1" minlength="3.5"></number-input>
           </template>
         </div>
       `
@@ -65,9 +65,20 @@
 
     static get properties() {
       return {
-        _computedHexPatternString: {
+
+        _hexPatternString: {
           type: String,
           computed: '_computeHexPatternString(_validateHex)'
+        },
+
+        _hslStep: {
+          type: Number,
+          computed: '_computeHslStep(hslPrecision)'
+        },
+
+        _hslPercentStep: {
+          type: Number,
+          computed: '_computeHslPercentStep(hslPrecision)'
         }
       }
     }
@@ -78,6 +89,14 @@
 
     _computeHexPatternString(_validateHex) {
       return _validateHex.toString().slice(1,-1);
+    }
+
+    _computeHslStep(hslPrecision) {
+      return Math.pow(10, -hslPrecision);
+    }
+
+    _computeHslPercentStep(hslPrecision) {
+      return Math.pow(10, -(hslPrecision + 2));
     }
 
   }
