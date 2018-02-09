@@ -37,27 +37,27 @@
         <div id="colorInput">
           ${super.colorBadgeTemplate || ''}
           <template is="dom-if" if="[[_equals(format, 'hex')]]" restamp>
-            <text-input id="valueInput" default="{{default}}" value="{{value}}" pattern="[[_computedHexPatternString]]" minlength="4"></text-input>
+            <text-input id="valueInput" default="{{default}}" value="{{value}}" pattern="[[_computedHexPatternString]]" placeholder="#000000" minlength="7"></text-input>
           </template>
           <template is="dom-if" if="[[_equals(format, 'rgb')]]" restamp>
             <label>r:</label>
-            <integer-input title="red" value="{{r}}" min="0" max="255"></integer-input>
+            <integer-input title="red" value="{{r}}" min="0" max="255" minlength="3"></integer-input>
             <label>g:</label>
-            <integer-input title="green" value="{{g}}" min="0" max="255"></integer-input>
+            <integer-input title="green" value="{{g}}" min="0" max="255" minlength="3"></integer-input>
             <label>b:</label>
-            <integer-input title="blue" value="{{b}}" min="0" max="255"></integer-input>
+            <integer-input title="blue" value="{{b}}" min="0" max="255" minlength="3"></integer-input>
             <label>a:</label>
-            <number-input title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01"></number-input>
+            <number-input title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" minlength="3.5"></number-input>
           </template>
           <template is="dom-if" if="[[_equals(format, 'hsl')]]" restamp>
             <label>h:</label>
-            <number-input title="hue" value="{{h}}" min="0" max="359" no-clamp></number-input>
+            <number-input title="hue" value="{{h}}" min="0" max="359" no-clamp minlength="3"></number-input>
             <label>s:</label>
-            <number-input title="saturation" value="{{s}}" min="0" step="0.01" in-percent max="1" saturate no-clamp></number-input>
+            <number-input title="saturation" value="{{s}}" min="0" step="0.01" in-percent max="1" saturate no-clamp start-at="1" placeholder=" %" minlength="4"></number-input>
             <label>l:</label>
-            <number-input title="lightness" value="{{l}}" min="0" step="0.01" in-percent max="1" saturate no-clamp></number-input>
+            <number-input title="lightness" value="{{l}}" min="0" step="0.01" in-percent max="1" saturate no-clamp start-at="0.5" placeholder=" %" minlength="4"></number-input>
             <label>a:</label>
-            <number-input title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01"></number-input>
+            <number-input title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" start-at="1" minlength="3.5"></number-input>
           </template>
         </div>
       `
