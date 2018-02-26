@@ -38,8 +38,8 @@
       return `
         ${super.customStyleContent || ''}
         :host {
-          --color-badge-border-radius: 4px;
-          --text-input-allign: center;
+          vertical-align: middle;
+          --color-badge-border-radius: 3px;
           --input-style: {
             border-color: rgba(0,0,0,0.1);
             border-width: thin;
@@ -50,13 +50,13 @@
           --input-focus: {
             border-color: rgba(0,0,0,0.25);
             border-bottom-style: solid;
-            background: rgba(0, 0, 0, 0.1);
+            background: rgba(0,0,0,0.1);
           };
           --input-invalid: {
-            background: rgba(255,0,0,0.2);
-            border-color: rgba(0,0,0,0.5);
-            border-style: dashed;
+            background: rgba(255,0,0,0.25);
+            border-color: rgba(255,0,0,0.5);
           };
+          --input-selection-background: rgba(0,0,0,0.1);
         }
         #colorInput {
           display: inline-flex;
@@ -75,10 +75,9 @@
 
     static get colorInputTemplate() {
       return `
-        ${super.colorInputTemplate || ''}
         <div id="colorInput">
           ${super.colorBadgeTemplate || ''}
-          <text-input class="input" default="{{default}}" value="{{value}}" pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
+          <text-input class="input" required="[[required]]" default="{{default}}" value="{{value}}" pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
         </div>
       `
     }

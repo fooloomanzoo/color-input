@@ -36,35 +36,37 @@
         ${super.customStyleContent || ''}
         :host {
           display: inline-flex;
-          position: relative;
+          align-items: center;
           padding: 0 !important;
-          box-sizing: content-box;
-          border-radius: var(--color-badge-border-radius, 0px);
-          vertical-align: middle;
+          background: rgba(0,0,0,0);
+        }
+        :host(:focus) {
+          outline: none;
         }
         #colorBadge {
           display: inline-flex;
-          box-sizing: content-box;
-          overflow: hidden;
+          position: relative;
           z-index: auto;
-          border-radius: var(--color-badge-border-radius, 0px);
-          box-shadow(--color-badge-shadow, box-shadow: 0 1px 4px 1px rgba(0,0,0,.06));
+          border-radius: var(--color-badge-border-radius, inherit);
+          box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
         }
-        :host(:not([hide-transparency-pattern])) .transparency {
-          position: absolute;
-          border-radius: inherit;
-          top: 0; right: 0; bottom: 0; left: 0;
-          pointer-events: none;
+        :host(:not([hide-transparency-pattern])) .transparency:before {
           background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
           linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
           background-size: 0.9em 0.9em;
-          background-position:0 0, 0.45em 0.45em;
+          background-position: 0 0, 0.45em 0.45em;
           background-repeat: repeat;
-          opacity: .1;
+          opacity: .15;
           @apply --transparency-pattern;
+          content: '';
+          position: absolute;
+          top: 0; right: 0; bottom: 0; left: 0;
+          pointer-events: none;
+          border-radius: inherit;
           z-index: 0;
         }
         #colorBadge > #badge {
+          border-radius: inherit;
           z-index: 1;
         }
         #colorBadge > .slot {
@@ -79,9 +81,8 @@
 
     static get colorBadgeTemplate() {
       return `
-        <div id="colorBadge">
-          <div class="transparency"></div>
-          <canvas id="badge" on-contextmenu="random" width$="[[width]]" height="[[height]]"></canvas>
+        <div id="colorBadge" class="transparency">
+          <canvas id="badge" on-contextmenu="random" width$="[[width]]" height$="[[height]]"></canvas>
           ${this.colorBadgeSlotTemplate || ''}
         </div>
       `

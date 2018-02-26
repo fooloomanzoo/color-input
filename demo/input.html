@@ -38,10 +38,10 @@
                   margin: 4px;
                 }
               </style>
-              <span>color-input </span><color-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-input>
+              <span>color-input: </span><color-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-input>
               <br>
               <br>
-              <span>color-text-input </span><color-text-input value="{{color}}" alpha="{{alpha}}" format="{{format}}"></color-text-input>
+              <span>color-text-input: </span><color-text-input value="{{color}}" alpha="{{alpha}}" format="{{format}}"></color-text-input>
               <br>
               <div class="vertical-section-container result">
                 <p>
@@ -71,11 +71,12 @@
                   <span>Result: </span><input list="colors" value="{{color::change}}">
                   <datalist id="colors">
                     <option value=""></option>
+                    <option value="#72a">#72a</option>
+                    <option value="#72a1">#72a1</option>
                     <option value="#72a13f">#72a13f</option>
-                    <option value="#39c27f">#39c27f</option>
+                    <option value="#72a13f55">#72a13f55</option>
                     <option value="rgb(96,12,235)">rgb(96,12,235)</option>
                     <option value="rgba(181,187,7,0.66)">rgba(181,187,7,0.66)</option>
-                    <option value="rgba(#276f0c,0.75)">rgba(#276f0c,0.75)</option>
                     <option value="hsl(244,0.55,0.75)">hsl(244,0.55,0.75)</option>
                     <option value="hsla(144,0.25,0.35,0.22)">hsla(144,0.25,0.35,0.22)</option>
                     <option value="hsla(44,75.4%,55%,0.9)">hsla(44,75.4%,55%,0.9)</option>
@@ -99,9 +100,9 @@
                   margin-bottom: 12px;
                 }
               </style>
-              <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="hex"></color-input><br>
+              <!-- <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="hex"></color-input><br>
               <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="rgb"></color-input><br>
-              <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="hsl"></color-input><br>
+              <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="hsl"></color-input><br> -->
               <input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}">
             </template>
           </dom-bind>
