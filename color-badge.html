@@ -35,46 +35,34 @@
       return `
         ${super.customStyleContent || ''}
         :host {
-          display: inline-flex;
-          align-items: center;
-          padding: 0 !important;
-          background: rgba(0,0,0,0);
+          --computed-transparency-pattern-position: calc(var(--transparency-pattern-size, 12px) / 2);
         }
-        :host(:focus) {
-          outline: none;
+        :host(:not([hide-transparency-pattern])) .transparency {
+          background-image: var(--transparency-pattern, linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)));
+          background-size: var(--transparency-pattern-size, 12px) var(--transparency-pattern-size, 12px);
+          background-position: 0 0, var(--computed-transparency-pattern-position) var(--computed-transparency-pattern-position);
+          background-repeat: repeat;
+          -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+          background-repeat: repeat;
         }
         #colorBadge {
           display: inline-flex;
           position: relative;
-          z-index: auto;
-          border-radius: var(--color-badge-border-radius, inherit);
+          box-sizing: content-box;
+          border: none;
           box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
-        }
-        :host(:not([hide-transparency-pattern])) .transparency:before {
-          background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
-          linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
-          background-size: 0.9em 0.9em;
-          background-position: 0 0, 0.45em 0.45em;
-          background-repeat: repeat;
-          opacity: .15;
-          @apply --transparency-pattern;
-          content: '';
-          position: absolute;
-          top: 0; right: 0; bottom: 0; left: 0;
-          pointer-events: none;
-          border-radius: inherit;
-          z-index: 0;
+          border-radius: var(--color-badge-radius, 6px);
         }
         #colorBadge > #badge {
           border-radius: inherit;
-          z-index: 1;
+          position: relative;
         }
         #colorBadge > .slot {
           position: absolute;
           top: 50%; left: 50%;
           transform: translate(-50%, -50%);
           @apply --color-badge-slot;
-          z-index: 2;
         }
       `;
     }
@@ -113,7 +101,7 @@
           value: 24
         },
         /**
-         * height of the badge in pixels
+         * hide the transparency pattern
          * @type {number}
          */
         hideTransparencyPattern: {
@@ -121,12 +109,6 @@
           reflectToAttribute: true
         }
       }
-    }
-
-    static get observers() {
-      return [
-        '_computeStyle(width, height)'
-      ];
     }
 
     random(e) {
@@ -137,21 +119,16 @@
       super.random();
     }
 
-    _computeStyle(width, height) {
-      this.style.minWidth = `${width}px`;
-      this.style.minHeight = `${height}px`;
-    }
-
     _valueChanged(value, oldValue) {
       super._valueChanged(value, oldValue);
       if (value === undefined) return;
-      if (this._context === undefined) {
-        this._context = this.$.badge.getContext("2d");
-      }
       this._drawBadge(value);
     }
 
     _drawBadge(value) {
+      if (this._context === undefined) {
+        this._context = this.$.badge.getContext("2d");
+      }
       this._context.clearRect(0, 0, this.width, this.height);
       this._context.fillStyle = value || 'rgba(0,0,0,0)';
       this._context.fillRect(0, 0, this.width, this.height);
@@ -173,8 +150,11 @@
   *
   * Custom property | Description | Default
   * ----------------|-------------|----------
-  * `--transparency-pattern` | background pattern for the transparency layer | { background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000); background-size: 16px 16px; background-position:0 0, 8px 8px; opacity: .1; }
-  * `--color-badge-border-radius` | border-radius of the badge | 0px
+  * `--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)))
+  * `--transparency-pattern-size` | size transparency pattern | 12px
+  * `--color-badge-radius` | border-radius of the badge | 6px
+  * `--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)
+  * `--color-badge-slot` | mixin applied to the slot of the badge | {}
   *
   * @customElement
   * @polymer

@@ -39,24 +39,19 @@
         ${super.customStyleContent || ''}
         :host {
           vertical-align: middle;
-          --color-badge-border-radius: 3px;
+          --color-badge-radius: 3px;
           --input-style: {
-            border-color: rgba(0,0,0,0.1);
-            border-width: thin;
-            border-style: dotted;
-            outline: none;
+            border: thin dotted rgba(0,0,0,0.1);
             transition: background-color 250ms ease-in-out;
-          };
-          --input-focus: {
-            border-color: rgba(0,0,0,0.25);
-            border-bottom-style: solid;
-            background: rgba(0,0,0,0.1);
           };
           --input-invalid: {
             background: rgba(255,0,0,0.25);
             border-color: rgba(255,0,0,0.5);
           };
-          --input-selection-background: rgba(0,0,0,0.1);
+          --input-selection-background: rgba(255,255,255,0.5);
+        }
+        :hoste(:focus) {
+          outline: none;
         }
         #colorInput {
           display: inline-flex;
@@ -147,8 +142,10 @@
   * ----------------|-------------|----------
   * Custom property | Description | Default
   * ----------------|-------------|----------
-  * `--transparency-pattern` | background pattern for the transparency layer | { background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000); background-size: 16px 16px; background-position:0 0, 8px 8px; opacity: .1; }
-  * `--color-badge-border-radius` | border-radius of the badge | 4px
+  * `--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)))
+  * `--transparency-pattern-size` | size transparency pattern | 12px
+  * `--color-badge-radius` | border-radius of the badge | 3px
+  * `--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)
   *
   * @customElement
   * @polymer
