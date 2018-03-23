@@ -14,26 +14,20 @@
 
     static get template() {
       return `
-        ${this.styleTemplate}
+        <style include="${this.styleToInclude}">
+          ${this.styleTemplate}
+        </style>
         ${this.colorBadgeTemplate}
-      `
+      `;
+    }
+
+    static get styleToInclude() {
+      return 'input-shared-style';
     }
 
     static get styleTemplate() {
       return `
-        <style include="${this.customStyleToInclude}">
-          ${this.customStyleContent}
-        </style>
-      `;
-    }
-
-    static get customStyleToInclude() {
-      return '';
-    }
-
-    static get customStyleContent() {
-      return `
-        ${super.customStyleContent || ''}
+        ${super.styleTemplate || ''}
         :host {
           --computed-transparency-pattern-position: calc(var(--transparency-pattern-size, 12px) / 2);
         }
@@ -119,8 +113,9 @@
       super.random();
     }
 
-    _valueChanged(value, oldValue) {
-      super._valueChanged(value, oldValue);
+    _colorStringChanged(value, oldValue) {
+      console.log(value);
+      super._colorStringChanged(value, oldValue);
       if (value === undefined) return;
       this._drawBadge(value);
     }

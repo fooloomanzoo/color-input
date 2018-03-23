@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../text-input/text-input.html">
 <link rel="import" href="../input-picker-pattern/form-element-mixin.html">
+<link rel="import" href="../input-picker-pattern/input-shared-style.html">
 <link rel="import" href="color-badge.html">
 
 <script>
@@ -17,43 +18,25 @@
 
     static get template() {
       return `
-        ${this.styleTemplate}
-        ${this.colorInputTemplate}
-      `
+        <style include="${this.styleToInclude}">
+          ${this.styleTemplate}
+        </style>
+        ${this.inputTemplate}
+      `;
+    }
+
+    static get styleToInclude() {
+      return 'input-shared-style';
     }
 
     static get styleTemplate() {
       return `
-        <style include="${this.customStyleToInclude}">
-          ${this.customStyleContent}
-        </style>
-      `;
-    }
-
-    static get customStyleToInclude() {
-      return '';
-    }
-
-    static get customStyleContent() {
-      return `
-        ${super.customStyleContent || ''}
+        ${super.styleTemplate || ''}
         :host {
           vertical-align: middle;
-          --color-badge-radius: 3px;
-          --input-style: {
-            border: thin dotted rgba(0,0,0,0.1);
-            transition: background-color 250ms ease-in-out;
-          };
-          --input-invalid: {
-            background: rgba(255,0,0,0.25);
-            border-color: rgba(255,0,0,0.5);
-          };
-          --input-selection-background: rgba(255,255,255,0.5);
+          --color-badge-radius: var(--input-border-radius, 3px);
         }
-        :hoste(:focus) {
-          outline: none;
-        }
-        #colorInput {
+        #input {
           display: inline-flex;
           flex-direction: row;
           align-items: center;
@@ -68,11 +51,11 @@
       `;
     }
 
-    static get colorInputTemplate() {
+    static get inputTemplate() {
       return `
-        <div id="colorInput">
+        <div id="input">
           ${super.colorBadgeTemplate || ''}
-          <text-input class="input" required="[[required]]" default="{{default}}" value="{{value}}" pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
+          <text-input required="[[required]]" default="[[default]]" value="{{value}}" pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
         </div>
       `
     }
@@ -105,6 +88,12 @@
          */
         default: {
           type: String
+        },
+
+        propertyForValue: {
+          type: String,
+          readOnly: true,
+          value: 'colorString'
         }
       }
     }
