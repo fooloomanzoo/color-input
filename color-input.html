@@ -54,17 +54,17 @@
             <label>b:</label>
             <integer-input required="[[required]]" title="blue" placeholder="0" value="{{b}}" min="0" max="255" minlength="3"></integer-input>
             <label>a:</label>
-            <number-input required="[[required]]" title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp placeholder="1.00" start-at="1" step="0.01" minlength="3.5"></number-input>
+            <number-input required="[[required]]" title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp placeholder="1.00" start-at="1" step="0.01"></number-input>
           </template>
           <template is="dom-if" if="[[_equals(format, 'hsl')]]" restamp>
             <label>h:</label>
-            <number-input required="[[required]]" title="hue" placeholder="0" min="0" max="359" minlength="3" step="[[_hslStep]]" value="{{h}}"></number-input>
+            <number-input required="[[required]]" title="hue" placeholder="0" min="0" max="359" step="[[_hslStep]]" value="{{h}}"></number-input>
             <label>s:</label>
-            <number-input required="[[required]]" title="saturation" placeholder="100\u202F%" minlength="2.5" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="1" value="{{s}}"></number-input>
+            <number-input required="[[required]]" title="saturation" placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="1" value="{{s}}"></number-input>
             <label>l:</label>
-            <number-input required="[[required]]" title="lightness" placeholder="100\u202F%" minlength="2.5" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="0.5" value="{{l}}"></number-input>
+            <number-input required="[[required]]" title="lightness" placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="0.5" value="{{l}}"></number-input>
             <label>a:</label>
-            <number-input required="[[required]]" title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" placeholder="1.00" start-at="1" minlength="3.5"></number-input>
+            <number-input required="[[required]]" title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" placeholder="1.00" start-at="1"></number-input>
           </template>
         </div>
       `

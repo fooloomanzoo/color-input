@@ -41,9 +41,6 @@
           flex-direction: row;
           align-items: center;
         }
-        #colorBadge {
-          position: relative;
-        }
         text-input {
           margin-left: 0.4em;
           align-self: stretch;
@@ -55,7 +52,7 @@
       return `
         <div id="input">
           ${super.colorBadgeTemplate || ''}
-          <text-input required="[[required]]" default="[[default]]" value="{{value}}" pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
+          <text-input required="[[required]]" default="[[default]]" value="{{value}}" auto-resize pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
         </div>
       `
     }

@@ -31,7 +31,7 @@
         :host {
           --computed-transparency-pattern-position: calc(var(--transparency-pattern-size, 12px) / 2);
         }
-        :host(:not([hide-transparency-pattern])) .transparency {
+        :host(:not([hide-transparency-pattern])) .transparency:before {
           background-image: var(--transparency-pattern, linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)));
           background-size: var(--transparency-pattern-size, 12px) var(--transparency-pattern-size, 12px);
           background-position: 0 0, var(--computed-transparency-pattern-position) var(--computed-transparency-pattern-position);
@@ -39,6 +39,10 @@
           -webkit-background-clip: padding-box;
           background-clip: padding-box;
           background-repeat: repeat;
+          border-radius: var(--color-badge-radius, 6px);
+          content: '';
+          position: absolute;
+          top: 0; right: 0; bottom: 0; left: 0;
         }
         #colorBadge {
           display: inline-flex;
@@ -47,6 +51,7 @@
           border: none;
           box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
           border-radius: var(--color-badge-radius, 6px);
+          background-color: #fff;
         }
         #colorBadge > #badge {
           border-radius: inherit;
