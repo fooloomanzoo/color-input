@@ -45,13 +45,13 @@
           top: 0; right: 0; bottom: 0; left: 0;
         }
         #colorBadge {
-          display: inline-flex;
           position: relative;
-          box-sizing: content-box;
           border: none;
           box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
           border-radius: var(--color-badge-radius, 6px);
           background-color: #fff;
+          height: var(--color-badge-height, 32px);
+          width: var(--color-badge-width, 60px)
         }
         #colorBadge > #badge {
           border-radius: inherit;
@@ -68,8 +68,8 @@
 
     static get colorBadgeTemplate() {
       return `
-        <div id="colorBadge" class="transparency">
-          <canvas id="badge" on-contextmenu="random" width$="[[width]]" height$="[[height]]"></canvas>
+        <div id="colorBadge" on-click="random" on-contextmenu="random" class="transparency">
+          <canvas id="badge" width$="[[_badgewidth]]" height$="[[_badgeheight]]"></canvas>
           ${this.colorBadgeSlotTemplate || ''}
         </div>
       `
@@ -84,22 +84,6 @@
     static get properties() {
       return {
         /**
-         * width of the badge in pixels
-         * @type {number}
-         */
-        width: {
-          type: Number,
-          value: 96
-        },
-        /**
-         * height of the badge in pixels
-         * @type {number}
-         */
-        height: {
-          type: Number,
-          value: 24
-        },
-        /**
          * hide the transparency pattern
          * @type {number}
          */
@@ -108,6 +92,11 @@
           reflectToAttribute: true
         }
       }
+    }
+
+    connectedCallback() {
+      super.connectedCallback();
+      this._resizeBadge();
     }
 
     random(e) {
@@ -119,9 +108,7 @@
     }
 
     _colorStringChanged(value, oldValue) {
-      console.log(value);
       super._colorStringChanged(value, oldValue);
-      if (value === undefined) return;
       this._drawBadge(value);
     }
 
@@ -129,9 +116,18 @@
       if (this._context === undefined) {
         this._context = this.$.badge.getContext("2d");
       }
-      this._context.clearRect(0, 0, this.width, this.height);
+      this._resizeBadge();
+      this._context.clearRect(0, 0, this._badgewidth, this._badgeheight);
       this._context.fillStyle = value || 'rgba(0,0,0,0)';
-      this._context.fillRect(0, 0, this.width, this.height);
+      this._context.fillRect(0, 0, this._badgewidth, this._badgeheight);
+    }
+
+    _resizeBadge() {
+      const box = this.$.colorBadge.getBoundingClientRect();
+      this.setProperties({
+        _badgewidth: box.width,
+        _badgeheight: box.height
+      })
     }
   }
 </script>
@@ -141,6 +137,7 @@
   /**
   * `<color-badge>` is a badge that displays a color as a rectangle with a specified height and width.
   * The transparency of the color will be displayed. It can slot elements and they are automatically centered. Because of using a canvas to draw the color, it needs to be explicitly sized via the width- and height-attribute.
+  * Click on the badge to generate a random color.
   *
   *   ```html
   *     <color-badge height="24" width="96" value="[[color]]">
@@ -154,6 +151,8 @@
   * `--transparency-pattern-size` | size transparency pattern | 12px
   * `--color-badge-radius` | border-radius of the badge | 6px
   * `--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)
+  * `--color-badge-height` | height of the badge | 32px
+  * `--color-badge-width` | width of the badge | 60px
   * `--color-badge-slot` | mixin applied to the slot of the badge | {}
   *
   * @customElement

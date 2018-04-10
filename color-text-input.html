@@ -21,7 +21,11 @@
         <style include="${this.styleToInclude}">
           ${this.styleTemplate}
         </style>
-        ${this.inputTemplate}
+        <div id="input">
+          ${super.colorBadgeTemplate || ''}
+          ${this.inputTemplate}
+          <button class="icon reset" invisible$="[[!_valueIsSet]]" hidden$="[[disabled]]" on-click="_resetColor"><svg viewBox="0 0 24 24"><g><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></g></svg></button>
+        </div>
       `;
     }
 
@@ -35,6 +39,9 @@
         :host {
           vertical-align: middle;
           --color-badge-radius: var(--input-border-radius, 3px);
+          --color-badge-shadow: none;
+          --color-badge-width: 28px;
+          --color-badge-height: 24px;
         }
         #input {
           display: inline-flex;
@@ -50,10 +57,7 @@
 
     static get inputTemplate() {
       return `
-        <div id="input">
-          ${super.colorBadgeTemplate || ''}
-          <text-input required="[[required]]" default="[[default]]" value="{{value}}" auto-resize pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
-        </div>
+        <text-input required="[[required]]" default="[[default]]" value="{{value}}" auto-resize pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
       `
     }
 
@@ -64,24 +68,7 @@
     static get properties() {
       return {
         /**
-         * width of the badge in pixels
-         * @type {number}
-         */
-        width: {
-          type: Number,
-          value: 28
-        },
-        /**
-         * height of the badge in pixels
-         * @type {number}
-         */
-        height: {
-          type: Number,
-          value: 24
-        },
-        /**
          * default value of the input
-         * @type {number}
          */
         default: {
           type: String
@@ -97,11 +84,20 @@
 
     validate() {
       this._setValue();
+      if (this.format === 'text') {
+        if (this.alpha === 1) {
+          // make the color validatable
+          const rgb = this._testColor(this.colorString)
+          this.value = `rgb(${Math.round(rgb.r)}, ${Math.round(rgb.g)}, ${Math.round(rgb.b)})`;
+        }
+      }
       return super.validate();
     }
 
     _computeFormatPattern(format) {
       switch (format) {
+        case 'text':
+          return '[\\w().,\\s]+';
         case 'hsl':
           return this._validateHsl.toString().slice(1,-1);
         default:
@@ -116,6 +112,7 @@
   <script>
   /**
   * `<color-text-input>` adds a color input to your page using Polymer.
+  * Click on the badge to generate a random color.
   *
   *   ```html
   *     <color-text-input value="{{color}}"></color-text-input>
@@ -129,10 +126,12 @@
   * `--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)))
   * `--transparency-pattern-size` | size transparency pattern | 12px
   * `--color-badge-radius` | border-radius of the badge | 3px
-  * `--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)
+  * `--color-badge-shadow` | box-shadow of the badge | none
+  * `--color-badge-height` | height of the badge | 28px
+  * `--color-badge-width` | width of the badge | 24px
   *
   * Have a look at [input-picker-pattern#input-shared-style](https://github.com/fooloomanzoo/input-picker-pattern#input-shared-style) to see how to style the element.
-  * 
+  *
   * @customElement
   * @polymer
   *

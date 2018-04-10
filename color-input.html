@@ -28,6 +28,7 @@
         number-input,
         integer-input {
           align-self: stretch;
+          --input-align: left;
         }
         label {
           margin-left: 0.4em;
@@ -41,32 +42,29 @@
 
     static get inputTemplate() {
       return `
-        <div id="input">
-          ${super.colorBadgeTemplate || ''}
-          <template is="dom-if" if="[[_equals(format, 'hex')]]" restamp>
-            <text-input required="[[required]]" default="{{default}}" value="{{value}}" pattern="[[_hexPatternString]]" placeholder="#000" minlength="7"></text-input>
-          </template>
-          <template is="dom-if" if="[[_equals(format, 'rgb')]]" restamp>
-            <label>r:</label>
-            <integer-input required="[[required]]" title="red" placeholder="0" value="{{r}}" min="0" max="255" minlength="3"></integer-input>
-            <label>g:</label>
-            <integer-input required="[[required]]" title="green" placeholder="0" value="{{g}}" min="0" max="255" minlength="3"></integer-input>
-            <label>b:</label>
-            <integer-input required="[[required]]" title="blue" placeholder="0" value="{{b}}" min="0" max="255" minlength="3"></integer-input>
-            <label>a:</label>
-            <number-input required="[[required]]" title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp placeholder="1.00" start-at="1" step="0.01"></number-input>
-          </template>
-          <template is="dom-if" if="[[_equals(format, 'hsl')]]" restamp>
-            <label>h:</label>
-            <number-input required="[[required]]" title="hue" placeholder="0" min="0" max="359" step="[[_hslStep]]" value="{{h}}"></number-input>
-            <label>s:</label>
-            <number-input required="[[required]]" title="saturation" placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="1" value="{{s}}"></number-input>
-            <label>l:</label>
-            <number-input required="[[required]]" title="lightness" placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="0.5" value="{{l}}"></number-input>
-            <label>a:</label>
-            <number-input required="[[required]]" title="alpha" value="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" placeholder="1.00" start-at="1"></number-input>
-          </template>
-        </div>
+        <template is="dom-if" if="[[_or(format, 'hex', 'text')]]" restamp>
+          ${super.inputTemplate || ''}
+        </template>
+        <template is="dom-if" if="[[_equals(format, 'rgb')]]" restamp>
+          <label>r:</label>
+          <integer-input required="[[required]]" title="red" placeholder="0" value-as-number="{{r}}" min="0" max="255" minlength="3"></integer-input>
+          <label>g:</label>
+          <integer-input required="[[required]]" title="green" placeholder="0" value-as-number="{{g}}" min="0" max="255" minlength="3"></integer-input>
+          <label>b:</label>
+          <integer-input required="[[required]]" title="blue" placeholder="0" value-as-number="{{b}}" min="0" max="255" minlength="3"></integer-input>
+          <label>a:</label>
+          <number-input required="[[required]]" title="alpha" value-as-number="{{alpha}}" default="1" min="0" max="1" saturate no-clamp placeholder="1.00" start-at="1" step="0.01"></number-input>
+        </template>
+        <template is="dom-if" if="[[_equals(format, 'hsl')]]" restamp>
+          <label>h:</label>
+          <number-input required="[[required]]" title="hue" placeholder="0" min="0" max="359" step="[[_hslStep]]" value-as-number="{{h}}"></number-input>
+          <label>s:</label>
+          <number-input required="[[required]]" title="saturation" placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="1" value-as-number="{{s}}"></number-input>
+          <label>l:</label>
+          <number-input required="[[required]]" title="lightness" placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="0.5" value-as-number="{{l}}"></number-input>
+          <label>a:</label>
+          <number-input required="[[required]]" title="alpha" value-as-number="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" placeholder="1.00" start-at="1"></number-input>
+        </template>
       `
     }
 
@@ -94,6 +92,10 @@
       return a === b;
     }
 
+    _or(a, b, c) {
+      return a === b || a === c;
+    }
+
     _computeHexPatternString(_validateHex) {
       return _validateHex.toString().slice(1,-1);
     }
@@ -112,7 +114,8 @@
 <dom-module id="color-input">
   <script>
   /**
-  * `<color-input>` adds a color input to your page using Polymer.
+  * `<color-input>` adds a color input to your page using Polymer. Depending on the `format` several inputs will be shown for the according color-properties.
+  * Click on the badge to generate a random color.
   *
   *   ```html
   *     <color-input value="{{color}}"></color-input>
@@ -126,10 +129,12 @@
   * `--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)))
   * `--transparency-pattern-size` | size transparency pattern | 12px
   * `--color-badge-radius` | border-radius of the badge | 3px
-  * `--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)
+  * `--color-badge-shadow` | box-shadow of the badge | none
+  * `--color-badge-height` | height of the badge | 28px
+  * `--color-badge-width` | width of the badge | 24px
   *
   * Have a look at [input-picker-pattern#input-shared-style](https://github.com/fooloomanzoo/input-picker-pattern#input-shared-style) to see how to style the element.
-  * 
+  *
   * @customElement
   * @polymer
   *

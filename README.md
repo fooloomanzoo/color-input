@@ -7,7 +7,7 @@ _[Demo](https://fooloomanzoo.github.io/color-input/components/color-input/#/elem
 
 ## \<color-input\>
 
-An input for color.
+An input for color. It can use the formats `rgb`, `hsl` or `hex`. Additionally you can use `text` for automatically transform a color-string like `red` to its rgb-representation.
 
 <!--If you are looking for a picker for color, please have a look at [color-picker](https://github.com/fooloomanzoo/color-picker).-->
 
