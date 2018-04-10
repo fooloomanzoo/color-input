@@ -28,7 +28,6 @@
         number-input,
         integer-input {
           align-self: stretch;
-          --input-align: left;
         }
         label {
           margin-left: 0.4em;
@@ -47,21 +46,21 @@
         </template>
         <template is="dom-if" if="[[_equals(format, 'rgb')]]" restamp>
           <label>r:</label>
-          <integer-input required="[[required]]" title="red" placeholder="0" value-as-number="{{r}}" min="0" max="255" minlength="3"></integer-input>
+          <integer-input required="[[required]]" title="red" no-auto-width auto-resize placeholder="0" value-as-number="{{r}}" min="0" max="255"></integer-input>
           <label>g:</label>
-          <integer-input required="[[required]]" title="green" placeholder="0" value-as-number="{{g}}" min="0" max="255" minlength="3"></integer-input>
+          <integer-input required="[[required]]" title="green" no-auto-width auto-resize placeholder="0" value-as-number="{{g}}" min="0" max="255"></integer-input>
           <label>b:</label>
-          <integer-input required="[[required]]" title="blue" placeholder="0" value-as-number="{{b}}" min="0" max="255" minlength="3"></integer-input>
+          <integer-input required="[[required]]" title="blue" no-auto-width auto-resize placeholder="0" value-as-number="{{b}}" min="0" max="255"></integer-input>
           <label>a:</label>
           <number-input required="[[required]]" title="alpha" value-as-number="{{alpha}}" default="1" min="0" max="1" saturate no-clamp placeholder="1.00" start-at="1" step="0.01"></number-input>
         </template>
         <template is="dom-if" if="[[_equals(format, 'hsl')]]" restamp>
           <label>h:</label>
-          <number-input required="[[required]]" title="hue" placeholder="0" min="0" max="359" step="[[_hslStep]]" value-as-number="{{h}}"></number-input>
+          <number-input required="[[required]]" title="hue" no-auto-width auto-resize placeholder="0" min="0" max="359" step="[[_hslStep]]" value-as-number="{{h}}"></number-input>
           <label>s:</label>
-          <number-input required="[[required]]" title="saturation" placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="1" value-as-number="{{s}}"></number-input>
+          <number-input required="[[required]]" title="saturation" no-auto-width auto-resize placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="1" value-as-number="{{s}}"></number-input>
           <label>l:</label>
-          <number-input required="[[required]]" title="lightness" placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="0.5" value-as-number="{{l}}"></number-input>
+          <number-input required="[[required]]" title="lightness" no-auto-width auto-resize placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="0.5" value-as-number="{{l}}"></number-input>
           <label>a:</label>
           <number-input required="[[required]]" title="alpha" value-as-number="{{alpha}}" default="1" min="0" max="1" saturate no-clamp step="0.01" placeholder="1.00" start-at="1"></number-input>
         </template>
