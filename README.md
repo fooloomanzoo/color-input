@@ -39,9 +39,10 @@ An input for color. It can use the formats `rgb`, `hsl` or `hex`. Additionally y
 ```
 -->
 ```html
-<color-text-input format="hsl"></color-text-input><br><br>
-<color-text-input format="rgb"></color-text-input><br><br>
-<color-input format="hsl"></color-input>
+<color-input format="hsl"></color-input><br><br>
+<color-input format="rgb"></color-input><br><br>
+<color-text-input format="rgb" color-string="teal"></color-text-input><br><br>
+<color-text-input format="text" color-string="teal"></color-text-input>
 ```
 
 ### Styling

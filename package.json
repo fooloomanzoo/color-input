@@ -24,5 +24,19 @@
     "hsl"
   ],
   "author": "fooloomanzoo",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@polymer/polymer": "^2",
+    "@fooloomanzoo/input-picker-pattern": "^2",
+    "@fooloomanzoo/number-input": "^2",
+    "@fooloomanzoo/text-input": "^2",
+    "@fooloomanzoo/property-mixins": "^2"
+  },
+  "devDependencies": {
+    "@webcomponents/webcomponentsjs": "*",
+    "@polymer/iron-component-page": "*",
+    "@polymer/iron-flex-layout": "*",
+    "@polymer/iron-demo-helpers": "*",
+    "@polymer/iron-form": "*"
+  }
 }

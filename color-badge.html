@@ -47,6 +47,7 @@
         #colorBadge {
           position: relative;
           border: none;
+          box-sizing: content-box;
           box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
           border-radius: var(--color-badge-radius, 6px);
           background-color: #fff;
@@ -125,8 +126,8 @@
     _resizeBadge() {
       const box = this.$.colorBadge.getBoundingClientRect();
       this.setProperties({
-        _badgewidth: box.width,
-        _badgeheight: box.height
+        _badgewidth: Math.round(box.width),
+        _badgeheight: Math.round(box.height)
       })
     }
   }

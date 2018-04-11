@@ -57,7 +57,7 @@
 
     static get inputTemplate() {
       return `
-        <text-input required="[[required]]" default="[[default]]" value="{{value}}" auto-resize pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7"></text-input>
+        <text-input required="[[required]]" default="[[default]]" value="{{value}}" auto-resize pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7" title="[[title]]"></text-input>
       `
     }
 
@@ -97,7 +97,7 @@
     _computeFormatPattern(format) {
       switch (format) {
         case 'text':
-          return '[\\w().,\\s]+';
+          return '[\\w().,#\\s]*';
         case 'hsl':
           return this._validateHsl.toString().slice(1,-1);
         default:
