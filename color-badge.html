@@ -12,22 +12,12 @@
    */
   const ColorBadgePattern = (superClass) => class extends ColorMixin(superClass) { // eslint-disable-line no-unused-vars, no-undef
 
-    static get template() {
-      return `
-        <style include="${this.styleToInclude}">
-          ${this.styleTemplate}
-        </style>
-        ${this.colorBadgeTemplate}
-      `;
-    }
-
     static get styleToInclude() {
       return 'input-shared-style';
     }
 
     static get styleTemplate() {
       return `
-        ${super.styleTemplate || ''}
         :host {
           --computed-transparency-pattern-position: calc(var(--transparency-pattern-size, 12px) / 2);
         }
@@ -41,10 +31,11 @@
           background-repeat: repeat;
           border-radius: var(--color-badge-radius, 6px);
           content: '';
+          pointer-events: none;
           position: absolute;
           top: 0; right: 0; bottom: 0; left: 0;
         }
-        #colorBadge {
+        .badge {
           position: relative;
           border: none;
           box-sizing: content-box;
@@ -52,24 +43,27 @@
           border-radius: var(--color-badge-radius, 6px);
           background-color: #fff;
           height: var(--color-badge-height, 32px);
-          width: var(--color-badge-width, 60px)
+          width: var(--color-badge-width, 60px);
         }
-        #colorBadge > #badge {
+        .badge > canvas {
           border-radius: inherit;
-          position: relative;
+          position: absolute;
+          left: 0;
+          top: 0;
         }
-        #colorBadge > .slot {
+        .badge > .slot {
           position: absolute;
           top: 50%; left: 50%;
           transform: translate(-50%, -50%);
           @apply --color-badge-slot;
         }
+        ${super.styleTemplate || ''}
       `;
     }
 
     static get colorBadgeTemplate() {
       return `
-        <div id="colorBadge" on-click="random" on-contextmenu="random" class="transparency">
+        <div id="colorBadge" class="transparency badge">
           <canvas id="badge" width$="[[_badgewidth]]" height$="[[_badgeheight]]"></canvas>
           ${this.colorBadgeSlotTemplate || ''}
         </div>
@@ -91,13 +85,49 @@
         hideTransparencyPattern: {
           type: Boolean,
           reflectToAttribute: true
-        }
+        },
+
+        /**
+         * if true, clicking on the color badge won't generate a random color
+         */
+        noRandomColorOnClick: {
+          type: Boolean,
+          value: false,
+          observer: '_noRandomColorOnClickChanged'
+        },
+
+        _badgewidth: Number,
+
+        _badgeheight: Number
       }
     }
 
     connectedCallback() {
       super.connectedCallback();
       this._resizeBadge();
+    }
+
+    _noRandomColorOnClickChanged(noRandomColorOnClick) {
+      if (noRandomColorOnClick) {
+        this._removeClickListenerForBadge();
+      } else {
+        this.random = this.random.bind(this);
+        this._addClickListenerForBadge();
+      }
+    }
+
+    _addClickListenerForBadge() {
+      if (this.$.badge) {
+        this.$.badge.addEventListener('click', this.random, false);
+        this.$.badge.addEventListener('contextmenu', this.random, false);
+      }
+    }
+
+    _removeClickListenerForBadge() {
+      if (this.$.badge) {
+        this.$.badge.removeEventListener('click', this.random, false);
+        this.$.badge.removeEventListener('contextmenu', this.random, false);
+      }
     }
 
     random(e) {
@@ -114,23 +144,29 @@
     }
 
     _drawBadge(value) {
-      if (this._context === undefined) {
-        this._context = this.$.badge.getContext("2d");
+      if (this.$.badge) {
+        if (this._badgecontext === undefined) {
+          this._badgecontext = this.$.badge.getContext("2d");
+        }
+        this._resizeBadge();
+        this._badgecontext.clearRect(0, 0, this._badgewidth, this._badgeheight);
+        this._badgecontext.fillStyle = value || 'rgba(0,0,0,0)';
+        this._badgecontext.fillRect(0, 0, this._badgewidth, this._badgeheight);
       }
-      this._resizeBadge();
-      this._context.clearRect(0, 0, this._badgewidth, this._badgeheight);
-      this._context.fillStyle = value || 'rgba(0,0,0,0)';
-      this._context.fillRect(0, 0, this._badgewidth, this._badgeheight);
     }
 
     _resizeBadge() {
-      const box = this.$.colorBadge.getBoundingClientRect();
-      this.setProperties({
-        _badgewidth: Math.round(box.width),
-        _badgeheight: Math.round(box.height)
-      })
+      if (this.$.colorBadge) {
+        const box = this.$.colorBadge.getBoundingClientRect();
+        this.setProperties({
+          _badgewidth: Math.round(box.width),
+          _badgeheight: Math.round(box.height)
+        })
+      }
     }
   }
+
+  window.ColorBadgePattern = ColorBadgePattern;
 </script>
 
 <dom-module id="color-badge">
@@ -167,6 +203,15 @@
 
       static get is() {
         return 'color-badge';
+      }
+
+      static get template() {
+        return `
+          <style include="${this.styleToInclude}">
+            ${this.styleTemplate}
+          </style>
+          ${this.colorBadgeTemplate}
+        `;
       }
 
     }
