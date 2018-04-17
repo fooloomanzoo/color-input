@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`<color-badge>` is a badge that displays a color as a rectangle with a specified height and width.\nThe transparency of the color will be displayed. It can slot elements and they are automatically centered. Because of using a canvas to draw the color, it needs to be explicitly sized via the width- and height-attribute.\nClick on the badge to generate a random color.\n\n  ```html\n    <color-badge height=\"24\" width=\"96\" value=\"[[color]]\">\n      <span>[[color]]</span>\n    </color-badge>\n  ```\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)))\n`--transparency-pattern-size` | size transparency pattern | 12px\n`--color-badge-radius` | border-radius of the badge | 6px\n`--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)\n`--color-badge-height` | height of the badge | 32px\n`--color-badge-width` | width of the badge | 60px\n`--color-badge-slot` | mixin applied to the slot of the badge | {}",
+      "description": "`<color-badge>` is a badge that displays a color as a rectangle with a specified height and width.\nThe transparency of the color will be displayed. It can slot elements and they are automatically centered. Because of using a canvas to draw the color, it needs to be explicitly sized via the width- and height-attribute.\nClick on the badge to generate a random color.\n\n  ```html\n    <color-badge height=\"24\" width=\"96\" value=\"[[color]]\">\n      <span>[[color]]</span>\n    </color-badge>\n  ```\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)), linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)))\n`--transparency-pattern-size` | size transparency pattern | 12px\n`--color-badge-radius` | border-radius of the badge | 6px\n`--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)\n`--color-badge-height` | height of the badge | 32px\n`--color-badge-width` | width of the badge | 60px\n`--color-badge-slot` | mixin applied to the slot of the badge | {}",
       "summary": "",
       "path": "color-badge.html",
       "properties": [
@@ -588,7 +588,7 @@
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 149,
               "column": 5
             }
           },
@@ -1162,7 +1162,7 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 151,
               "column": 4
             },
             "end": {
@@ -1173,7 +1173,16 @@
           "metadata": {},
           "params": [
             {
+              "name": "context"
+            },
+            {
               "name": "value"
+            },
+            {
+              "name": "width"
+            },
+            {
+              "name": "height"
             }
           ],
           "inheritedFrom": "ColorBadgePattern"
@@ -1482,7 +1491,7 @@
       ]
     },
     {
-      "description": "`<color-text-input>` adds a color input to your page using Polymer.\nClick on the badge to generate a random color.\n\n  ```html\n    <color-text-input value=\"{{color}}\"></color-text-input>\n  ```\n\n\nThe following custom properties and mixins are also available for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)))\n`--transparency-pattern-size` | size transparency pattern | 12px\n`--color-badge-radius` | border-radius of the badge | 3px\n`--color-badge-shadow` | box-shadow of the badge | none\n`--color-badge-height` | height of the badge | 28px\n`--color-badge-width` | width of the badge | 28px\n\nHave a look at [input-picker-pattern#input-shared-style](https://github.com/fooloomanzoo/input-picker-pattern#input-shared-style) to see how to style the element.",
+      "description": "`<color-text-input>` adds a color input to your page using Polymer.\nClick on the badge to generate a random color.\n\n  ```html\n    <color-text-input value=\"{{color}}\"></color-text-input>\n  ```\n\n\nThe following custom properties and mixins are also available for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)), linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)))\n`--transparency-pattern-size` | size transparency pattern | 12px\n`--color-badge-radius` | border-radius of the badge | 3px\n`--color-badge-shadow` | box-shadow of the badge | none\n`--color-badge-height` | height of the badge | 28px\n`--color-badge-width` | width of the badge | 28px\n\nHave a look at [input-picker-pattern#input-shared-style](https://github.com/fooloomanzoo/input-picker-pattern#input-shared-style) to see how to style the element.",
       "summary": "",
       "path": "color-text-input.html",
       "properties": [
@@ -2250,7 +2259,7 @@
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 149,
               "column": 5
             }
           },
@@ -2829,7 +2838,7 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 145,
+              "line": 151,
               "column": 4
             },
             "end": {
@@ -2840,7 +2849,16 @@
           "metadata": {},
           "params": [
             {
+              "name": "context"
+            },
+            {
               "name": "value"
+            },
+            {
+              "name": "width"
+            },
+            {
+              "name": "height"
             }
           ],
           "inheritedFrom": "ColorBadgePattern"
@@ -3462,7 +3480,7 @@
       ]
     },
     {
-      "description": "`<color-input>` adds a color input to your page using Polymer. Depending on the `format` several inputs will be shown for the according color-properties.\nClick on the badge to generate a random color.\n\n  ```html\n    <color-input value=\"{{color}}\"></color-input>\n  ```\n\nThe following custom properties and mixins are also available for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)))\n`--transparency-pattern-size` | size transparency pattern | 12px\n`--color-badge-radius` | border-radius of the badge | 3px\n`--color-badge-shadow` | box-shadow of the badge | none\n`--color-badge-height` | height of the badge | 28px\n`--color-badge-width` | width of the badge | 28px\n\nHave a look at [input-picker-pattern#input-shared-style](https://github.com/fooloomanzoo/input-picker-pattern#input-shared-style) to see how to style the element.",
+      "description": "`<color-input>` adds a color input to your page using Polymer. Depending on the `format` several inputs will be shown for the according color-properties.\nClick on the badge to generate a random color.\n\n  ```html\n    <color-input value=\"{{color}}\"></color-input>\n  ```\n\nThe following custom properties and mixins are also available for styling:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)), linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)))\n`--transparency-pattern-size` | size transparency pattern | 12px\n`--color-badge-radius` | border-radius of the badge | 3px\n`--color-badge-shadow` | box-shadow of the badge | none\n`--color-badge-height` | height of the badge | 28px\n`--color-badge-width` | width of the badge | 28px\n\nHave a look at [input-picker-pattern#input-shared-style](https://github.com/fooloomanzoo/input-picker-pattern#input-shared-style) to see how to style the element.",
       "summary": "",
       "path": "color-input.html",
       "properties": [
@@ -4298,7 +4316,7 @@
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 149,
               "column": 5
             }
           },
@@ -4877,7 +4895,7 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 145,
+              "line": 151,
               "column": 4
             },
             "end": {
@@ -4888,7 +4906,16 @@
           "metadata": {},
           "params": [
             {
+              "name": "context"
+            },
+            {
               "name": "value"
+            },
+            {
+              "name": "width"
+            },
+            {
+              "name": "height"
             }
           ],
           "inheritedFrom": "ColorBadgePattern"
@@ -6215,7 +6242,7 @@
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 149,
               "column": 5
             }
           },
@@ -6784,7 +6811,7 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 151,
               "column": 4
             },
             "end": {
@@ -6795,7 +6822,16 @@
           "metadata": {},
           "params": [
             {
+              "name": "context"
+            },
+            {
               "name": "value"
+            },
+            {
+              "name": "width"
+            },
+            {
+              "name": "height"
             }
           ]
         },
@@ -7859,7 +7895,7 @@
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 149,
               "column": 5
             }
           },
@@ -8438,7 +8474,7 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 145,
+              "line": 151,
               "column": 4
             },
             "end": {
@@ -8449,7 +8485,16 @@
           "metadata": {},
           "params": [
             {
+              "name": "context"
+            },
+            {
               "name": "value"
+            },
+            {
+              "name": "width"
+            },
+            {
+              "name": "height"
             }
           ],
           "inheritedFrom": "ColorBadgePattern"
@@ -9891,7 +9936,7 @@
               "column": 4
             },
             "end": {
-              "line": 143,
+              "line": 149,
               "column": 5
             }
           },
@@ -10470,7 +10515,7 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 145,
+              "line": 151,
               "column": 4
             },
             "end": {
@@ -10481,7 +10526,16 @@
           "metadata": {},
           "params": [
             {
+              "name": "context"
+            },
+            {
               "name": "value"
+            },
+            {
+              "name": "width"
+            },
+            {
+              "name": "height"
             }
           ],
           "inheritedFrom": "ColorBadgePattern"
