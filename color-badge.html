@@ -22,7 +22,7 @@
           --computed-transparency-pattern-position: calc(var(--transparency-pattern-size, 12px) / 2);
         }
         :host(:not([hide-transparency-pattern])) .transparency:before {
-          background-image: var(--transparency-pattern, linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)));
+          background-image: var(--transparency-pattern, linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)), linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)));
           background-size: var(--transparency-pattern-size, 12px) var(--transparency-pattern-size, 12px);
           background-position: 0 0, var(--computed-transparency-pattern-position) var(--computed-transparency-pattern-position);
           background-repeat: repeat;
@@ -140,27 +140,27 @@
 
     _colorStringChanged(value, oldValue) {
       super._colorStringChanged(value, oldValue);
-      this._drawBadge(value);
-    }
-
-    _drawBadge(value) {
       if (this.$.badge) {
         if (this._badgecontext === undefined) {
           this._badgecontext = this.$.badge.getContext("2d");
         }
         this._resizeBadge();
-        this._badgecontext.clearRect(0, 0, this._badgewidth, this._badgeheight);
-        this._badgecontext.fillStyle = value || 'rgba(0,0,0,0)';
-        this._badgecontext.fillRect(0, 0, this._badgewidth, this._badgeheight);
+        this._drawBadge(this._badgecontext, value, this._badgewidth, this._badgeheight);
       }
+    }
+
+    _drawBadge(context, value, width, height) {
+      context.clearRect(0, 0, width, height);
+      context.fillStyle = value || 'rgba(0,0,0,0)';
+      context.fillRect(0, 0, width, height);
     }
 
     _resizeBadge() {
       if (this.$.colorBadge) {
         const box = this.$.colorBadge.getBoundingClientRect();
         this.setProperties({
-          _badgewidth: Math.round(box.width),
-          _badgeheight: Math.round(box.height)
+          _badgewidth: Math.ceil(box.width) || 28,
+          _badgeheight: Math.ceil(box.height) || 28
         })
       }
     }
@@ -184,7 +184,7 @@
   *
   * Custom property | Description | Default
   * ----------------|-------------|----------
-  * `--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)), linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)))
+  * `--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)), linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)))
   * `--transparency-pattern-size` | size transparency pattern | 12px
   * `--color-badge-radius` | border-radius of the badge | 6px
   * `--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)
