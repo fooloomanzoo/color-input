@@ -43,7 +43,6 @@
 
     static get inputTemplate() {
       return `
-        ${this.colorBadgeTemplate}
         ${this.textInputTemplate}
         ${this.resetButtonTemplate}
       `
@@ -136,6 +135,7 @@
             ${this.styleTemplate}
           </style>
           <div id="input">
+            ${this.colorBadgeTemplate}
             ${this.inputTemplate}
           </div>
         `;
