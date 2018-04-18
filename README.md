@@ -39,10 +39,34 @@ An input for color. It can use the formats `rgb`, `hsl` or `hex`. Additionally y
 ```
 -->
 ```html
-<color-input format="hsl"></color-input><br><br>
-<color-input format="rgb"></color-input><br><br>
-<color-text-input format="rgb" color-string="teal"></color-text-input><br><br>
-<color-text-input format="text" color-string="teal"></color-text-input>
+  <span>color-input: </span><color-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-input>
+  <br>
+  <br>
+  <span>color-text-input: </span><color-text-input value="{{color}}" alpha="{{alpha}}" format="{{format}}"></color-text-input>
+  <p>
+    <span>format </span>
+    <select id="formats" value="{{format::change}}">
+      <option value="auto">auto</option>
+      <option value="rgb">rgb</option>
+      <option value="hex">hex</option>
+      <option value="hsl">hsl</option>
+    </select>
+    <br>
+    <input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}"><span> alpha: [[alpha]] </span>
+    <br>
+    <input type="range" min="0" max="255" step="1" value="{{r::input}}"><span> red: [[r]] </span>
+    <br>
+    <input type="range" min="0" max="255" step="1" value="{{g::input}}"><span> green: [[g]] </span>
+    <br>
+    <input type="range" min="0" max="255" step="1" value="{{b::input}}"><span> blue: [[b]] </span>
+    <br>
+    <input type="range" min="0" max="359" step="1" value="{{h::input}}"><span> hue: [[h]] </span>
+    <br>
+    <input type="range" min="0" max="1" step="0.001" value="{{s::input}}"><span> saturation: [[s]] </span>
+    <br>
+    <input type="range" min="0" max="1" step="0.001" value="{{l::input}}"><span> lightness: [[l]] </span>
+    <br>
+  </p>
 ```
 
 ### Styling

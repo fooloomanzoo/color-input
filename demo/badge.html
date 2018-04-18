@@ -19,6 +19,9 @@
           padding: 0.5em;
           line-height: 1.5;
         }
+        color-badge {
+          --color-badge-width: 100px;
+        }
       </style>
     </custom-style>
   </head>
@@ -59,7 +62,7 @@
                 <br>
                   <span>format </span>
                   <select id="formats" value="{{format::change}}">
-                    <option value="text">text</option>
+                    <option value="auto">auto</option>
                     <option value="hex">hex</option>
                     <option value="rgb">rgb</option>
                     <option value="hsl">hsl</option>
