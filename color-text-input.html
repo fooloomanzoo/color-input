@@ -50,7 +50,7 @@
 
     static get textInputTemplate() {
       return `
-        <text-input required="[[required]]" default="[[default]]" value="{{colorString}}" auto-resize pattern="[[_computeFormatPattern(format)]]" placeholder="#000" minlength="7" title="[[title]]"></text-input>
+        <text-input pattern="[[_computeFormatPattern(format)]]" required="[[required]]" default="[[default]]" value="{{colorString}}" auto-resize placeholder="#000" minlength="7" title="[[title]]"></text-input>
       `
     }
 
@@ -71,12 +71,14 @@
 
     _computeFormatPattern(format) {
       switch (format) {
-        case 'auto':
-          return '[\\w().,#\\s]*';
         case 'hsl':
           return this._validateHsl.toString().slice(1,-1);
+        case 'rgb':
+          return this._validateRgb.toString().slice(2,-2);
+        case 'hex':
+          return this._validateHex.toString().slice(2,-2);
         default:
-          return '^(?:' + this._validateRgb.toString().slice(2,-2) + '|' + this._validateHex.toString().slice(2,-2) + ')$';
+          return '[\\w().,#\\s]*';
       }
     }
   }
