@@ -143,7 +143,7 @@
   * @demo demo/input.html
   * @demo demo/form.html in a form
   **/
-    class ColorInput extends ColorInputPattern(Polymer.Element) { // eslint-disable-line no-undef
+    class ColorInput extends ColorInputPattern(FormElementMixin(Polymer.Element)) { // eslint-disable-line no-undef
 
       static get is() {
         return 'color-input';

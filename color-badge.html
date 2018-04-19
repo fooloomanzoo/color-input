@@ -96,15 +96,33 @@
           observer: '_noRandomColorOnClickChanged'
         },
 
-        _badgewidth: Number,
+        _badgewidth: {
+          type: Number
+        },
 
-        _badgeheight: Number
+        _badgeheight: {
+          type: Number
+        }
+      }
+    }
+
+    ready() {
+      super.ready();
+      this._resizeBadge();
+      this._badgecontext = this.$.badge && this.$.badge.getContext("2d");
+      if (this._badgecontext) {
+        this._createMethodObserver('_drawColorBadge(colorString,_badgewidth,_badgeheight)', true);
       }
     }
 
     connectedCallback() {
       super.connectedCallback();
+      this.redraw();
+    }
+
+    redraw() {
       this._resizeBadge();
+      this._drawColorBadge(this.colorString, this._badgewidth, this._badgeheight);
     }
 
     _noRandomColorOnClickChanged(noRandomColorOnClick) {
@@ -138,21 +156,22 @@
       super.random();
     }
 
-    _colorStringChanged(value, oldValue) {
-      super._colorStringChanged(value, oldValue);
-      if (this.$.badge) {
-        if (this._badgecontext === undefined) {
-          this._badgecontext = this.$.badge.getContext("2d");
-        }
-        this._resizeBadge();
-        this._drawBadge(this._badgecontext, value, this._badgewidth, this._badgeheight);
-      }
+    _colorStringChanged(value) {
+      super._colorStringChanged(value);
+      this._resizeBadge();
     }
 
     _drawBadge(context, value, width, height) {
+      if (context === undefined || width === undefined || height === undefined) {
+        return;
+      }
       context.clearRect(0, 0, width, height);
       context.fillStyle = value || 'rgba(0,0,0,0)';
       context.fillRect(0, 0, width, height);
+    }
+
+    _drawColorBadge(value, width, height) {
+      this._drawBadge(this._badgecontext, value, width, height);
     }
 
     _resizeBadge() {
