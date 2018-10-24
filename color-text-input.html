@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/lib/utils/mixin.html">
 <link rel="import" href="../text-input/text-input.html">
 <link rel="import" href="../input-picker-pattern/form-element-mixin.html">
 <link rel="import" href="../input-picker-pattern/input-shared-style.html">
@@ -8,82 +9,93 @@
   /**
    * Mixin for color-text-input
    *
-   * @appliesMixin ColorBadgePattern
-   * @appliesMixin FormElementMixin
-   *
    * @mixinFunction
    * @polymer
    */
-  const ColorTextInputPattern = (superClass) => class extends ColorBadgePattern(FormElementMixin(superClass)) { // eslint-disable-line no-unused-vars, no-undef
+  const ColorTextInputPattern = function(superClass) {
 
-    static get styleToInclude() {
-      return 'input-shared-style';
-    }
+    return class extends superClass { // eslint-disable-line no-unused-vars, no-undef
 
-    static get styleTemplate() {
-      return `
-        ${super.styleTemplate || ''}
-        .badge {
-          border-radius: var(--input-border-radius, var(--color-badge-radius, 3px));
-          height: var(--color-badge-height, 28px);
-          width: var(--color-badge-width, 28px);
-          box-shadow: var(--color-badge-shadow, none);
-        }
-        #input {
-          display: inline-flex;
-          flex-direction: row;
-          align-items: center;
-        }
-        text-input {
-          margin-left: 0.4em;
-          align-self: stretch;
-        }
-      `;
-    }
+      static get template() {
+        return `
+          <style include="${this.styleToInclude}">
+            ${this.styleTemplate}
+          </style>
+          <div id="input">
+            ${this.inputTemplate}
+          </div>
+        `;
+      }
 
-    static get inputTemplate() {
-      return `
-        ${this.textInputTemplate}
-        ${this.resetButtonTemplate}
-      `
-    }
+      static get styleToInclude() {
+        return 'input-shared-style';
+      }
 
-    static get textInputTemplate() {
-      return `
-        <text-input pattern="[[_computeFormatPattern(format)]]" required="[[required]]" value="{{colorString}}" auto-resize placeholder="#000" minlength="7" title="[[title]]"></text-input>
-      `
-    }
+      static get styleTemplate() {
+        return `
+          ${super.styleTemplate || ''}
+          .badge {
+            border-radius: var(--input-border-radius, var(--color-badge-radius, 3px));
+            height: var(--color-badge-height, 28px);
+            width: var(--color-badge-width, 28px);
+            box-shadow: var(--color-badge-shadow, none);
+          }
+          #input {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+          }
+          text-input {
+            margin-left: 0.4em;
+            align-self: stretch;
+          }
+        `;
+      }
 
-    static get resetButtonTemplate() {
-      return `
-        <button class="icon reset" invisible$="[[!_valueIsSet]]" hidden$="[[disabled]]" on-click="_resetColor"><svg viewBox="0 0 24 24"><g><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></g></svg></button>
-      `
-    }
+      static get inputTemplate() {
+        return `
+          ${this.textInputTemplate}
+          ${this.resetButtonTemplate}
+        `
+      }
 
-    static get properties() {
-      return {
-        propertyForValue: {
-          type: String,
-          value: 'colorString'
+      static get textInputTemplate() {
+        return `
+          <text-input pattern="[[_computeFormatPattern(format)]]" required="[[required]]" value="{{colorString}}" auto-resize placeholder="#000" minlength="7" title="[[title]]"></text-input>
+        `
+      }
+
+      static get resetButtonTemplate() {
+        return `
+          <button class="icon reset" invisible$="[[!_valueIsSet]]" hidden$="[[disabled]]" on-click="_resetColor"><svg viewBox="0 0 24 24"><g><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></g></svg></button>
+        `
+      }
+
+      static get properties() {
+        return {
+          propertyForValue: {
+            type: String,
+            value: 'colorString'
+          }
         }
       }
-    }
 
-    _computeFormatPattern(format) {
-      switch (format) {
-        case 'hsl':
-          return this._validateHsl.toString().slice(1,-1);
-        case 'rgb':
-          return this._validateRgb.toString().slice(2,-2);
-        case 'hex':
-          return this._validateHex.toString().slice(2,-2);
-        default:
-          return '[\\w().,#\\s]*';
+      _computeFormatPattern(format) {
+        switch (format) {
+          case 'hsl':
+            return this._validateHsl.toString().slice(1,-1);
+          case 'rgb':
+            return this._validateRgb.toString().slice(2,-2);
+          case 'hex':
+            return this._validateHex.toString().slice(2,-2);
+          default:
+            return '[\\w().,#\\s]*';
+        }
       }
     }
   }
 
-  window.ColorTextInputPattern = ColorTextInputPattern;
+  window.ColorTextInputPattern = Polymer.dedupingMixin(ColorTextInputPattern);
 </script>
 
 <dom-module id="color-text-input">
@@ -114,28 +126,18 @@
   * @polymer
   *
   * @appliesMixin ColorTextInputPattern
+  * @appliesMixin ColorBadgePattern
+  * @appliesMixin ColorMixin
+  * @appliesMixin FormElementMixin
   *
   * @demo demo/input.html
   * @demo demo/form.html in a form
   **/
-    class ColorTextInput extends ColorTextInputPattern(Polymer.Element) { // eslint-disable-line no-undef
+    class ColorTextInput extends ColorTextInputPattern(ColorBadgePattern(ColorMixin(FormElementMixin(Polymer.Element)))) { // eslint-disable-line no-undef
 
       static get is() {
         return 'color-text-input';
       }
-
-      static get template() {
-        return `
-          <style include="${this.styleToInclude}">
-            ${this.styleTemplate}
-          </style>
-          <div id="input">
-            ${this.colorBadgeTemplate}
-            ${this.inputTemplate}
-          </div>
-        `;
-      }
-
     }
     window.customElements.define(ColorTextInput.is, ColorTextInput);
   </script>

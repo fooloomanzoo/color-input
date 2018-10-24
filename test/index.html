@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+  </head>
+  <body>
+    <script>
+      // Load and run all tests (.html, .js):
+      WCT.loadSuites([
+        // color-badge
+        'color-badge_test.html',
+        '/components/property-mixins/test/color-mixin-test.html?specifier=color-badge&url=color-input/color-badge.html',
+        // color-text-input
+        'color-text-input_test.html',
+        'color-badge_test.html?specifier=color-input&url=color-text-input/color-text-input.html',
+        '/components/property-mixins/test/color-mixin-test.html?specifier=color-text-input&url=color-input/color-text-input.html',
+        '/components/input-picker-pattern/test/form-element-mixin_test.html?specifier=color-text-input&url=color-input/color-text-input.html',
+        // color-input
+        'color-input_test.html',
+        'color-badge_test.html?specifier=color-input&url=color-input/color-input.html',
+        'color-text-input_test.html?specifier=color-input&url=color-input/color-input.html',
+        '/components/property-mixins/test/color-mixin-test.html?specifier=color-input&url=color-input/color-input.html',
+        '/components/input-picker-pattern/test/form-element-mixin_test.html?specifier=color-input&url=color-input/color-input.html'
+      ]);
+    </script>
+
+</body></html>

@@ -1,4 +1,9 @@
 {
+  "sources": [
+    "color-badge.html",
+    "color-text-input.html",
+    "color-input.html"
+  ],
   "lint": {
     "rules": [
       "polymer-2"
