@@ -36,10 +36,10 @@
 
       test('instantiating the element with default properties should work', done => {
         assert.isDefined(element.propertyForValue, 'propertyForValue is defined');
-        setTimeout(() => {
+        Polymer.Base.async(() => {
           assert.isOk(element.shadowRoot.querySelector('.icon.reset'), 'element has an reset icon');
           done();
-        }, 0)
+        });
       });
     });
 
@@ -52,26 +52,28 @@
       });
 
       test('resetting by pressing reset icon', done => {
-        setTimeout(() => {
+        Polymer.Base.async(() => {
           let button = element.shadowRoot.querySelector('.icon.reset');
           MockInteractions.tap(button);
-          if (element.default) {
-            assert.equal(element.value, element.default, 'value is set to default');
-            assert.equal(element.value, element[element.propertyForValue], 'propertyForValue is reflection is happening');
-          } else {
-            assert.isUndefined(element.value, 'value is not defined');
-            assert.isUndefined(element.colorString, 'colorString is not defined');
-            assert.isUndefined(element.r, 'r is not defined');
-            assert.isUndefined(element.g, 'g is not defined');
-            assert.isUndefined(element.b, 'b is not defined');
-            assert.isUndefined(element.h, 'h is not defined');
-            assert.isUndefined(element.s, 's is not defined');
-            assert.isUndefined(element.l, 'l is not defined');
-            assert.isUndefined(element.alpha, 1, 'alpha is not defined');
-            assert.isUndefined(element[element.propertyForValue], 'propertyForValue is reflection is happening');
-          }
-          done();
-        }, 0)
+          Polymer.Base.async(() => {
+            if (element.default) {
+              assert.equal(element.value, element.default, 'value is set to default');
+              assert.equal(element.value, element[element.propertyForValue], 'propertyForValue is reflection is happening');
+            } else {
+              assert.isUndefined(element.value, 'value is not defined');
+              assert.isUndefined(element.colorString, 'colorString is not defined');
+              assert.isUndefined(element.r, 'r is not defined');
+              assert.isUndefined(element.g, 'g is not defined');
+              assert.isUndefined(element.b, 'b is not defined');
+              assert.isUndefined(element.h, 'h is not defined');
+              assert.isUndefined(element.s, 's is not defined');
+              assert.isUndefined(element.l, 'l is not defined');
+              assert.isUndefined(element.alpha, 1, 'alpha is not defined');
+              assert.isUndefined(element[element.propertyForValue], 'propertyForValue is reflection is happening');
+            }
+            done();
+          });
+        });
       });
     });
   </script>

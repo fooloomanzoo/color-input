@@ -45,22 +45,24 @@
         assert.isDefined(element._badgewidth, '_badgewidth is defined');
         assert.isDefined(element._badgeheight, '_badgeheight is defined');
         assert.isDefined(element._badgecontext, '_badgecontext is defined');
-        assert.isDefined(element.propertyForValue, 'propertyForValue is defined');
         done();
       });
 
       test('calling "randomColor" on the element should work', done => {
         assert.isDefined(element.randomColor, '"randomColor" exists');
         element.randomColor();
-        assert.isDefined(element.colorString, 'colorString is defined');
-        assert.isDefined(element.r, 'r is defined');
-        assert.isDefined(element.g, 'g is defined');
-        assert.isDefined(element.b, 'b is defined');
-        assert.isDefined(element.h, 'h is defined');
-        assert.isDefined(element.s, 's is defined');
-        assert.isDefined(element.l, 'year is defined');
-        assert.isDefined(element.alpha, 'alpha is defined');
-        done();
+        // setting  is async, so wait one tick.
+        Polymer.Base.async(() => {
+          assert.isDefined(element.r, 'r is defined');
+          assert.isDefined(element.g, 'g is defined');
+          assert.isDefined(element.b, 'b is defined');
+          assert.isDefined(element.h, 'h is defined');
+          assert.isDefined(element.s, 's is defined');
+          assert.isDefined(element.l, 'year is defined');
+          assert.isDefined(element.alpha, 'alpha is defined');
+          assert.isDefined(element.colorString, 'colorString is defined');
+          done();
+        });
       });
     });
 
@@ -72,15 +74,18 @@
       });
 
       test('setting property should work', done => {
-        assert.isDefined(element.colorString, 'colorString is defined');
-        assert.equal(element.r, 0, 'r should be set');
-        assert.equal(element.g, 0, 'g should be set');
-        assert.equal(element.b, 0, 'b should be set');
-        assert.equal(element.h, 0, 'h should be set');
-        assert.equal(element.s, 0, 's should be set');
-        assert.equal(element.l, 0, 'l should be set');
-        assert.equal(element.alpha, 1, 'alpha should be set');
-        done();
+        // setting  is async, so wait one tick.
+        Polymer.Base.async(() => {
+          assert.isDefined(element.colorString, 'colorString is defined');
+          assert.equal(element.r, 0, 'r should be set');
+          assert.equal(element.g, 0, 'g should be set');
+          assert.equal(element.b, 0, 'b should be set');
+          assert.equal(element.h, 0, 'h should be set');
+          assert.equal(element.s, 0, 's should be set');
+          assert.equal(element.l, 0, 'l should be set');
+          assert.equal(element.alpha, 1, 'alpha should be set');
+          done();
+        });
       });
     });
 
@@ -92,22 +97,25 @@
       });
 
       test('clicking on badge causing random color', done => {
-        setTimeout(() => {
+        Polymer.Base.async(() => {
           let badge = element.$.badge;
           // wait a tick to let dom-if stamping finish
           if (badge && !element.noRandomColorOnClick) {
             MockInteractions.tap(badge);
-            assert.isDefined(element.colorString, 'colorString is defined');
-            assert.isDefined(element.r, 'r is defined');
-            assert.isDefined(element.g, 'g is defined');
-            assert.isDefined(element.b, 'b is defined');
-            assert.isDefined(element.h, 'h is defined');
-            assert.isDefined(element.s, 's is defined');
-            assert.isDefined(element.l, 'year is defined');
-            assert.isDefined(element.alpha, 'alpha is defined');
+            // setting  is async, so wait one tick.
+            Polymer.Base.async(() => {
+              assert.isDefined(element.colorString, 'colorString is defined');
+              assert.isDefined(element.r, 'r is defined');
+              assert.isDefined(element.g, 'g is defined');
+              assert.isDefined(element.b, 'b is defined');
+              assert.isDefined(element.h, 'h is defined');
+              assert.isDefined(element.s, 's is defined');
+              assert.isDefined(element.l, 'year is defined');
+              assert.isDefined(element.alpha, 'alpha is defined');
+            });
           }
           done();
-        }, 0);
+        });
       });
     });
   </script>
