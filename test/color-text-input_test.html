@@ -9,6 +9,7 @@
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
   <script src="../../web-component-tester/browser.js"></script>
+  <script src="../../iron-test-helpers/mock-interactions.js"></script>
   <script src="../../input-picker-pattern/utils/wct-mixin-test-helper.js"></script>
 
   <link rel="import" href="../color-text-input.html">
@@ -19,12 +20,6 @@
   <test-fixture id="Basic">
     <template>
       <color-text-input></color-text-input>
-    </template>
-  </test-fixture>
-
-  <test-fixture id="ChangingProperties">
-    <template>
-      <color-text-input date="1980-02-01"></color-text-input>
     </template>
   </test-fixture>
 
@@ -40,145 +35,43 @@
       });
 
       test('instantiating the element with default properties should work', done => {
-        assert.isUndefined(element.date, 'no date is defined');
-        assert.isUndefined(element.time, 'no time is defined');
-        assert.isUndefined(element.datetime, 'no datetime is defined');
-        assert.isUndefined(element.value, 'no value is defined');
-        assert.isUndefined(element.valueAsNumber, 'no valueAsNumber is defined');
-        assert.isUndefined(element.valueAsDate, 'no valueAsDate is defined');
-        assert.isUndefined(element.year, 'no year is defined');
-        assert.isUndefined(element.month, 'no month is defined');
-        assert.isUndefined(element.day, 'no day is defined');
-        assert.isUndefined(element.hour, 'no hour is defined');
-        assert.isUndefined(element.hour12, 'no hour12 is defined');
-        assert.isUndefined(element.minute, 'no minute is defined');
-        assert.isUndefined(element.second, 'no second is defined');
-        assert.isUndefined(element.millisecond, 'no millisecond is defined');
-        assert.isUndefined(element.timezone, 'no timezone is defined');
-        assert.isUndefined(element.offsetMinutes, 'no timezone-offset is defined');
-        assert.isUndefined(element._timeZoneHours, 'no timezone-hours is defined');
-        assert.isUndefined(element._timeZoneMinutes, 'no timezone-minutes is defined');
-        assert.isDefined(element.locale, 'locale is defined');
-        assert.isDefined(element.decimalSeparator, 'decimalSeparator is defined');
-        assert.isDefined(element.dateSeparator, 'dateSeparator is defined');
-        assert.isDefined(element.timeSeparator, 'timeSeparator is defined');
-        assert.isDefined(element.amString, 'amString is defined');
-        assert.isDefined(element.pmString, 'pmString is defined');
-        assert.isDefined(element.dateOrder, 'dateOrder is defined');
         assert.isDefined(element.propertyForValue, 'propertyForValue is defined');
-        done();
-      });
-
-      test('calling "now" on the element should work', done => {
-        assert.isDefined(element.now, '"now" exists');
-        element.now();
-        assert.isDefined(element.date, 'date is defined');
-        assert.isDefined(element.time, 'time is defined');
-        assert.isDefined(element.datetime, 'datetime is defined');
-        assert.isDefined(element.value, 'value is defined');
-        assert.isDefined(element.valueAsNumber, 'valueAsNumber is defined');
-        assert.isDefined(element.valueAsDate, 'valueAsDate is defined');
-        assert.isDefined(element.year, 'year is defined');
-        assert.isDefined(element.month, 'month is defined');
-        assert.isDefined(element.day, 'day is defined');
-        assert.isDefined(element.hour, 'hour is defined');
-        assert.isDefined(element.minute, 'minute is defined');
-        assert.isDefined(element.second, 'second is defined');
-        assert.isDefined(element.millisecond, 'millisecond is defined');
-        assert.isDefined(element.timezone, 'timezone is defined');
-        assert.isDefined(element.offsetMinutes, 'timezone-offset is defined');
-        assert.isDefined(element._timeZoneHours, 'timezone-hours is defined');
-        assert.isDefined(element._timeZoneMinutes, 'timezone-minutes is defined');
-        done();
+        setTimeout(() => {
+          assert.isOk(element.shadowRoot.querySelector('.icon.reset'), 'element has an reset icon');
+          done();
+        }, 0)
       });
     });
 
-    suite('setting properties', () => {
+    suite('resetting', () => {
       let element;
 
       setup(function() {
-        element = fixture('ChangingProperties');
+        element = fixture('Basic');
+        element.randomColor();
       });
 
-      test('setting property should work', done => {
-        assert.equal(element.year, 1980, 'year should be set');
-        assert.equal(element.month, 2, 'month should be set');
-        assert.equal(element.day, 1, 'day should be set');
-        assert.equal(element.hour, 0, 'hour should be set');
-        assert.equal(element.minute, 0, 'minute should be set');
-        assert.equal(element.second, 0, 'second should be set');
-        assert.equal(element.millisecond, 0, 'millisecond should be set');
-        assert.equal(element.date, '1980-02-01', 'date should be set');
-        assert.equal(element.time, '00:00:00.000', 'time should be set');
-        assert.isDefined(element.valueAsNumber, 'valueAsNumber should be set');
-        assert.isDefined(element.valueAsDate, 'valueAsDate should be set');
-        assert.isDefined(element.timezone, 'timezone should be set');
-        assert.isDefined(element.offsetMinutes, 'offsetMinutes should be set');
-        done();
-      });
-    });
-
-    suite('clamp and hidden inputs', function() {
-      let f;
-
-      setup(function() {
-        f = fixture('Clamp');
-      });
-
-      test('clamp month', done => {
-        let element = f.querySelector('#clamp-month');
-
+      test('resetting by pressing reset icon', done => {
         setTimeout(() => {
-          // wait a tick to let dom-if stamping finish
-          assert.equal(element.clamp, 'month', 'clamp is set');
-
-          let yearInput = element.shadowRoot.querySelector('#year');
-          let monthInput = element.shadowRoot.querySelector('#month');
-          let dayInput = element.shadowRoot.querySelector('#day');
-
-          assert.notEqual(document.defaultView.getComputedStyle(yearInput).display, 'none', 'year is not hidden');
-          if (monthInput) {
-            assert.equal(document.defaultView.getComputedStyle(monthInput).display, 'none', 'month is hidden');
-          }
-          if (dayInput) {
-            assert.equal(document.defaultView.getComputedStyle(dayInput).display, 'none', 'day is hidden');
+          let button = element.shadowRoot.querySelector('.icon.reset');
+          MockInteractions.tap(button);
+          if (element.default) {
+            assert.equal(element.value, element.default, 'value is set to default');
+            assert.equal(element.value, element[element.propertyForValue], 'propertyForValue is reflection is happening');
+          } else {
+            assert.isUndefined(element.value, 'value is not defined');
+            assert.isUndefined(element.colorString, 'colorString is not defined');
+            assert.isUndefined(element.r, 'r is not defined');
+            assert.isUndefined(element.g, 'g is not defined');
+            assert.isUndefined(element.b, 'b is not defined');
+            assert.isUndefined(element.h, 'h is not defined');
+            assert.isUndefined(element.s, 's is not defined');
+            assert.isUndefined(element.l, 'l is not defined');
+            assert.isUndefined(element.alpha, 1, 'alpha is not defined');
+            assert.isUndefined(element[element.propertyForValue], 'propertyForValue is reflection is happening');
           }
           done();
-        }, 0);
-      });
-
-      test('clamp day', done => {
-        let element = f.querySelector('#clamp-day');
-        setTimeout(() => {
-          // wait a tick to let dom-if stamping finish
-          let yearInput = element.shadowRoot.querySelector('#year');
-          let monthInput = element.shadowRoot.querySelector('#month');
-          let dayInput = element.shadowRoot.querySelector('#day');
-
-          assert.notEqual(document.defaultView.getComputedStyle(yearInput).display, 'none', 'year is not hidden');
-          assert.notEqual(document.defaultView.getComputedStyle(monthInput).display, 'none', 'month is not hidden');
-
-          if (dayInput) {
-            assert.equal(document.defaultView.getComputedStyle(dayInput).display, 'none', 'day is hidden');
-          }
-          done();
-        }, 0);
-      });
-
-      test('no clamp', done => {
-        let element = f.querySelector('#clamp-none');
-        setTimeout(() => {
-          // wait a tick to let dom-if stamping finish
-          let yearInput = element.shadowRoot.querySelector('#year');
-          let monthInput = element.shadowRoot.querySelector('#month');
-          let dayInput = element.shadowRoot.querySelector('#day');
-
-          assert.notEqual(document.defaultView.getComputedStyle(yearInput).display, 'none', 'year is not hidden');
-          assert.notEqual(document.defaultView.getComputedStyle(monthInput).display, 'none', 'month is not hidden');
-          assert.notEqual(document.defaultView.getComputedStyle(dayInput).display, 'none', 'day is not hidden');
-
-          done();
-        }, 0);
+        }, 0)
       });
     });
   </script>
