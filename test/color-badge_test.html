@@ -25,7 +25,7 @@
 
   <test-fixture id="ChangingProperties">
     <template>
-      <color-badge color-string="#123"></color-badge>
+      <color-badge color-string="#000"></color-badge>
     </template>
   </test-fixture>
 
@@ -60,6 +60,7 @@
           assert.isDefined(element.s, 's is defined');
           assert.isDefined(element.l, 'year is defined');
           assert.isDefined(element.alpha, 'alpha is defined');
+          console.log(element.r, element.g, element.b, element.h, element.s, element.l, element.alpha);
           assert.isDefined(element.colorString, 'colorString is defined');
           done();
         });
@@ -76,7 +77,6 @@
       test('setting property should work', done => {
         // setting  is async, so wait one tick.
         Polymer.Base.async(() => {
-          assert.isDefined(element.colorString, 'colorString is defined');
           assert.equal(element.r, 0, 'r should be set');
           assert.equal(element.g, 0, 'g should be set');
           assert.equal(element.b, 0, 'b should be set');
@@ -84,6 +84,7 @@
           assert.equal(element.s, 0, 's should be set');
           assert.equal(element.l, 0, 'l should be set');
           assert.equal(element.alpha, 1, 'alpha should be set');
+          assert.isDefined(element.colorString, 'colorString is defined');
           done();
         });
       });

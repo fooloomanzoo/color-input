@@ -48,7 +48,6 @@
                 break;
               default:
                 regexp = this._defaultValidateColorString;
-                break;
             }
             isSet = function(value) {
               return this._defaultIsSet(value) && !(regexp.exec(value) === null);
@@ -127,7 +126,7 @@
 
       static get textInputTemplate() {
         return `
-          <text-input pattern="[[_computeFormatPattern(format)]]" required="[[required]]" value="{{colorString}}" auto-resize placeholder="#000" minlength="7" title="[[title]]"></text-input>
+          <text-input pattern="[[_computeFormatPattern(format)]]" required="[[required]]" value="{{colorString}}" auto-resize placeholder="[[_computeFormatPlaceholder(format, alphaMode, _hexAlphaSupported)]]" minlength="7" title="[[title]]"></text-input>
         `
       }
 
@@ -140,13 +139,24 @@
       _computeFormatPattern(format) {
         switch (format) {
           case 'hsl':
-            return this._validateHsl.toString().slice(1,-1);
+            return this._validateHsl;
           case 'rgb':
-            return this._validateRgb.toString().slice(2,-2);
+            return this._validateRgb;
           case 'hex':
-            return this._validateHex.toString().slice(2,-2);
+            return this._validateHex;
           default:
-            return this._defaultValidateColorString.toString().slice(2,-2);
+            return this._defaultValidateColorString;
+        }
+      }
+
+      _computeFormatPlaceholder(format, alphaMode, hexAlphaSupported) {
+        switch (format) {
+          case 'hsl':
+            return `hsl${alphaMode ? 'a' : ''}(0, 0%, 0%${alphaMode ? ', 1' : ''})`;
+          case 'rgb':
+            return `rgb${alphaMode ? 'a' : ''}(0, 0, 0${alphaMode ? ', 1' : ''})`;
+          default:
+            return `#000000`;
         }
       }
     }
