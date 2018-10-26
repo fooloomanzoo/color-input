@@ -23,12 +23,6 @@
     </template>
   </test-fixture>
 
-  <test-fixture id="ChangingProperties">
-    <template>
-      <color-badge color-string="#000"></color-badge>
-    </template>
-  </test-fixture>
-
   <script>
     WCT.helpers.mixinSuite('color-badge');
 
@@ -42,16 +36,15 @@
 
       test('instantiating the element with default properties should work', done => {
         assert.isUndefined(element.hideTransparencyPattern, 'no hideTransparencyPattern is defined');
-        assert.isDefined(element._badgewidth, '_badgewidth is defined');
-        assert.isDefined(element._badgeheight, '_badgeheight is defined');
-        assert.isDefined(element._badgecontext, '_badgecontext is defined');
+        assert.isDefined(element._badgeWidth, '_badgewidth is defined');
+        assert.isDefined(element._badgeHeight, '_badgeheight is defined');
+        assert.isDefined(element._badgeContext, '_badgecontext is defined');
         done();
       });
 
       test('calling "randomColor" on the element should work', done => {
         assert.isDefined(element.randomColor, '"randomColor" exists');
         element.randomColor();
-        // setting  is async, so wait one tick.
         Polymer.Base.async(() => {
           assert.isDefined(element.r, 'r is defined');
           assert.isDefined(element.g, 'g is defined');
@@ -60,33 +53,9 @@
           assert.isDefined(element.s, 's is defined');
           assert.isDefined(element.l, 'year is defined');
           assert.isDefined(element.alpha, 'alpha is defined');
-          console.log(element.r, element.g, element.b, element.h, element.s, element.l, element.alpha);
           assert.isDefined(element.colorString, 'colorString is defined');
           done();
-        });
-      });
-    });
-
-    suite('setting properties', () => {
-      let element;
-
-      setup(function() {
-        element = fixture('ChangingProperties');
-      });
-
-      test('setting property should work', done => {
-        // setting  is async, so wait one tick.
-        Polymer.Base.async(() => {
-          assert.equal(element.r, 0, 'r should be set');
-          assert.equal(element.g, 0, 'g should be set');
-          assert.equal(element.b, 0, 'b should be set');
-          assert.equal(element.h, 0, 'h should be set');
-          assert.equal(element.s, 0, 's should be set');
-          assert.equal(element.l, 0, 'l should be set');
-          assert.equal(element.alpha, 1, 'alpha should be set');
-          assert.isDefined(element.colorString, 'colorString is defined');
-          done();
-        });
+        })
       });
     });
 
@@ -104,16 +73,14 @@
           if (badge && !element.noRandomColorOnClick) {
             MockInteractions.tap(badge);
             // setting  is async, so wait one tick.
-            Polymer.Base.async(() => {
-              assert.isDefined(element.colorString, 'colorString is defined');
-              assert.isDefined(element.r, 'r is defined');
-              assert.isDefined(element.g, 'g is defined');
-              assert.isDefined(element.b, 'b is defined');
-              assert.isDefined(element.h, 'h is defined');
-              assert.isDefined(element.s, 's is defined');
-              assert.isDefined(element.l, 'year is defined');
-              assert.isDefined(element.alpha, 'alpha is defined');
-            });
+            assert.isDefined(element.colorString, 'colorString is defined');
+            assert.isDefined(element.r, 'r is defined');
+            assert.isDefined(element.g, 'g is defined');
+            assert.isDefined(element.b, 'b is defined');
+            assert.isDefined(element.h, 'h is defined');
+            assert.isDefined(element.s, 's is defined');
+            assert.isDefined(element.l, 'year is defined');
+            assert.isDefined(element.alpha, 'alpha is defined');
           }
           done();
         });

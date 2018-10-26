@@ -50,7 +50,7 @@
                 regexp = this._defaultValidateColorString;
             }
             isSet = function(value) {
-              return this._defaultIsSet(value) && !(regexp.exec(value) === null);
+              return typeof value === 'string' && value !== '' && !(regexp.exec(value) === null);
             }
             break;
           case 'r': // falls through
@@ -126,7 +126,7 @@
 
       static get textInputTemplate() {
         return `
-          <text-input pattern="[[_computeFormatPattern(format)]]" required="[[required]]" value="{{colorString}}" auto-resize placeholder="[[_computeFormatPlaceholder(format, alphaMode, _hexAlphaSupported)]]" minlength="7" title="[[title]]"></text-input>
+          <text-input pattern="[[_computeFormatPattern(format)]]" required="[[required]]" value="{{colorString}}" auto-resize placeholder="[[_computeFormatPlaceholder(format, alphaMode, _hexAlphaSupported)]]" title="[[title]]"></text-input>
         `
       }
 

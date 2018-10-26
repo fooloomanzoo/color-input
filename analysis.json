@@ -53,7 +53,7 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_badgewidth",
+          "name": "_badgeWidth",
           "type": "number | null | undefined",
           "description": "",
           "privacy": "protected",
@@ -75,7 +75,7 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_badgeheight",
+          "name": "_badgeHeight",
           "type": "number | null | undefined",
           "description": "",
           "privacy": "protected",
@@ -92,6 +92,28 @@
           "metadata": {
             "polymer": {
               "attributeType": "Number"
+            }
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_badgeContext",
+          "type": "CanvasRenderingContext2D | null | undefined",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 10
+            },
+            "end": {
+              "line": 108,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "CanvasRenderingContext2D"
             }
           },
           "inheritedFrom": "ColorBadgePattern"
@@ -446,11 +468,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 118,
               "column": 6
             },
             "end": {
-              "line": 115,
+              "line": 122,
               "column": 7
             }
           },
@@ -484,83 +506,16 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "redraw",
-          "description": "",
+          "name": "render",
+          "description": "render the element",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 125,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_noRandomColorOnClickChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 127,
-              "column": 6
-            },
-            "end": {
-              "line": 133,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "noRandomColorOnClick"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_addClickListenerForBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 135,
-              "column": 6
-            },
-            "end": {
-              "line": 140,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_removeClickListenerForBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 142,
-              "column": 6
-            },
-            "end": {
-              "line": 147,
+              "line": 134,
               "column": 7
             }
           },
@@ -594,32 +549,40 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "_drawBadge",
-          "description": "",
+          "name": "_draw",
+          "description": "fills a canvas context with a color",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 162,
+              "line": 158,
               "column": 6
             },
             "end": {
-              "line": 169,
+              "line": 165,
               "column": 7
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "context"
+              "name": "context",
+              "type": "CanvasRenderingContext2D",
+              "description": "The context of the canvas that should be drawn."
             },
             {
-              "name": "value"
+              "name": "colorString",
+              "type": "String",
+              "description": "The color string to be drawn."
             },
             {
-              "name": "width"
+              "name": "width",
+              "type": "Number",
+              "description": "The width to draw within the canvas."
             },
             {
-              "name": "height"
+              "name": "height",
+              "type": "Number",
+              "description": "The height to draw within the canvas"
             }
           ],
           "return": {
@@ -628,47 +591,104 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_drawColorBadge",
-          "description": "",
+          "name": "_computeContexts",
+          "description": "computes the canvas contexts of the element",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 173,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "value"
-            },
-            {
-              "name": "width"
-            },
-            {
-              "name": "height"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_resizeBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
               "line": 175,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_computeSizeProperties",
+          "description": "computes the size properties for the canvas",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 180,
               "column": 6
             },
             "end": {
-              "line": 183,
+              "line": 190,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_noRandomColorOnClickChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 192,
+              "column": 6
+            },
+            "end": {
+              "line": 198,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "noRandomColorOnClick"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_addClickListenerForBadge",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 200,
+              "column": 6
+            },
+            "end": {
+              "line": 205,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_removeClickListenerForBadge",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 207,
+              "column": 6
+            },
+            "end": {
+              "line": 212,
               "column": 7
             }
           },
@@ -1034,86 +1054,46 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "_normalizeRgb",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 510,
-              "column": 6
-            },
-            "end": {
-              "line": 515,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "rgb"
-            }
-          ],
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "_normalizeHsl",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 517,
-              "column": 6
-            },
-            "end": {
-              "line": 522,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "hsl"
-            }
-          ],
-          "inheritedFrom": "ColorMixin"
-        },
-        {
           "name": "hexToRgb",
-          "description": "",
+          "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 524,
+              "line": 529,
               "column": 6
             },
             "end": {
-              "line": 537,
+              "line": 542,
               "column": 7
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "hex"
+              "name": "hex",
+              "type": "String",
+              "description": "The hex string without alpha"
             }
           ],
+          "return": {
+            "type": "rgbObject",
+            "desc": "the rgb object"
+          },
           "inheritedFrom": "ColorMixin"
         },
         {
           "name": "rgbToHex",
-          "description": "",
+          "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 539,
+              "line": 549,
               "column": 6
             },
             "end": {
-              "line": 544,
+              "line": 554,
               "column": 7
             }
           },
@@ -1123,6 +1103,73 @@
               "name": "rgb"
             }
           ],
+          "return": {
+            "type": "rgbObject",
+            "desc": "the rgb object"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "rgbToHsl",
+          "description": "convert rgb to hsl (the values are not rounded)",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 562,
+              "column": 6
+            },
+            "end": {
+              "line": 598,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "rgb",
+              "type": "rgbObject",
+              "description": "rgb object"
+            },
+            {
+              "name": "defaultH",
+              "type": "Number",
+              "description": "hue to set if saturation is 0"
+            }
+          ],
+          "return": {
+            "type": "hslObject",
+            "desc": "hsl object"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "hslToRgb",
+          "description": "convert hsl to rgb (the values are not rounded)",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 605,
+              "column": 6
+            },
+            "end": {
+              "line": 616,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "hsl",
+              "type": "hslObject",
+              "description": "hsl object"
+            }
+          ],
+          "return": {
+            "type": "rgbObject",
+            "desc": "rgb object"
+          },
           "inheritedFrom": "ColorMixin"
         },
         {
@@ -1132,11 +1179,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 546,
+              "line": 618,
               "column": 6
             },
             "end": {
-              "line": 553,
+              "line": 625,
               "column": 7
             }
           },
@@ -1155,11 +1202,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 555,
+              "line": 627,
               "column": 6
             },
             "end": {
-              "line": 561,
+              "line": 633,
               "column": 7
             }
           },
@@ -1181,11 +1228,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 563,
+              "line": 635,
               "column": 6
             },
             "end": {
-              "line": 567,
+              "line": 639,
               "column": 7
             }
           },
@@ -1201,46 +1248,17 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "hslToRgb",
-          "description": "convert hsl to rgb (the values are not rounded)",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 574,
-              "column": 6
-            },
-            "end": {
-              "line": 585,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "hsl",
-              "type": "Object",
-              "description": "hsl object"
-            }
-          ],
-          "return": {
-            "type": "Object",
-            "desc": "rgb object"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "hueToComponent",
+          "name": "_hueToComponent",
           "description": "",
-          "privacy": "public",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 587,
+              "line": 641,
               "column": 6
             },
             "end": {
-              "line": 594,
+              "line": 648,
               "column": 7
             }
           },
@@ -1259,36 +1277,58 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "rgbToHsl",
-          "description": "convert rgb to hsl (the values are not rounded)",
-          "privacy": "public",
+          "name": "_normalizeRgb",
+          "description": "normalize rgb values",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 602,
-              "column": 6
+              "line": 655,
+              "column": 5
             },
             "end": {
-              "line": 638,
-              "column": 7
+              "line": 660,
+              "column": 6
             }
           },
           "metadata": {},
           "params": [
             {
               "name": "rgb",
-              "type": "Object",
-              "description": "rgb object"
-            },
-            {
-              "name": "defaultH",
-              "type": "Number",
-              "description": "hue to set if saturation is 0"
+              "type": "rgbObject",
+              "description": "The rgb-object of which the values should be normalized"
             }
           ],
           "return": {
-            "type": "Object",
-            "desc": "hsl object"
+            "type": "rgbObject",
+            "desc": "The normalized rgb-object."
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "_normalizeHsl",
+          "description": "normalize hsl values",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 667,
+              "column": 5
+            },
+            "end": {
+              "line": 672,
+              "column": 6
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "hsl"
+            }
+          ],
+          "return": {
+            "type": "hslObject",
+            "desc": "The normalized hsl-object."
           },
           "inheritedFrom": "ColorMixin"
         },
@@ -1299,11 +1339,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 640,
+              "line": 674,
               "column": 6
             },
             "end": {
-              "line": 642,
+              "line": 676,
               "column": 7
             }
           },
@@ -1325,11 +1365,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 644,
+              "line": 678,
               "column": 6
             },
             "end": {
-              "line": 646,
+              "line": 680,
               "column": 7
             }
           },
@@ -1352,11 +1392,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 221,
+          "line": 251,
           "column": 4
         },
         "end": {
-          "line": 235,
+          "line": 265,
           "column": 5
         }
       },
@@ -1700,7 +1740,7 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_badgewidth",
+          "name": "_badgeWidth",
           "type": "number | null | undefined",
           "description": "",
           "privacy": "protected",
@@ -1723,7 +1763,7 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_badgeheight",
+          "name": "_badgeHeight",
           "type": "number | null | undefined",
           "description": "",
           "privacy": "protected",
@@ -1741,6 +1781,29 @@
           "metadata": {
             "polymer": {
               "attributeType": "Number"
+            }
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_badgeContext",
+          "type": "CanvasRenderingContext2D | null | undefined",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 106,
+              "column": 10
+            },
+            "end": {
+              "line": 108,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "CanvasRenderingContext2D"
             }
           },
           "inheritedFrom": "ColorBadgePattern"
@@ -2410,11 +2473,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 108,
+              "line": 118,
               "column": 6
             },
             "end": {
-              "line": 115,
+              "line": 122,
               "column": 7
             }
           },
@@ -2448,87 +2511,17 @@
           "inheritedFrom": "FormElementMixin"
         },
         {
-          "name": "redraw",
-          "description": "",
+          "name": "render",
+          "description": "render the element",
           "privacy": "public",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 122,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 125,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_noRandomColorOnClickChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "color-badge.html",
-            "start": {
-              "line": 127,
-              "column": 6
-            },
-            "end": {
-              "line": 133,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "noRandomColorOnClick"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_addClickListenerForBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "color-badge.html",
-            "start": {
-              "line": 135,
-              "column": 6
-            },
-            "end": {
-              "line": 140,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_removeClickListenerForBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "color-badge.html",
-            "start": {
-              "line": 142,
-              "column": 6
-            },
-            "end": {
-              "line": 147,
+              "line": 134,
               "column": 7
             }
           },
@@ -2562,33 +2555,41 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "_drawBadge",
-          "description": "",
+          "name": "_draw",
+          "description": "fills a canvas context with a color",
           "privacy": "protected",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 162,
+              "line": 158,
               "column": 6
             },
             "end": {
-              "line": 169,
+              "line": 165,
               "column": 7
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "context"
+              "name": "context",
+              "type": "CanvasRenderingContext2D",
+              "description": "The context of the canvas that should be drawn."
             },
             {
-              "name": "value"
+              "name": "colorString",
+              "type": "String",
+              "description": "The color string to be drawn."
             },
             {
-              "name": "width"
+              "name": "width",
+              "type": "Number",
+              "description": "The width to draw within the canvas."
             },
             {
-              "name": "height"
+              "name": "height",
+              "type": "Number",
+              "description": "The height to draw within the canvas"
             }
           ],
           "return": {
@@ -2597,49 +2598,109 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_drawColorBadge",
-          "description": "",
+          "name": "_computeContexts",
+          "description": "computes the canvas contexts of the element",
           "privacy": "protected",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 171,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 173,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "value"
-            },
-            {
-              "name": "width"
-            },
-            {
-              "name": "height"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_resizeBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "color-badge.html",
-            "start": {
               "line": 175,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_computeSizeProperties",
+          "description": "computes the size properties for the canvas",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 180,
               "column": 6
             },
             "end": {
-              "line": 183,
+              "line": 190,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_noRandomColorOnClickChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 192,
+              "column": 6
+            },
+            "end": {
+              "line": 198,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "noRandomColorOnClick"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_addClickListenerForBadge",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 200,
+              "column": 6
+            },
+            "end": {
+              "line": 205,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_removeClickListenerForBadge",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 207,
+              "column": 6
+            },
+            "end": {
+              "line": 212,
               "column": 7
             }
           },
@@ -3033,86 +3094,46 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "_normalizeRgb",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 510,
-              "column": 6
-            },
-            "end": {
-              "line": 515,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "rgb"
-            }
-          ],
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "_normalizeHsl",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 517,
-              "column": 6
-            },
-            "end": {
-              "line": 522,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "hsl"
-            }
-          ],
-          "inheritedFrom": "ColorMixin"
-        },
-        {
           "name": "hexToRgb",
-          "description": "",
+          "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 524,
+              "line": 529,
               "column": 6
             },
             "end": {
-              "line": 537,
+              "line": 542,
               "column": 7
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "hex"
+              "name": "hex",
+              "type": "String",
+              "description": "The hex string without alpha"
             }
           ],
+          "return": {
+            "type": "rgbObject",
+            "desc": "the rgb object"
+          },
           "inheritedFrom": "ColorMixin"
         },
         {
           "name": "rgbToHex",
-          "description": "",
+          "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 539,
+              "line": 549,
               "column": 6
             },
             "end": {
-              "line": 544,
+              "line": 554,
               "column": 7
             }
           },
@@ -3122,6 +3143,73 @@
               "name": "rgb"
             }
           ],
+          "return": {
+            "type": "rgbObject",
+            "desc": "the rgb object"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "rgbToHsl",
+          "description": "convert rgb to hsl (the values are not rounded)",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 562,
+              "column": 6
+            },
+            "end": {
+              "line": 598,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "rgb",
+              "type": "rgbObject",
+              "description": "rgb object"
+            },
+            {
+              "name": "defaultH",
+              "type": "Number",
+              "description": "hue to set if saturation is 0"
+            }
+          ],
+          "return": {
+            "type": "hslObject",
+            "desc": "hsl object"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "hslToRgb",
+          "description": "convert hsl to rgb (the values are not rounded)",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 605,
+              "column": 6
+            },
+            "end": {
+              "line": 616,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "hsl",
+              "type": "hslObject",
+              "description": "hsl object"
+            }
+          ],
+          "return": {
+            "type": "rgbObject",
+            "desc": "rgb object"
+          },
           "inheritedFrom": "ColorMixin"
         },
         {
@@ -3131,11 +3219,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 546,
+              "line": 618,
               "column": 6
             },
             "end": {
-              "line": 553,
+              "line": 625,
               "column": 7
             }
           },
@@ -3154,11 +3242,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 555,
+              "line": 627,
               "column": 6
             },
             "end": {
-              "line": 561,
+              "line": 633,
               "column": 7
             }
           },
@@ -3180,11 +3268,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 563,
+              "line": 635,
               "column": 6
             },
             "end": {
-              "line": 567,
+              "line": 639,
               "column": 7
             }
           },
@@ -3200,46 +3288,17 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "hslToRgb",
-          "description": "convert hsl to rgb (the values are not rounded)",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 574,
-              "column": 6
-            },
-            "end": {
-              "line": 585,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "hsl",
-              "type": "Object",
-              "description": "hsl object"
-            }
-          ],
-          "return": {
-            "type": "Object",
-            "desc": "rgb object"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "hueToComponent",
+          "name": "_hueToComponent",
           "description": "",
-          "privacy": "public",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 587,
+              "line": 641,
               "column": 6
             },
             "end": {
-              "line": 594,
+              "line": 648,
               "column": 7
             }
           },
@@ -3258,36 +3317,58 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "rgbToHsl",
-          "description": "convert rgb to hsl (the values are not rounded)",
-          "privacy": "public",
+          "name": "_normalizeRgb",
+          "description": "normalize rgb values",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 602,
-              "column": 6
+              "line": 655,
+              "column": 5
             },
             "end": {
-              "line": 638,
-              "column": 7
+              "line": 660,
+              "column": 6
             }
           },
           "metadata": {},
           "params": [
             {
               "name": "rgb",
-              "type": "Object",
-              "description": "rgb object"
-            },
-            {
-              "name": "defaultH",
-              "type": "Number",
-              "description": "hue to set if saturation is 0"
+              "type": "rgbObject",
+              "description": "The rgb-object of which the values should be normalized"
             }
           ],
           "return": {
-            "type": "Object",
-            "desc": "hsl object"
+            "type": "rgbObject",
+            "desc": "The normalized rgb-object."
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "_normalizeHsl",
+          "description": "normalize hsl values",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 667,
+              "column": 5
+            },
+            "end": {
+              "line": 672,
+              "column": 6
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "hsl"
+            }
+          ],
+          "return": {
+            "type": "hslObject",
+            "desc": "The normalized hsl-object."
           },
           "inheritedFrom": "ColorMixin"
         },
@@ -3298,11 +3379,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 640,
+              "line": 674,
               "column": 6
             },
             "end": {
-              "line": 642,
+              "line": 676,
               "column": 7
             }
           },
@@ -3324,11 +3405,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 644,
+              "line": 678,
               "column": 6
             },
             "end": {
-              "line": 646,
+              "line": 680,
               "column": 7
             }
           },
@@ -4207,7 +4288,7 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_badgewidth",
+          "name": "_badgeWidth",
           "type": "number | null | undefined",
           "description": "",
           "privacy": "protected",
@@ -4230,7 +4311,7 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_badgeheight",
+          "name": "_badgeHeight",
           "type": "number | null | undefined",
           "description": "",
           "privacy": "protected",
@@ -4248,6 +4329,29 @@
           "metadata": {
             "polymer": {
               "attributeType": "Number"
+            }
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_badgeContext",
+          "type": "CanvasRenderingContext2D | null | undefined",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 106,
+              "column": 10
+            },
+            "end": {
+              "line": 108,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "CanvasRenderingContext2D"
             }
           },
           "inheritedFrom": "ColorBadgePattern"
@@ -5038,11 +5142,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 108,
+              "line": 118,
               "column": 6
             },
             "end": {
-              "line": 115,
+              "line": 122,
               "column": 7
             }
           },
@@ -5076,87 +5180,17 @@
           "inheritedFrom": "FormElementMixin"
         },
         {
-          "name": "redraw",
-          "description": "",
+          "name": "render",
+          "description": "render the element",
           "privacy": "public",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 122,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 125,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_noRandomColorOnClickChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "color-badge.html",
-            "start": {
-              "line": 127,
-              "column": 6
-            },
-            "end": {
-              "line": 133,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "noRandomColorOnClick"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_addClickListenerForBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "color-badge.html",
-            "start": {
-              "line": 135,
-              "column": 6
-            },
-            "end": {
-              "line": 140,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_removeClickListenerForBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "color-badge.html",
-            "start": {
-              "line": 142,
-              "column": 6
-            },
-            "end": {
-              "line": 147,
+              "line": 134,
               "column": 7
             }
           },
@@ -5190,33 +5224,41 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "_drawBadge",
-          "description": "",
+          "name": "_draw",
+          "description": "fills a canvas context with a color",
           "privacy": "protected",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 162,
+              "line": 158,
               "column": 6
             },
             "end": {
-              "line": 169,
+              "line": 165,
               "column": 7
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "context"
+              "name": "context",
+              "type": "CanvasRenderingContext2D",
+              "description": "The context of the canvas that should be drawn."
             },
             {
-              "name": "value"
+              "name": "colorString",
+              "type": "String",
+              "description": "The color string to be drawn."
             },
             {
-              "name": "width"
+              "name": "width",
+              "type": "Number",
+              "description": "The width to draw within the canvas."
             },
             {
-              "name": "height"
+              "name": "height",
+              "type": "Number",
+              "description": "The height to draw within the canvas"
             }
           ],
           "return": {
@@ -5225,49 +5267,109 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_drawColorBadge",
-          "description": "",
+          "name": "_computeContexts",
+          "description": "computes the canvas contexts of the element",
           "privacy": "protected",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 171,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 173,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "value"
-            },
-            {
-              "name": "width"
-            },
-            {
-              "name": "height"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorBadgePattern"
-        },
-        {
-          "name": "_resizeBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "color-badge.html",
-            "start": {
               "line": 175,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_computeSizeProperties",
+          "description": "computes the size properties for the canvas",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 180,
               "column": 6
             },
             "end": {
-              "line": 183,
+              "line": 190,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_noRandomColorOnClickChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 192,
+              "column": 6
+            },
+            "end": {
+              "line": 198,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "noRandomColorOnClick"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_addClickListenerForBadge",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 200,
+              "column": 6
+            },
+            "end": {
+              "line": 205,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "_removeClickListenerForBadge",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 207,
+              "column": 6
+            },
+            "end": {
+              "line": 212,
               "column": 7
             }
           },
@@ -5662,86 +5764,46 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "_normalizeRgb",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 510,
-              "column": 6
-            },
-            "end": {
-              "line": 515,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "rgb"
-            }
-          ],
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "_normalizeHsl",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 517,
-              "column": 6
-            },
-            "end": {
-              "line": 522,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "hsl"
-            }
-          ],
-          "inheritedFrom": "ColorMixin"
-        },
-        {
           "name": "hexToRgb",
-          "description": "",
+          "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 524,
+              "line": 529,
               "column": 6
             },
             "end": {
-              "line": 537,
+              "line": 542,
               "column": 7
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "hex"
+              "name": "hex",
+              "type": "String",
+              "description": "The hex string without alpha"
             }
           ],
+          "return": {
+            "type": "rgbObject",
+            "desc": "the rgb object"
+          },
           "inheritedFrom": "ColorMixin"
         },
         {
           "name": "rgbToHex",
-          "description": "",
+          "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 539,
+              "line": 549,
               "column": 6
             },
             "end": {
-              "line": 544,
+              "line": 554,
               "column": 7
             }
           },
@@ -5751,6 +5813,73 @@
               "name": "rgb"
             }
           ],
+          "return": {
+            "type": "rgbObject",
+            "desc": "the rgb object"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "rgbToHsl",
+          "description": "convert rgb to hsl (the values are not rounded)",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 562,
+              "column": 6
+            },
+            "end": {
+              "line": 598,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "rgb",
+              "type": "rgbObject",
+              "description": "rgb object"
+            },
+            {
+              "name": "defaultH",
+              "type": "Number",
+              "description": "hue to set if saturation is 0"
+            }
+          ],
+          "return": {
+            "type": "hslObject",
+            "desc": "hsl object"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "hslToRgb",
+          "description": "convert hsl to rgb (the values are not rounded)",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 605,
+              "column": 6
+            },
+            "end": {
+              "line": 616,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "hsl",
+              "type": "hslObject",
+              "description": "hsl object"
+            }
+          ],
+          "return": {
+            "type": "rgbObject",
+            "desc": "rgb object"
+          },
           "inheritedFrom": "ColorMixin"
         },
         {
@@ -5760,11 +5889,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 546,
+              "line": 618,
               "column": 6
             },
             "end": {
-              "line": 553,
+              "line": 625,
               "column": 7
             }
           },
@@ -5783,11 +5912,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 555,
+              "line": 627,
               "column": 6
             },
             "end": {
-              "line": 561,
+              "line": 633,
               "column": 7
             }
           },
@@ -5809,11 +5938,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 563,
+              "line": 635,
               "column": 6
             },
             "end": {
-              "line": 567,
+              "line": 639,
               "column": 7
             }
           },
@@ -5829,46 +5958,17 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "hslToRgb",
-          "description": "convert hsl to rgb (the values are not rounded)",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 574,
-              "column": 6
-            },
-            "end": {
-              "line": 585,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "hsl",
-              "type": "Object",
-              "description": "hsl object"
-            }
-          ],
-          "return": {
-            "type": "Object",
-            "desc": "rgb object"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "hueToComponent",
+          "name": "_hueToComponent",
           "description": "",
-          "privacy": "public",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 587,
+              "line": 641,
               "column": 6
             },
             "end": {
-              "line": 594,
+              "line": 648,
               "column": 7
             }
           },
@@ -5887,36 +5987,58 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "rgbToHsl",
-          "description": "convert rgb to hsl (the values are not rounded)",
-          "privacy": "public",
+          "name": "_normalizeRgb",
+          "description": "normalize rgb values",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 602,
-              "column": 6
+              "line": 655,
+              "column": 5
             },
             "end": {
-              "line": 638,
-              "column": 7
+              "line": 660,
+              "column": 6
             }
           },
           "metadata": {},
           "params": [
             {
               "name": "rgb",
-              "type": "Object",
-              "description": "rgb object"
-            },
-            {
-              "name": "defaultH",
-              "type": "Number",
-              "description": "hue to set if saturation is 0"
+              "type": "rgbObject",
+              "description": "The rgb-object of which the values should be normalized"
             }
           ],
           "return": {
-            "type": "Object",
-            "desc": "hsl object"
+            "type": "rgbObject",
+            "desc": "The normalized rgb-object."
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "_normalizeHsl",
+          "description": "normalize hsl values",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 667,
+              "column": 5
+            },
+            "end": {
+              "line": 672,
+              "column": 6
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "hsl"
+            }
+          ],
+          "return": {
+            "type": "hslObject",
+            "desc": "The normalized hsl-object."
           },
           "inheritedFrom": "ColorMixin"
         },
@@ -5927,11 +6049,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 640,
+              "line": 674,
               "column": 6
             },
             "end": {
-              "line": 642,
+              "line": 676,
               "column": 7
             }
           },
@@ -5953,11 +6075,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 644,
+              "line": 678,
               "column": 6
             },
             "end": {
-              "line": 646,
+              "line": 680,
               "column": 7
             }
           },
@@ -6789,7 +6911,7 @@
           "defaultValue": "false"
         },
         {
-          "name": "_badgewidth",
+          "name": "_badgeWidth",
           "type": "number | null | undefined",
           "description": "",
           "privacy": "protected",
@@ -6810,7 +6932,7 @@
           }
         },
         {
-          "name": "_badgeheight",
+          "name": "_badgeHeight",
           "type": "number | null | undefined",
           "description": "",
           "privacy": "protected",
@@ -6829,6 +6951,27 @@
               "attributeType": "Number"
             }
           }
+        },
+        {
+          "name": "_badgeContext",
+          "type": "CanvasRenderingContext2D | null | undefined",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 10
+            },
+            "end": {
+              "line": 108,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "CanvasRenderingContext2D"
+            }
+          }
         }
       ],
       "methods": [
@@ -6838,11 +6981,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 118,
               "column": 6
             },
             "end": {
-              "line": 115,
+              "line": 122,
               "column": 7
             }
           },
@@ -6858,11 +7001,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 117,
+              "line": 124,
               "column": 6
             },
             "end": {
-              "line": 120,
+              "line": 127,
               "column": 7
             }
           },
@@ -6873,16 +7016,121 @@
           }
         },
         {
-          "name": "redraw",
-          "description": "",
+          "name": "render",
+          "description": "render the element",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 125,
+              "line": 134,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "randomColor",
+          "description": "generates a random color",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 139,
+              "column": 6
+            },
+            "end": {
+              "line": 145,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_draw",
+          "description": "fills a canvas context with a color",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 158,
+              "column": 6
+            },
+            "end": {
+              "line": 165,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "context",
+              "type": "CanvasRenderingContext2D",
+              "description": "The context of the canvas that should be drawn."
+            },
+            {
+              "name": "colorString",
+              "type": "String",
+              "description": "The color string to be drawn."
+            },
+            {
+              "name": "width",
+              "type": "Number",
+              "description": "The width to draw within the canvas."
+            },
+            {
+              "name": "height",
+              "type": "Number",
+              "description": "The height to draw within the canvas"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_computeContexts",
+          "description": "computes the canvas contexts of the element",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 170,
+              "column": 6
+            },
+            "end": {
+              "line": 175,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_computeSizeProperties",
+          "description": "computes the size properties for the canvas",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 180,
+              "column": 6
+            },
+            "end": {
+              "line": 190,
               "column": 7
             }
           },
@@ -6898,11 +7146,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 192,
               "column": 6
             },
             "end": {
-              "line": 133,
+              "line": 198,
               "column": 7
             }
           },
@@ -6922,11 +7170,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 135,
+              "line": 200,
               "column": 6
             },
             "end": {
-              "line": 140,
+              "line": 205,
               "column": 7
             }
           },
@@ -6942,118 +7190,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 207,
               "column": 6
             },
             "end": {
-              "line": 147,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "randomColor",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 149,
-              "column": 6
-            },
-            "end": {
-              "line": 155,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "e"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_drawBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 162,
-              "column": 6
-            },
-            "end": {
-              "line": 169,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "context"
-            },
-            {
-              "name": "value"
-            },
-            {
-              "name": "width"
-            },
-            {
-              "name": "height"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_drawColorBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 171,
-              "column": 6
-            },
-            "end": {
-              "line": 173,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "value"
-            },
-            {
-              "name": "width"
-            },
-            {
-              "name": "height"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "_resizeBadge",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 175,
-              "column": 6
-            },
-            "end": {
-              "line": 183,
+              "line": 212,
               "column": 7
             }
           },
@@ -7073,7 +7214,7 @@
           "column": 2
         },
         "end": {
-          "line": 185,
+          "line": 215,
           "column": 3
         }
       },

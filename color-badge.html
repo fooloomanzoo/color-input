@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../polymer/lib/utils/mixin.html">
 <link rel="import" href="../property-mixins/color-mixin.html">
+<link rel="import" href="../input-picker-pattern/input-shared-style.html">
 
 <script>
   /**
@@ -65,7 +66,7 @@
       static get colorBadgeTemplate() {
         return `
           <div id="colorBadge" class="transparency badge">
-            <canvas id="badge" width$="[[_badgewidth]]" height$="[[_badgeheight]]"></canvas>
+            <canvas id="badge" width$="[[_badgeWidth]]" height$="[[_badgeHeight]]"></canvas>
             ${this.colorBadgeSlotTemplate || ''}
           </div>
         `
@@ -96,33 +97,100 @@
             observer: '_noRandomColorOnClickChanged'
           },
 
-          _badgewidth: {
+          _badgeWidth: {
             type: Number
           },
 
-          _badgeheight: {
+          _badgeHeight: {
             type: Number
+          },
+
+          _badgeContext: {
+            type: CanvasRenderingContext2D
           }
         }
       }
 
+      static get observers() {
+        return [
+          '_draw(_badgeContext,colorString,_badgeWidth,_badgeHeight)'
+        ]
+      }
+
       ready() {
         super.ready();
-        this._resizeBadge();
-        this._badgecontext = this.$.badge && this.$.badge.getContext("2d");
-        if (this._badgecontext) {
-          this._createMethodObserver('_drawColorBadge(colorString,_badgewidth,_badgeheight)', true);
-        }
+        this._computeSizeProperties();
+        this._computeContexts();
       }
 
       connectedCallback() {
         super.connectedCallback();
-        this.redraw();
+        this.render();
       }
 
-      redraw() {
-        this._resizeBadge();
-        this._drawColorBadge(this.colorString, this._badgewidth, this._badgeheight);
+      /**
+       * render the element
+       */
+      render() {
+        this._draw(this._colorBadge, this.colorString, this._badgeWidth, this._badgeHeight);
+      }
+
+      /**
+       * generates a random color
+       */
+      randomColor(e) {
+        if (e && e.preventDefault) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        super.randomColor();
+      }
+
+      /**
+       * @typedef {Object} CanvasRenderingContext2D context of a canvas element
+       */
+
+      /**
+       * fills a canvas context with a color
+       * @param  {CanvasRenderingContext2D} context The context of the canvas that should be drawn.
+       * @param  {String} colorString The color string to be drawn.
+       * @param  {Number} width   The width to draw within the canvas.
+       * @param  {Number} height  The height to draw within the canvas
+       */
+      _draw(context, colorString, width, height) {
+        if (context === undefined || width === undefined || height === undefined) {
+          return;
+        }
+        context.clearRect(0, 0, width, height);
+        context.fillStyle = colorString || 'rgba(0,0,0,0)';
+        context.fillRect(0, 0, width, height);
+      }
+
+      /**
+       * computes the canvas contexts of the element
+       */
+      _computeContexts() {
+        const badge = this.shadowRoot.querySelector('#badge');
+        if (badge) {
+          this._badgeContext = badge.getContext("2d");
+        }
+      }
+
+      /**
+       * computes the size properties for the canvas
+       */
+      _computeSizeProperties() {
+        // use the container of the badge to define its draw area
+        const badgeContainer = this.shadowRoot.querySelector('#colorBadge');
+        if (badgeContainer) {
+          const box = badgeContainer.getBoundingClientRect();
+          if (box.width !== this._badgeWidth || box.height !== this._badgeHeight) {
+            this.setProperties({
+              _badgeWidth: Math.ceil(box.width) || 16,
+              _badgeHeight: Math.ceil(box.height) || 16
+            });
+          }
+        }
       }
 
       _noRandomColorOnClickChanged(noRandomColorOnClick) {
@@ -147,41 +215,6 @@
         }
       }
 
-      randomColor(e) {
-        if (e && e.preventDefault) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-        super.randomColor();
-      }
-
-      // _colorStringChanged(value) {
-      //  super._colorStringChanged(value);
-      //  this._resizeBadge();
-      //}
-
-      _drawBadge(context, value, width, height) {
-        if (context === undefined || width === undefined || height === undefined) {
-          return;
-        }
-        context.clearRect(0, 0, width, height);
-        context.fillStyle = value || 'rgba(0,0,0,0)';
-        context.fillRect(0, 0, width, height);
-      }
-
-      _drawColorBadge(value, width, height) {
-        this._drawBadge(this._badgecontext, value, width, height);
-      }
-
-      _resizeBadge() {
-        if (this.$.colorBadge) {
-          const box = this.$.colorBadge.getBoundingClientRect();
-          this.setProperties({
-            _badgewidth: Math.ceil(box.width) || 16,
-            _badgeheight: Math.ceil(box.height) || 16
-          })
-        }
-      }
     }
   }
   window.ColorBadgePattern = Polymer.dedupingMixin(ColorBadgePattern);

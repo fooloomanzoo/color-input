@@ -36,10 +36,11 @@
 
       test('instantiating the element with default properties should work', done => {
         assert.isDefined(element.propertyForValue, 'propertyForValue is defined');
-        Polymer.Base.async(() => {
-          assert.isOk(element.shadowRoot.querySelector('.icon.reset'), 'element has an reset icon');
+        setTimeout(() => {
+          let button = element.shadowRoot.querySelector('.icon.reset');
+          assert.isOk(button, 'element has an reset icon');
           done();
-        });
+        }, 0);
       });
 
       test('compute regexp for different formats', done => {
@@ -47,6 +48,7 @@
         assert.isOk(element._computeFormatPattern('hex'), 'hex regexp');
         assert.isOk(element._computeFormatPattern('hsl'), 'hsl regexp');
         assert.isOk(element._computeFormatPattern('rgb'), 'rgb regexp');
+        done();
       })
 
       test('compute placeholder strings for differnt formats', done => {
@@ -54,6 +56,7 @@
         assert.isOk(element._computeFormatPlaceholder('hex'), 'hex placeholder');
         assert.isOk(element._computeFormatPlaceholder('hsl'), 'hsl placeholder');
         assert.isOk(element._computeFormatPlaceholder('rgb'), 'rgb placeholder');
+        done();
       })
     });
 
@@ -66,28 +69,26 @@
       });
 
       test('resetting by pressing reset icon', done => {
-        Polymer.Base.async(() => {
+        setTimeout(() => {
           let button = element.shadowRoot.querySelector('.icon.reset');
           MockInteractions.tap(button);
-          Polymer.Base.async(() => {
-            if (element.default) {
-              assert.equal(element.value, element.default, 'value is set to default');
-              assert.equal(element.value, element[element.propertyForValue], 'propertyForValue is reflection is happening');
-            } else {
-              assert.isUndefined(element.value, 'value is not defined');
-              assert.isUndefined(element.colorString, 'colorString is not defined');
-              assert.isUndefined(element.r, 'r is not defined');
-              assert.isUndefined(element.g, 'g is not defined');
-              assert.isUndefined(element.b, 'b is not defined');
-              assert.isUndefined(element.h, 'h is not defined');
-              assert.isUndefined(element.s, 's is not defined');
-              assert.isUndefined(element.l, 'l is not defined');
-              assert.isUndefined(element.alpha, 1, 'alpha is not defined');
-              assert.isUndefined(element[element.propertyForValue], 'propertyForValue is reflection is happening');
-            }
-            done();
-          });
-        });
+          if (element.default) {
+            assert.equal(element.value, element.default, 'value is set to default');
+            assert.equal(element.value, element[element.propertyForValue], 'propertyForValue is reflection is happening');
+          } else {
+            assert.isUndefined(element.value, 'value is not defined');
+            assert.isUndefined(element.colorString, 'colorString is not defined');
+            assert.isUndefined(element.r, 'r is not defined');
+            assert.isUndefined(element.g, 'g is not defined');
+            assert.isUndefined(element.b, 'b is not defined');
+            assert.isUndefined(element.h, 'h is not defined');
+            assert.isUndefined(element.s, 's is not defined');
+            assert.isUndefined(element.l, 'l is not defined');
+            assert.isUndefined(element.alpha, 'alpha is not defined');
+            assert.isUndefined(element[element.propertyForValue], 'propertyForValue is reflection is happening');
+          }
+          done();
+        }, 0);
       });
     });
   </script>
