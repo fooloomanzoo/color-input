@@ -104,9 +104,9 @@
                   margin-bottom: 12px;
                 }
               </style>
-              <!-- <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="hex"></color-input><br>
-              <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="rgb"></color-input><br>
-              <color-input class="custom" r="{{r}}" g="{{g}}" b="{{b}}" alpha="{{alpha}}" format="hsl"></color-input><br> -->
+              <color-input id="hex" class="custom" value="{{value}}" alpha="{{alpha}}" format="hex" fixed-format></color-input><br>
+              <color-input id="rgb" class="custom" value="{{value}}" alpha="{{alpha}}" format="rgb" fixed-format></color-input><br>
+              <color-input id="hsl" class="custom" value="{{value}}" alpha="{{alpha}}" format="hsl" fixed-format></color-input><br>
               <input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}">
             </template>
           </dom-bind>

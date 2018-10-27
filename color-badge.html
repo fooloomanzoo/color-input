@@ -2,6 +2,7 @@
 <link rel="import" href="../polymer/lib/utils/mixin.html">
 <link rel="import" href="../property-mixins/color-mixin.html">
 <link rel="import" href="../input-picker-pattern/input-shared-style.html">
+<link rel="import" href="../input-picker-pattern/input-pattern.html">
 
 <script>
   /**
@@ -31,7 +32,6 @@
             -webkit-background-clip: padding-box;
             background-clip: padding-box;
             background-repeat: repeat;
-            border-radius: var(--color-badge-radius, 6px);
             content: '';
             pointer-events: none;
             position: absolute;
@@ -46,9 +46,9 @@
             background-color: #fff;
             height: var(--color-badge-height, 32px);
             width: var(--color-badge-width, 60px);
+            overflow: hidden;
           }
           .badge > canvas {
-            border-radius: inherit;
             position: absolute;
             left: 0;
             top: 0;
@@ -119,13 +119,12 @@
 
       ready() {
         super.ready();
-        this._computeSizeProperties();
         this._computeContexts();
       }
 
       connectedCallback() {
         super.connectedCallback();
-        this.render();
+        this._computeSizeProperties();
       }
 
       /**
@@ -181,16 +180,18 @@
        */
       _computeSizeProperties() {
         // use the container of the badge to define its draw area
-        const badgeContainer = this.shadowRoot.querySelector('#colorBadge');
-        if (badgeContainer) {
-          const box = badgeContainer.getBoundingClientRect();
-          if (box.width !== this._badgeWidth || box.height !== this._badgeHeight) {
-            this.setProperties({
-              _badgeWidth: Math.ceil(box.width) || 16,
-              _badgeHeight: Math.ceil(box.height) || 16
-            });
+        requestAnimationFrame(() => {
+          const badgeContainer = this.shadowRoot.querySelector('#colorBadge');
+          if (badgeContainer) {
+            const box = getBoundingClientRectByRelative(badgeContainer, true);
+            if (box.width !== this._badgeWidth || box.height !== this._badgeHeight) {
+              this.setProperties({
+                _badgeWidth: Math.ceil(box.width) || 100,
+                _badgeHeight: Math.ceil(box.height) || 100
+              });
+            }
           }
-        }
+        });
       }
 
       _noRandomColorOnClickChanged(noRandomColorOnClick) {
