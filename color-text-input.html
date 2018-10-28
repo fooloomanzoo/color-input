@@ -66,6 +66,13 @@
         }
         this._isSet = isSet.bind(this);
       }
+
+      /**
+       * reset the color properties
+       */
+      reset() {
+        this.resetColor();
+      }
     }
   }
   window.ColorFormMixin = Polymer.dedupingMixin(ColorFormMixin);
