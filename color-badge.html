@@ -109,12 +109,12 @@
 
       ready() {
         super.ready();
-        this._computeContexts();
+        this._computeBadgeContext();
       }
 
       connectedCallback() {
         super.connectedCallback();
-        this._computeSizeProperties();
+        this._computeBadgeSizeProperties();
       }
 
       /**
@@ -156,9 +156,9 @@
       }
 
       /**
-       * computes the canvas contexts of the element
+       * computes the canvas contexts of the badge element
        */
-      _computeContexts() {
+      _computeBadgeContext() {
         const badge = this.shadowRoot.querySelector('#badge');
         if (badge) {
           this._badgeContext = badge.getContext("2d");
@@ -167,9 +167,9 @@
       }
 
       /**
-       * computes the size properties for the canvas
+       * computes the size properties for the badge canvas
        */
-      _computeSizeProperties() {
+      _computeBadgeSizeProperties() {
         // use the container of the badge to define its draw area
         requestAnimationFrame(() => {
           const badgeContainer = this.shadowRoot.querySelector('#colorBadge');
