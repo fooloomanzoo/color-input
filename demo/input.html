@@ -63,9 +63,9 @@
                   <br>
                   <input type="range" min="0" max="359" step="1" value="{{h::input}}"><span> hue: [[h]] </span>
                   <br>
-                  <input type="range" min="0" max="1" step="0.001" value="{{s::input}}"><span> saturation: [[s]] </span>
+                  <input type="range" min="0" max="1" step="0.01" value="{{s::input}}"><span> saturation: [[s]] </span>
                   <br>
-                  <input type="range" min="0" max="1" step="0.001" value="{{l::input}}"><span> lightness: [[l]] </span>
+                  <input type="range" min="0" max="1" step="0.01" value="{{l::input}}"><span> lightness: [[l]] </span>
                   <br>
                 </p>
                 <p>
@@ -94,20 +94,20 @@
     </div>
 
     <div class="vertical-section-container centered">
-      <h3>convert beetween the formats, right click on the color generates a random color</h3>
+      <h3>bind to properties, right click on the color generates a random color</h3>
       <demo-snippet>
         <template>
           <dom-bind>
             <template is="dom-bind">
-              <style>
-                .custom {
-                  margin-bottom: 12px;
-                }
-              </style>
-              <color-input id="hex" class="custom" value="{{value}}" alpha="{{alpha}}" format="hex" fixed-format></color-input><br>
-              <color-input id="rgb" class="custom" value="{{value}}" alpha="{{alpha}}" format="rgb" fixed-format></color-input><br>
-              <color-input id="hsl" class="custom" value="{{value}}" alpha="{{alpha}}" format="hsl" fixed-format></color-input><br>
-              <input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}">
+              <color-input id="rgb" value="{{rgbValue}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" alpha="{{alpha}}" format="rgb" fixed-format></color-input><br><br>
+              <color-input id="hex" value="{{hexValue}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" alpha="{{alpha}}" format="hex" fixed-format></color-input><br><br>
+              <color-input id="hsl" value="{{hslValue}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" alpha="{{alpha}}" format="hsl" fixed-format></color-input><br><br>
+              alpha: <input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}"><br>
+              <p>
+                <b>rgb:</b> [[rgbValue]]<br><br>
+                <b>hex:</b> [[hexValue]]<br><br>
+                <b>hsl:</b> [[hslValue]]
+              </p>
             </template>
           </dom-bind>
         </template>

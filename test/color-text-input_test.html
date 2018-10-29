@@ -43,14 +43,6 @@
         }, 0);
       });
 
-      test('compute regexp for different formats', done => {
-        assert.isOk(element._computeFormatPattern('auto'), 'auto regexp');
-        assert.isOk(element._computeFormatPattern('hex'), 'hex regexp');
-        assert.isOk(element._computeFormatPattern('hsl'), 'hsl regexp');
-        assert.isOk(element._computeFormatPattern('rgb'), 'rgb regexp');
-        done();
-      })
-
       test('compute placeholder strings for differnt formats', done => {
         assert.isOk(element._computeFormatPlaceholder('auto'), 'auto placeholder');
         assert.isOk(element._computeFormatPlaceholder('hex'), 'hex placeholder');

@@ -19,9 +19,6 @@
           padding: 0.5em;
           line-height: 1.5;
         }
-        color-badge {
-          --color-badge-width: 100px;
-        }
       </style>
     </custom-style>
   </head>
@@ -36,11 +33,16 @@
             <template is="dom-bind">
               <style>
                 color-badge.custom {
-                  --color-badge-width: 96px;
+                  --color-badge-width: 72px;
+                  user-select: none;
+                }
+                .color-string {
+                  font-size: 0.8em;
+                  white-space: nowrap;
                 }
               </style>
-              <color-badge class="custom" color-string="{{color}}" alpha="{{alpha}}" format="{{format}}">
-                <span style="font-size:0.8em;white-space: nowrap;">[[color]]</span>
+              <color-badge class="custom" title$="[[color]]" color-string="{{color}}" alpha="{{alpha}}" format="{{format}}">
+                <span class="color-string">[[color]]</span>
               </color-badge>
               <div class="vertical-section-container result">
                 <p>
@@ -52,7 +54,6 @@
                     <option value="#39c27f">#39c27f</option>
                     <option value="rgb(96,12,235)">rgb(96,12,235)</option>
                     <option value="rgba(181,187,7,0.66)">rgba(181,187,7,0.66)</option>
-                    <option value="rgba(#276f0c,0.75)">rgba(#276f0c,0.75)</option>
                     <option value="hsl(244,0.55,0.75)">hsl(244,0.55,0.75)</option>
                     <option value="hsla(144,0.25,0.35,0.22)">hsla(144,0.25,0.35,0.22)</option>
                     <option value="hsla(44,75.4%,55%,0.9)">hsla(44,75.4%,55%,0.9)</option>

@@ -39,8 +39,10 @@
           }
           .badge {
             position: relative;
-            border: none;
-            box-sizing: content-box;
+            border-width: var(--inner-input-border-width, thin);
+            border-style: solid;
+            border-color: var(--inner-input-border-color, rgba(0,0,0,0.2));
+            box-sizing: border-box;
             box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
             border-radius: var(--color-badge-radius, 6px);
             background-color: #fff;
@@ -53,12 +55,6 @@
             left: 0;
             top: 0;
           }
-          .badge > .slot {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            @apply --color-badge-slot;
-          }
           ${super.styleTemplate || ''}
         `;
       }
@@ -69,12 +65,6 @@
             <canvas id="badge" width$="[[_badgeWidth]]" height$="[[_badgeHeight]]"></canvas>
             ${this.colorBadgeSlotTemplate || ''}
           </div>
-        `
-      }
-
-      static get colorBadgeSlotTemplate() {
-        return `
-          <div class="slot"><slot></slot></div>
         `
       }
 
@@ -172,6 +162,7 @@
         const badge = this.shadowRoot.querySelector('#badge');
         if (badge) {
           this._badgeContext = badge.getContext("2d");
+          this._badgeContext.beginPath();
         }
       }
 
@@ -204,15 +195,15 @@
 
       _addClickListenerForBadge() {
         if (this.$.badge) {
-          this.$.badge.addEventListener('click', this.randomColor, false);
-          this.$.badge.addEventListener('contextmenu', this.randomColor, false);
+          this.$.badge.addEventListener('click', this.randomColor, true);
+          this.$.badge.addEventListener('contextmenu', this.randomColor, true);
         }
       }
 
       _removeClickListenerForBadge() {
         if (this.$.badge) {
-          this.$.badge.removeEventListener('click', this.randomColor, false);
-          this.$.badge.removeEventListener('contextmenu', this.randomColor, false);
+          this.$.badge.removeEventListener('click', this.randomColor, true);
+          this.$.badge.removeEventListener('contextmenu', this.randomColor, true);
         }
       }
 
@@ -242,7 +233,8 @@
   * `--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)
   * `--color-badge-height` | height of the badge | 32px
   * `--color-badge-width` | width of the badge | 60px
-  * `--color-badge-slot` | mixin applied to the slot of the badge | {}
+  * `--color-badge-text-overflow` | text-overflow of the slotted content of the badge | ellipsis
+  * `--color-badge-padding` | padding of the slotted content of the badge | 4px
   *
   * @customElement
   * @polymer
@@ -266,6 +258,29 @@
           </style>
           ${this.colorBadgeTemplate}
         `;
+      }
+
+      static get styleTemplate() {
+        return `
+          ${super.styleTemplate || ''}
+          .badge > .slot {
+            position: absolute;
+            box-sizing: border-box;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            text-overflow: var(--color-badge-text-overflow, ellipsis);
+            padding: var(--color-badge-padding, 4px);
+          }
+        `;
+      }
+
+      static get colorBadgeSlotTemplate() {
+        return `
+          <span class="slot"><slot></slot></span>
+        `
       }
     }
     window.customElements.define(ColorBadge.is, ColorBadge);

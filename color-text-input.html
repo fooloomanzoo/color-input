@@ -33,6 +33,7 @@
 
       _computeIsSetFunction(propertyForValue, format) {
         let isSet = this._defaultIsSet;
+        this.__updateByColorString = false;
         switch (propertyForValue) {
           case 'colorString':
             let regexp;
@@ -47,10 +48,10 @@
                 regexp = this._validateHex;
                 break;
               default:
-                regexp = this._defaultValidateColorString;
+                regexp = this._validateAutoColorString;
             }
             isSet = function(value) {
-              return typeof value === 'string' && value !== '' && !(regexp.exec(value) === null);
+              return this.__updateByColorString || (typeof value === 'string' && value !== '' && !(regexp.exec(value) === null));
             }
             break;
           case 'r': // falls through
@@ -70,7 +71,7 @@
       /**
        * reset the color properties
        */
-      reset() {
+      reset(value) {
         this.resetColor();
       }
     }
@@ -106,6 +107,9 @@
         return `
           ${super.styleTemplate || ''}
           .badge {
+            border-width: var(--input-border-width, thin);
+            border-style: solid;
+            border-color: var(--input-border-color, rgba(0,0,0,0.2)));
             border-radius: var(--input-border-radius, var(--color-badge-radius, 0.15em));
             height: var(--color-badge-height, 100%);
             width: var(--color-badge-width, 1.5em);
@@ -133,7 +137,7 @@
 
       static get textInputTemplate() {
         return `
-          <text-input pattern="[[_computeFormatPattern(format)]]" required="[[required]]" value="{{colorString}}" auto-resize placeholder="[[_computeFormatPlaceholder(format, alphaMode, _hexAlphaSupported)]]" title="[[title]]"></text-input>
+          <text-input required="[[required]]" value="{{colorString}}" auto-resize title="[[title]]" pattern="[[_computeFormatPattern(format, fixedFormat, alphaMode)]]" placeholder="[[_computeFormatPlaceholder(format, alphaMode)]]"></text-input>
         `
       }
 
@@ -143,27 +147,35 @@
         `
       }
 
-      _computeFormatPattern(format) {
+      _computeFormatPattern(format, fixedFormat, alphaMode) {
         switch (format) {
           case 'hsl':
-            return this._validateHsl;
+            if (fixedFormat) {
+              return this._validateHsl;
+            } // falls through
           case 'rgb':
-            return this._validateRgb;
+            if (fixedFormat) {
+              return this._validateRgb;
+            } // falls through
           case 'hex':
-            return this._validateHex;
+            if (fixedFormat && (!alphaMode || this._hexAlphaSupported)) {
+              return this._validateHex;
+            } // falls through
           default:
-            return this._defaultValidateColorString;
+            return this._validateAutoColorString;
         }
       }
 
-      _computeFormatPlaceholder(format, alphaMode, hexAlphaSupported) {
+      _computeFormatPlaceholder(format, alphaMode) {
         switch (format) {
           case 'hsl':
             return `hsl${alphaMode ? 'a' : ''}(0, 0%, 0%${alphaMode ? ', 1' : ''})`;
-          case 'rgb':
-            return `rgb${alphaMode ? 'a' : ''}(0, 0, 0${alphaMode ? ', 1' : ''})`;
+          case 'hex':
+            if (!alphaMode || this._hexAlphaSupported) {
+              return `#000000`;
+            }
           default:
-            return `#000000`;
+            return `rgb${alphaMode ? 'a' : ''}(0, 0, 0${alphaMode ? ', 1' : ''})`;
         }
       }
     }
