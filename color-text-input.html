@@ -71,7 +71,8 @@
       /**
        * reset the color properties
        */
-      reset(value) {
+      reset(e) {
+        e && e.stopPropagation && e.stopPropagation();
         this.resetColor();
         if (this._isSet(this.default)) {
           this.value = this.default;
