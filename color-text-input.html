@@ -73,6 +73,10 @@
        */
       reset(value) {
         this.resetColor();
+        this._setConfirmedValue();
+        if (this._isSet(this.default)) {
+          this.value = this.default;
+        }
       }
     }
   }
@@ -88,38 +92,15 @@
 
     return class extends superClass { // eslint-disable-line no-unused-vars, no-undef
 
-      static get template() {
-        return `
-          <style include="${this.styleToInclude}">
-            ${this.styleTemplate}
-          </style>
-          <div id="input">
-            ${this.inputTemplate}
-          </div>
-        `;
-      }
-
-      static get styleToInclude() {
-        return 'input-shared-style';
-      }
-
       static get styleTemplate() {
         return `
           ${super.styleTemplate || ''}
-          .badge {
-            border-width: var(--input-border-width, thin);
-            border-style: solid;
-            border-color: var(--input-border-color, rgba(0,0,0,0.2)));
-            border-radius: var(--input-border-radius, var(--color-badge-radius, 0.15em));
+          #input .badge {
+            border-radius: var(--input-border-radius, var(--color-badge-radius, 0.2em));
             height: var(--color-badge-height, 100%);
             width: var(--color-badge-width, 1.5em);
             box-shadow: var(--color-badge-shadow, none);
-            position: relative;
-          }
-          #input {
-            display: inline-flex;
-            flex-direction: row;
-            align-items: center;
+            background-color: rgba(255,255,255,0.75);
           }
           text-input {
             margin-left: 0.25em;
@@ -137,13 +118,13 @@
 
       static get textInputTemplate() {
         return `
-          <text-input required="[[required]]" value="{{colorString}}" auto-resize title="[[title]]" pattern="[[_computeFormatPattern(format, fixedFormat, alphaMode)]]" placeholder="[[_computeFormatPlaceholder(format, alphaMode)]]"></text-input>
+          <text-input required="[[required]]" value="{{colorString}}" auto-resize title="[[title]]" pattern="[[_computeFormatPattern(format, fixedFormat, alphaMode)]]" placeholder="[[_computeFormatPlaceholder(format, alphaMode, _hexAlphaSupported)]]"></text-input>
         `
       }
 
       static get resetButtonTemplate() {
         return `
-          <button class="icon reset" invisible$="[[!_valueIsSet]]" hidden$="[[disabled]]" on-click="resetColor"><svg viewBox="0 0 24 24"><g><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></g></svg></button>
+          <button class="icon reset" invisible$="[[!valueIsSet]]" hidden$="[[disabled]]" on-click="reset"><svg viewBox="0 0 24 24"><g><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></g></svg></button>
         `
       }
 
@@ -166,16 +147,17 @@
         }
       }
 
-      _computeFormatPlaceholder(format, alphaMode) {
+      _computeFormatPlaceholder(format, alphaMode, hexAlphaSupported) {
         switch (format) {
           case 'hsl':
             return `hsl${alphaMode ? 'a' : ''}(0, 0%, 0%${alphaMode ? ', 1' : ''})`;
-          case 'hex':
-            if (!alphaMode || this._hexAlphaSupported) {
-              return `#000000`;
-            }
-          default:
+          case 'rgb':
             return `rgb${alphaMode ? 'a' : ''}(0, 0, 0${alphaMode ? ', 1' : ''})`;
+          default:
+            if (!hexAlphaSupported) {
+              return `rgb${alphaMode ? 'a' : ''}(0, 0, 0${alphaMode ? ', 1' : ''})`;
+            }
+            return `#000000`;
         }
       }
     }
@@ -223,6 +205,17 @@
 
       static get is() {
         return 'color-text-input';
+      }
+
+      static get template() {
+        return `
+          <style include="${this.styleToInclude}">
+            ${this.styleTemplate}
+          </style>
+          <div id="input">
+            ${this.inputTemplate}
+          </div>
+        `;
       }
     }
     window.customElements.define(ColorTextInput.is, ColorTextInput);

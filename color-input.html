@@ -137,6 +137,17 @@
       static get is() {
         return 'color-input';
       }
+
+      static get template() {
+        return `
+          <style include="${this.styleToInclude}">
+            ${this.styleTemplate}
+          </style>
+          <div id="input">
+            ${this.inputTemplate}
+          </div>
+        `;
+      }
     }
     window.customElements.define(ColorInput.is, ColorInput);
   </script>

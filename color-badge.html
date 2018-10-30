@@ -3,6 +3,7 @@
 <link rel="import" href="../property-mixins/color-mixin.html">
 <link rel="import" href="../input-picker-pattern/input-shared-style.html">
 <link rel="import" href="../input-picker-pattern/input-pattern.html">
+<link rel="import" href="transparency-pattern-style.html">
 
 <script>
   /**
@@ -16,46 +17,22 @@
     return class extends superClass { // eslint-disable-line no-unused-vars, no-undef
 
       static get styleToInclude() {
-        return 'input-shared-style';
+        return 'input-shared-style transparency-pattern-style';
       }
 
       static get styleTemplate() {
         return `
-          :host {
-            --computed-transparency-pattern-position: calc(var(--transparency-pattern-size, 0.75em) / 2);
-          }
-          :host(:not([hide-transparency-pattern])) .transparency:before {
-            background-image: var(--transparency-pattern, linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)), linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)));
-            background-size: var(--transparency-pattern-size, 0.75em) var(--transparency-pattern-size, 0.75em);
-            background-position: 0 0, var(--computed-transparency-pattern-position) var(--computed-transparency-pattern-position);
-            background-repeat: repeat;
-            -webkit-background-clip: padding-box;
-            background-clip: padding-box;
-            background-repeat: repeat;
-            content: '';
-            pointer-events: none;
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-          }
+          ${super.styleTemplate || ''}
           .badge {
-            position: relative;
-            border-width: var(--inner-input-border-width, thin);
-            border-style: solid;
-            border-color: var(--inner-input-border-color, rgba(0,0,0,0.2));
-            box-sizing: border-box;
-            box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
             border-radius: var(--color-badge-radius, 6px);
-            background-color: #fff;
             height: var(--color-badge-height, 32px);
             width: var(--color-badge-width, 60px);
+            box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
+            border-width: var(--input-border-width, thin);
+            border-style: solid;
+            border-color: var(--input-border-color, rgba(0,0,0,0.2));
             overflow: hidden;
           }
-          .badge > canvas {
-            position: absolute;
-            left: 0;
-            top: 0;
-          }
-          ${super.styleTemplate || ''}
         `;
       }
 
@@ -122,6 +99,13 @@
        */
       render() {
         this._draw(this._colorBadge, this.colorString, this._badgeWidth, this._badgeHeight);
+      }
+
+      /**
+       * resize the element
+       */
+      resize() {
+        this._computeBadgeSizeProperties();
       }
 
       /**
