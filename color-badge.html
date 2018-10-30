@@ -179,15 +179,15 @@
 
       _addClickListenerForBadge() {
         if (this.$.badge) {
-          this.$.badge.addEventListener('click', this.randomColor, true);
-          this.$.badge.addEventListener('contextmenu', this.randomColor, true);
+          this.$.badge.addEventListener('dblclick', this.randomColor);
+          this.$.badge.addEventListener('contextmenu', this.randomColor);
         }
       }
 
       _removeClickListenerForBadge() {
         if (this.$.badge) {
-          this.$.badge.removeEventListener('click', this.randomColor, true);
-          this.$.badge.removeEventListener('contextmenu', this.randomColor, true);
+          this.$.badge.removeEventListener('dblclick', this.randomColor);
+          this.$.badge.removeEventListener('contextmenu', this.randomColor);
         }
       }
 
