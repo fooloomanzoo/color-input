@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`<color-badge>` is a badge that displays a color as a rectangle with a specified height and width.\nThe transparency of the color will be displayed. It can slot elements and they are automatically centered. Because of using a canvas to draw the color, it needs to be explicitly sized via the width- and height-attribute.\nClick on the badge to generate a random color.\n\n  ```html\n    <color-badge height=\"24\" width=\"96\" value=\"[[color]]\">\n      <span>[[color]]</span>\n    </color-badge>\n  ```\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)), linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)))\n`--transparency-pattern-size` | size transparency pattern | 0.75em\n`--color-badge-radius` | border-radius of the badge | 6px\n`--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)\n`--color-badge-height` | height of the badge | 32px\n`--color-badge-width` | width of the badge | 60px\n`--color-badge-slot` | mixin applied to the slot of the badge | {}",
+      "description": "`<color-badge>` is a badge that displays a color as a rectangle with a specified height and width.\nThe transparency of the color will be displayed. It can slot elements and they are automatically centered. Because of using a canvas to draw the color, it needs to be explicitly sized via the width- and height-attribute.\nClick on the badge to generate a random color.\n\n  ```html\n    <color-badge height=\"24\" width=\"96\" value=\"[[color]]\">\n      <span>[[color]]</span>\n    </color-badge>\n  ```\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--transparency-pattern` | background pattern for the transparency layer | linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)), linear-gradient(45deg, rgba(0,0,0,0.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.1)))\n`--transparency-pattern-size` | size transparency pattern | 0.75em\n`--color-badge-radius` | border-radius of the badge | 6px\n`--color-badge-shadow` | box-shadow of the badge | 0 1px 4px 1px rgba(0,0,0,.1)\n`--color-badge-height` | height of the badge | 32px\n`--color-badge-width` | width of the badge | 60px\n`--color-badge-text-overflow` | text-overflow of the slotted content of the badge | ellipsis\n`--color-badge-padding` | padding of the slotted content of the badge | 4px",
       "summary": "",
       "path": "color-badge.html",
       "properties": [
@@ -13,11 +13,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 52,
               "column": 10
             },
             "end": {
-              "line": 88,
+              "line": 55,
               "column": 11
             }
           },
@@ -35,11 +35,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 60,
               "column": 10
             },
             "end": {
-              "line": 97,
+              "line": 64,
               "column": 11
             }
           },
@@ -59,11 +59,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 66,
               "column": 10
             },
             "end": {
-              "line": 101,
+              "line": 68,
               "column": 11
             }
           },
@@ -81,11 +81,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 103,
+              "line": 70,
               "column": 10
             },
             "end": {
-              "line": 105,
+              "line": 72,
               "column": 11
             }
           },
@@ -103,11 +103,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 74,
               "column": 10
             },
             "end": {
-              "line": 109,
+              "line": 76,
               "column": 11
             }
           },
@@ -690,13 +690,12 @@
               "column": 10
             },
             "end": {
-              "line": 119,
+              "line": 118,
               "column": 11
             }
           },
           "metadata": {
             "polymer": {
-              "notify": true,
               "attributeType": "Function"
             }
           },
@@ -710,17 +709,16 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 124,
+              "line": 123,
               "column": 10
             },
             "end": {
-              "line": 127,
+              "line": 125,
               "column": 11
             }
           },
           "metadata": {
             "polymer": {
-              "notify": true,
               "attributeType": "Function"
             }
           },
@@ -757,11 +755,11 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 138,
+              "line": 136,
               "column": 6
             },
             "end": {
-              "line": 141,
+              "line": 139,
               "column": 7
             }
           },
@@ -778,11 +776,32 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 99,
               "column": 6
             },
             "end": {
-              "line": 134,
+              "line": 101,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "resize",
+          "description": "resize the element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 6
+            },
+            "end": {
+              "line": 108,
               "column": 7
             }
           },
@@ -821,11 +840,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 167,
+              "line": 139,
               "column": 7
             }
           },
@@ -858,16 +877,16 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_computeContexts",
-          "description": "computes the canvas contexts of the element",
+          "name": "_computeBadgeContext",
+          "description": "computes the canvas contexts of the badge element",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 144,
               "column": 6
             },
             "end": {
-              "line": 177,
+              "line": 150,
               "column": 7
             }
           },
@@ -879,16 +898,16 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_computeSizeProperties",
-          "description": "computes the size properties for the canvas",
+          "name": "_computeBadgeSizeProperties",
+          "description": "computes the size properties for the badge canvas",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 182,
+              "line": 155,
               "column": 6
             },
             "end": {
-              "line": 196,
+              "line": 169,
               "column": 7
             }
           },
@@ -905,11 +924,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 171,
               "column": 6
             },
             "end": {
-              "line": 204,
+              "line": 177,
               "column": 7
             }
           },
@@ -930,11 +949,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 179,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 184,
               "column": 7
             }
           },
@@ -951,11 +970,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 213,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 218,
+              "line": 191,
               "column": 7
             }
           },
@@ -999,7 +1018,7 @@
               "column": 6
             },
             "end": {
-              "line": 217,
+              "line": 216,
               "column": 7
             }
           },
@@ -1017,11 +1036,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 222,
+              "line": 221,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 239,
               "column": 7
             }
           },
@@ -1040,11 +1059,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 240,
+              "line": 241,
               "column": 6
             },
             "end": {
-              "line": 321,
+              "line": 332,
               "column": 7
             }
           },
@@ -1066,11 +1085,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 331,
+              "line": 342,
               "column": 6
             },
             "end": {
-              "line": 380,
+              "line": 416,
               "column": 7
             }
           },
@@ -1104,101 +1123,17 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "_formatChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 382,
-              "column": 6
-            },
-            "end": {
-              "line": 401,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "format"
-            },
-            {
-              "name": "oldFormat"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "_alphaChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 403,
-              "column": 6
-            },
-            "end": {
-              "line": 421,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "alpha"
-            },
-            {
-              "name": "oldAlpha"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "_alphaModeChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 423,
-              "column": 6
-            },
-            "end": {
-              "line": 427,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "alphaMode"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
           "name": "_hexChanged",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 429,
+              "line": 418,
               "column": 6
             },
             "end": {
-              "line": 449,
+              "line": 438,
               "column": 7
             }
           },
@@ -1220,11 +1155,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 451,
+              "line": 440,
               "column": 6
             },
             "end": {
-              "line": 495,
+              "line": 484,
               "column": 7
             }
           },
@@ -1252,11 +1187,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 497,
+              "line": 486,
               "column": 6
             },
             "end": {
-              "line": 541,
+              "line": 529,
               "column": 7
             }
           },
@@ -1278,17 +1213,101 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "_formatChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 531,
+              "column": 6
+            },
+            "end": {
+              "line": 547,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "format"
+            },
+            {
+              "name": "oldFormat"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "_alphaChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 549,
+              "column": 6
+            },
+            "end": {
+              "line": 571,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "alpha"
+            },
+            {
+              "name": "oldAlpha"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "_alphaModeChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 573,
+              "column": 6
+            },
+            "end": {
+              "line": 577,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "alphaMode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hexToRgb",
           "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 548,
+              "line": 584,
               "column": 6
             },
             "end": {
-              "line": 561,
+              "line": 597,
               "column": 7
             }
           },
@@ -1313,11 +1332,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 568,
+              "line": 604,
               "column": 6
             },
             "end": {
-              "line": 573,
+              "line": 609,
               "column": 7
             }
           },
@@ -1340,11 +1359,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 581,
+              "line": 617,
               "column": 6
             },
             "end": {
-              "line": 617,
+              "line": 653,
               "column": 7
             }
           },
@@ -1374,11 +1393,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 624,
+              "line": 660,
               "column": 6
             },
             "end": {
-              "line": 635,
+              "line": 671,
               "column": 7
             }
           },
@@ -1403,11 +1422,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 637,
+              "line": 673,
               "column": 6
             },
             "end": {
-              "line": 644,
+              "line": 680,
               "column": 7
             }
           },
@@ -1426,11 +1445,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 646,
+              "line": 682,
               "column": 6
             },
             "end": {
-              "line": 652,
+              "line": 688,
               "column": 7
             }
           },
@@ -1452,11 +1471,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 654,
+              "line": 690,
               "column": 6
             },
             "end": {
-              "line": 658,
+              "line": 694,
               "column": 7
             }
           },
@@ -1478,11 +1497,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 660,
+              "line": 696,
               "column": 6
             },
             "end": {
-              "line": 667,
+              "line": 703,
               "column": 7
             }
           },
@@ -1507,11 +1526,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 674,
+              "line": 710,
               "column": 5
             },
             "end": {
-              "line": 679,
+              "line": 715,
               "column": 6
             }
           },
@@ -1536,11 +1555,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 686,
+              "line": 722,
               "column": 5
             },
             "end": {
-              "line": 691,
+              "line": 727,
               "column": 6
             }
           },
@@ -1563,11 +1582,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 697,
+              "line": 733,
               "column": 5
             },
             "end": {
-              "line": 703,
+              "line": 739,
               "column": 6
             }
           },
@@ -1586,11 +1605,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 709,
+              "line": 745,
               "column": 5
             },
             "end": {
-              "line": 715,
+              "line": 751,
               "column": 6
             }
           },
@@ -1632,11 +1651,11 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 149,
+              "line": 147,
               "column": 6
             },
             "end": {
-              "line": 151,
+              "line": 149,
               "column": 7
             }
           },
@@ -1661,16 +1680,21 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 160,
+              "line": 159,
               "column": 6
             },
             "end": {
-              "line": 162,
+              "line": 161,
               "column": 7
             }
           },
           "metadata": {},
           "params": [
+            {
+              "name": "isSet",
+              "type": "Function",
+              "description": "The function that defines if the value is set"
+            },
             {
               "name": "value",
               "type": "Object",
@@ -1707,6 +1731,9 @@
           "params": [
             {
               "name": "validate"
+            },
+            {
+              "name": "isSet"
             },
             {
               "name": "value"
@@ -1931,11 +1958,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 257,
+          "line": 231,
           "column": 4
         },
         "end": {
-          "line": 271,
+          "line": 268,
           "column": 5
         }
       },
@@ -1948,11 +1975,11 @@
           "description": "hide the transparency pattern",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 52,
               "column": 10
             },
             "end": {
-              "line": 88,
+              "line": 55,
               "column": 11
             }
           },
@@ -1965,11 +1992,11 @@
           "description": "if true, clicking on the color badge won't generate a random color",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 60,
               "column": 10
             },
             "end": {
-              "line": 97,
+              "line": 64,
               "column": 11
             }
           },
@@ -2400,11 +2427,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 85,
+              "line": 52,
               "column": 10
             },
             "end": {
-              "line": 88,
+              "line": 55,
               "column": 11
             }
           },
@@ -2423,11 +2450,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 93,
+              "line": 60,
               "column": 10
             },
             "end": {
-              "line": 97,
+              "line": 64,
               "column": 11
             }
           },
@@ -2448,11 +2475,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 99,
+              "line": 66,
               "column": 10
             },
             "end": {
-              "line": 101,
+              "line": 68,
               "column": 11
             }
           },
@@ -2471,11 +2498,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 103,
+              "line": 70,
               "column": 10
             },
             "end": {
-              "line": 105,
+              "line": 72,
               "column": 11
             }
           },
@@ -2494,11 +2521,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 74,
               "column": 10
             },
             "end": {
-              "line": 109,
+              "line": 76,
               "column": 11
             }
           },
@@ -3081,13 +3108,12 @@
               "column": 10
             },
             "end": {
-              "line": 119,
+              "line": 118,
               "column": 11
             }
           },
           "metadata": {
             "polymer": {
-              "notify": true,
               "attributeType": "Function"
             }
           },
@@ -3101,17 +3127,16 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 124,
+              "line": 123,
               "column": 10
             },
             "end": {
-              "line": 127,
+              "line": 125,
               "column": 11
             }
           },
           "metadata": {
             "polymer": {
-              "notify": true,
               "attributeType": "Function"
             }
           },
@@ -3125,11 +3150,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 130,
               "column": 6
             },
             "end": {
-              "line": 163,
+              "line": 147,
               "column": 7
             }
           },
@@ -3140,6 +3165,9 @@
             },
             {
               "name": "fixedFormat"
+            },
+            {
+              "name": "alphaMode"
             }
           ],
           "inheritedFrom": "ColorTextInputPattern"
@@ -3150,11 +3178,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 165,
+              "line": 149,
               "column": 6
             },
             "end": {
-              "line": 174,
+              "line": 161,
               "column": 7
             }
           },
@@ -3201,11 +3229,11 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 138,
+              "line": 136,
               "column": 6
             },
             "end": {
-              "line": 141,
+              "line": 139,
               "column": 7
             }
           },
@@ -3223,11 +3251,33 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 132,
+              "line": 99,
               "column": 6
             },
             "end": {
-              "line": 134,
+              "line": 101,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "resize",
+          "description": "resize the element",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 106,
+              "column": 6
+            },
+            "end": {
+              "line": 108,
               "column": 7
             }
           },
@@ -3267,11 +3317,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 158,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 167,
+              "line": 139,
               "column": 7
             }
           },
@@ -3304,17 +3354,17 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_computeContexts",
-          "description": "computes the canvas contexts of the element",
+          "name": "_computeBadgeContext",
+          "description": "computes the canvas contexts of the badge element",
           "privacy": "protected",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 172,
+              "line": 144,
               "column": 6
             },
             "end": {
-              "line": 177,
+              "line": 150,
               "column": 7
             }
           },
@@ -3326,17 +3376,17 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_computeSizeProperties",
-          "description": "computes the size properties for the canvas",
+          "name": "_computeBadgeSizeProperties",
+          "description": "computes the size properties for the badge canvas",
           "privacy": "protected",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 182,
+              "line": 155,
               "column": 6
             },
             "end": {
-              "line": 196,
+              "line": 169,
               "column": 7
             }
           },
@@ -3354,11 +3404,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 198,
+              "line": 171,
               "column": 6
             },
             "end": {
-              "line": 204,
+              "line": 177,
               "column": 7
             }
           },
@@ -3380,11 +3430,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 206,
+              "line": 179,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 184,
               "column": 7
             }
           },
@@ -3402,11 +3452,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 213,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 218,
+              "line": 191,
               "column": 7
             }
           },
@@ -3504,7 +3554,7 @@
               "column": 6
             },
             "end": {
-              "line": 217,
+              "line": 216,
               "column": 7
             }
           },
@@ -3522,11 +3572,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 222,
+              "line": 221,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 239,
               "column": 7
             }
           },
@@ -3545,11 +3595,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 240,
+              "line": 241,
               "column": 6
             },
             "end": {
-              "line": 321,
+              "line": 332,
               "column": 7
             }
           },
@@ -3571,11 +3621,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 331,
+              "line": 342,
               "column": 6
             },
             "end": {
-              "line": 380,
+              "line": 416,
               "column": 7
             }
           },
@@ -3609,101 +3659,17 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "_formatChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 382,
-              "column": 6
-            },
-            "end": {
-              "line": 401,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "format"
-            },
-            {
-              "name": "oldFormat"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "_alphaChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 403,
-              "column": 6
-            },
-            "end": {
-              "line": 421,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "alpha"
-            },
-            {
-              "name": "oldAlpha"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "_alphaModeChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 423,
-              "column": 6
-            },
-            "end": {
-              "line": 427,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "alphaMode"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
           "name": "_hexChanged",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 429,
+              "line": 418,
               "column": 6
             },
             "end": {
-              "line": 449,
+              "line": 438,
               "column": 7
             }
           },
@@ -3725,11 +3691,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 451,
+              "line": 440,
               "column": 6
             },
             "end": {
-              "line": 495,
+              "line": 484,
               "column": 7
             }
           },
@@ -3757,11 +3723,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 497,
+              "line": 486,
               "column": 6
             },
             "end": {
-              "line": 541,
+              "line": 529,
               "column": 7
             }
           },
@@ -3783,17 +3749,101 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "_formatChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 531,
+              "column": 6
+            },
+            "end": {
+              "line": 547,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "format"
+            },
+            {
+              "name": "oldFormat"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "_alphaChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 549,
+              "column": 6
+            },
+            "end": {
+              "line": 571,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "alpha"
+            },
+            {
+              "name": "oldAlpha"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "_alphaModeChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 573,
+              "column": 6
+            },
+            "end": {
+              "line": 577,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "alphaMode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hexToRgb",
           "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 548,
+              "line": 584,
               "column": 6
             },
             "end": {
-              "line": 561,
+              "line": 597,
               "column": 7
             }
           },
@@ -3818,11 +3868,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 568,
+              "line": 604,
               "column": 6
             },
             "end": {
-              "line": 573,
+              "line": 609,
               "column": 7
             }
           },
@@ -3845,11 +3895,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 581,
+              "line": 617,
               "column": 6
             },
             "end": {
-              "line": 617,
+              "line": 653,
               "column": 7
             }
           },
@@ -3879,11 +3929,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 624,
+              "line": 660,
               "column": 6
             },
             "end": {
-              "line": 635,
+              "line": 671,
               "column": 7
             }
           },
@@ -3908,11 +3958,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 637,
+              "line": 673,
               "column": 6
             },
             "end": {
-              "line": 644,
+              "line": 680,
               "column": 7
             }
           },
@@ -3931,11 +3981,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 646,
+              "line": 682,
               "column": 6
             },
             "end": {
-              "line": 652,
+              "line": 688,
               "column": 7
             }
           },
@@ -3957,11 +4007,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 654,
+              "line": 690,
               "column": 6
             },
             "end": {
-              "line": 658,
+              "line": 694,
               "column": 7
             }
           },
@@ -3983,11 +4033,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 660,
+              "line": 696,
               "column": 6
             },
             "end": {
-              "line": 667,
+              "line": 703,
               "column": 7
             }
           },
@@ -4012,11 +4062,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 674,
+              "line": 710,
               "column": 5
             },
             "end": {
-              "line": 679,
+              "line": 715,
               "column": 6
             }
           },
@@ -4041,11 +4091,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 686,
+              "line": 722,
               "column": 5
             },
             "end": {
-              "line": 691,
+              "line": 727,
               "column": 6
             }
           },
@@ -4068,11 +4118,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 697,
+              "line": 733,
               "column": 5
             },
             "end": {
-              "line": 703,
+              "line": 739,
               "column": 6
             }
           },
@@ -4091,11 +4141,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 709,
+              "line": 745,
               "column": 5
             },
             "end": {
-              "line": 715,
+              "line": 751,
               "column": 6
             }
           },
@@ -4137,11 +4187,11 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 149,
+              "line": 147,
               "column": 6
             },
             "end": {
-              "line": 151,
+              "line": 149,
               "column": 7
             }
           },
@@ -4166,16 +4216,21 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 160,
+              "line": 159,
               "column": 6
             },
             "end": {
-              "line": 162,
+              "line": 161,
               "column": 7
             }
           },
           "metadata": {},
           "params": [
+            {
+              "name": "isSet",
+              "type": "Function",
+              "description": "The function that defines if the value is set"
+            },
             {
               "name": "value",
               "type": "Object",
@@ -4212,6 +4267,9 @@
           "params": [
             {
               "name": "validate"
+            },
+            {
+              "name": "isSet"
             },
             {
               "name": "value"
@@ -4414,11 +4472,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 216,
+          "line": 203,
           "column": 4
         },
         "end": {
-          "line": 221,
+          "line": 219,
           "column": 5
         }
       },
@@ -4432,11 +4490,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 85,
+              "line": 52,
               "column": 10
             },
             "end": {
-              "line": 88,
+              "line": 55,
               "column": 11
             }
           },
@@ -4450,11 +4508,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 93,
+              "line": 60,
               "column": 10
             },
             "end": {
-              "line": 97,
+              "line": 64,
               "column": 11
             }
           },
@@ -4933,11 +4991,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 85,
+              "line": 52,
               "column": 10
             },
             "end": {
-              "line": 88,
+              "line": 55,
               "column": 11
             }
           },
@@ -4956,11 +5014,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 93,
+              "line": 60,
               "column": 10
             },
             "end": {
-              "line": 97,
+              "line": 64,
               "column": 11
             }
           },
@@ -4981,11 +5039,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 99,
+              "line": 66,
               "column": 10
             },
             "end": {
-              "line": 101,
+              "line": 68,
               "column": 11
             }
           },
@@ -5004,11 +5062,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 103,
+              "line": 70,
               "column": 10
             },
             "end": {
-              "line": 105,
+              "line": 72,
               "column": 11
             }
           },
@@ -5027,11 +5085,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 107,
+              "line": 74,
               "column": 10
             },
             "end": {
-              "line": 109,
+              "line": 76,
               "column": 11
             }
           },
@@ -5614,13 +5672,12 @@
               "column": 10
             },
             "end": {
-              "line": 119,
+              "line": 118,
               "column": 11
             }
           },
           "metadata": {
             "polymer": {
-              "notify": true,
               "attributeType": "Function"
             }
           },
@@ -5634,17 +5691,16 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 124,
+              "line": 123,
               "column": 10
             },
             "end": {
-              "line": 127,
+              "line": 125,
               "column": 11
             }
           },
           "metadata": {
             "polymer": {
-              "notify": true,
               "attributeType": "Function"
             }
           },
@@ -5778,11 +5834,11 @@
           "sourceRange": {
             "file": "color-text-input.html",
             "start": {
-              "line": 146,
+              "line": 130,
               "column": 6
             },
             "end": {
-              "line": 163,
+              "line": 147,
               "column": 7
             }
           },
@@ -5793,6 +5849,9 @@
             },
             {
               "name": "fixedFormat"
+            },
+            {
+              "name": "alphaMode"
             }
           ],
           "inheritedFrom": "ColorTextInputPattern"
@@ -5804,11 +5863,11 @@
           "sourceRange": {
             "file": "color-text-input.html",
             "start": {
-              "line": 165,
+              "line": 149,
               "column": 6
             },
             "end": {
-              "line": 174,
+              "line": 161,
               "column": 7
             }
           },
@@ -5855,11 +5914,11 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 138,
+              "line": 136,
               "column": 6
             },
             "end": {
-              "line": 141,
+              "line": 139,
               "column": 7
             }
           },
@@ -5877,11 +5936,33 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 132,
+              "line": 99,
               "column": 6
             },
             "end": {
-              "line": 134,
+              "line": 101,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorBadgePattern"
+        },
+        {
+          "name": "resize",
+          "description": "resize the element",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "color-badge.html",
+            "start": {
+              "line": 106,
+              "column": 6
+            },
+            "end": {
+              "line": 108,
               "column": 7
             }
           },
@@ -5921,11 +6002,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 158,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 167,
+              "line": 139,
               "column": 7
             }
           },
@@ -5958,17 +6039,17 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_computeContexts",
-          "description": "computes the canvas contexts of the element",
+          "name": "_computeBadgeContext",
+          "description": "computes the canvas contexts of the badge element",
           "privacy": "protected",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 172,
+              "line": 144,
               "column": 6
             },
             "end": {
-              "line": 177,
+              "line": 150,
               "column": 7
             }
           },
@@ -5980,17 +6061,17 @@
           "inheritedFrom": "ColorBadgePattern"
         },
         {
-          "name": "_computeSizeProperties",
-          "description": "computes the size properties for the canvas",
+          "name": "_computeBadgeSizeProperties",
+          "description": "computes the size properties for the badge canvas",
           "privacy": "protected",
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 182,
+              "line": 155,
               "column": 6
             },
             "end": {
-              "line": 196,
+              "line": 169,
               "column": 7
             }
           },
@@ -6008,11 +6089,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 198,
+              "line": 171,
               "column": 6
             },
             "end": {
-              "line": 204,
+              "line": 177,
               "column": 7
             }
           },
@@ -6034,11 +6115,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 206,
+              "line": 179,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 184,
               "column": 7
             }
           },
@@ -6056,11 +6137,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 213,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 218,
+              "line": 191,
               "column": 7
             }
           },
@@ -6159,7 +6240,7 @@
               "column": 6
             },
             "end": {
-              "line": 217,
+              "line": 216,
               "column": 7
             }
           },
@@ -6177,11 +6258,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 222,
+              "line": 221,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 239,
               "column": 7
             }
           },
@@ -6200,11 +6281,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 240,
+              "line": 241,
               "column": 6
             },
             "end": {
-              "line": 321,
+              "line": 332,
               "column": 7
             }
           },
@@ -6226,11 +6307,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 331,
+              "line": 342,
               "column": 6
             },
             "end": {
-              "line": 380,
+              "line": 416,
               "column": 7
             }
           },
@@ -6264,101 +6345,17 @@
           "inheritedFrom": "ColorMixin"
         },
         {
-          "name": "_formatChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 382,
-              "column": 6
-            },
-            "end": {
-              "line": 401,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "format"
-            },
-            {
-              "name": "oldFormat"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "_alphaChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 403,
-              "column": 6
-            },
-            "end": {
-              "line": 421,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "alpha"
-            },
-            {
-              "name": "oldAlpha"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
-          "name": "_alphaModeChanged",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../property-mixins/color-mixin.html",
-            "start": {
-              "line": 423,
-              "column": 6
-            },
-            "end": {
-              "line": 427,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "alphaMode"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "ColorMixin"
-        },
-        {
           "name": "_hexChanged",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 429,
+              "line": 418,
               "column": 6
             },
             "end": {
-              "line": 449,
+              "line": 438,
               "column": 7
             }
           },
@@ -6380,11 +6377,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 451,
+              "line": 440,
               "column": 6
             },
             "end": {
-              "line": 495,
+              "line": 484,
               "column": 7
             }
           },
@@ -6412,11 +6409,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 497,
+              "line": 486,
               "column": 6
             },
             "end": {
-              "line": 541,
+              "line": 529,
               "column": 7
             }
           },
@@ -6438,17 +6435,101 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "_formatChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 531,
+              "column": 6
+            },
+            "end": {
+              "line": 547,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "format"
+            },
+            {
+              "name": "oldFormat"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "_alphaChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 549,
+              "column": 6
+            },
+            "end": {
+              "line": 571,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "alpha"
+            },
+            {
+              "name": "oldAlpha"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
+          "name": "_alphaModeChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 573,
+              "column": 6
+            },
+            "end": {
+              "line": 577,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "alphaMode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hexToRgb",
           "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 548,
+              "line": 584,
               "column": 6
             },
             "end": {
-              "line": 561,
+              "line": 597,
               "column": 7
             }
           },
@@ -6473,11 +6554,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 568,
+              "line": 604,
               "column": 6
             },
             "end": {
-              "line": 573,
+              "line": 609,
               "column": 7
             }
           },
@@ -6500,11 +6581,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 581,
+              "line": 617,
               "column": 6
             },
             "end": {
-              "line": 617,
+              "line": 653,
               "column": 7
             }
           },
@@ -6534,11 +6615,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 624,
+              "line": 660,
               "column": 6
             },
             "end": {
-              "line": 635,
+              "line": 671,
               "column": 7
             }
           },
@@ -6563,11 +6644,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 637,
+              "line": 673,
               "column": 6
             },
             "end": {
-              "line": 644,
+              "line": 680,
               "column": 7
             }
           },
@@ -6586,11 +6667,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 646,
+              "line": 682,
               "column": 6
             },
             "end": {
-              "line": 652,
+              "line": 688,
               "column": 7
             }
           },
@@ -6612,11 +6693,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 654,
+              "line": 690,
               "column": 6
             },
             "end": {
-              "line": 658,
+              "line": 694,
               "column": 7
             }
           },
@@ -6638,11 +6719,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 660,
+              "line": 696,
               "column": 6
             },
             "end": {
-              "line": 667,
+              "line": 703,
               "column": 7
             }
           },
@@ -6667,11 +6748,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 674,
+              "line": 710,
               "column": 5
             },
             "end": {
-              "line": 679,
+              "line": 715,
               "column": 6
             }
           },
@@ -6696,11 +6777,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 686,
+              "line": 722,
               "column": 5
             },
             "end": {
-              "line": 691,
+              "line": 727,
               "column": 6
             }
           },
@@ -6723,11 +6804,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 697,
+              "line": 733,
               "column": 5
             },
             "end": {
-              "line": 703,
+              "line": 739,
               "column": 6
             }
           },
@@ -6746,11 +6827,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 709,
+              "line": 745,
               "column": 5
             },
             "end": {
-              "line": 715,
+              "line": 751,
               "column": 6
             }
           },
@@ -6792,11 +6873,11 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 149,
+              "line": 147,
               "column": 6
             },
             "end": {
-              "line": 151,
+              "line": 149,
               "column": 7
             }
           },
@@ -6821,16 +6902,21 @@
           "sourceRange": {
             "file": "../input-picker-pattern/form-element-mixin.html",
             "start": {
-              "line": 160,
+              "line": 159,
               "column": 6
             },
             "end": {
-              "line": 162,
+              "line": 161,
               "column": 7
             }
           },
           "metadata": {},
           "params": [
+            {
+              "name": "isSet",
+              "type": "Function",
+              "description": "The function that defines if the value is set"
+            },
             {
               "name": "value",
               "type": "Object",
@@ -6867,6 +6953,9 @@
           "params": [
             {
               "name": "validate"
+            },
+            {
+              "name": "isSet"
             },
             {
               "name": "value"
@@ -7073,7 +7162,7 @@
           "column": 4
         },
         "end": {
-          "line": 139,
+          "line": 150,
           "column": 5
         }
       },
@@ -7087,11 +7176,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 85,
+              "line": 52,
               "column": 10
             },
             "end": {
-              "line": 88,
+              "line": 55,
               "column": 11
             }
           },
@@ -7105,11 +7194,11 @@
           "sourceRange": {
             "file": "color-badge.html",
             "start": {
-              "line": 93,
+              "line": 60,
               "column": 10
             },
             "end": {
-              "line": 97,
+              "line": 64,
               "column": 11
             }
           },
@@ -7544,11 +7633,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 52,
               "column": 10
             },
             "end": {
-              "line": 88,
+              "line": 55,
               "column": 11
             }
           },
@@ -7565,11 +7654,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 60,
               "column": 10
             },
             "end": {
-              "line": 97,
+              "line": 64,
               "column": 11
             }
           },
@@ -7588,11 +7677,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 66,
               "column": 10
             },
             "end": {
-              "line": 101,
+              "line": 68,
               "column": 11
             }
           },
@@ -7609,11 +7698,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 103,
+              "line": 70,
               "column": 10
             },
             "end": {
-              "line": 105,
+              "line": 72,
               "column": 11
             }
           },
@@ -7630,11 +7719,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 74,
               "column": 10
             },
             "end": {
-              "line": 109,
+              "line": 76,
               "column": 11
             }
           },
@@ -7652,11 +7741,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 86,
               "column": 6
             },
             "end": {
-              "line": 122,
+              "line": 89,
               "column": 7
             }
           },
@@ -7672,11 +7761,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 91,
               "column": 6
             },
             "end": {
-              "line": 127,
+              "line": 94,
               "column": 7
             }
           },
@@ -7692,11 +7781,31 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 99,
               "column": 6
             },
             "end": {
-              "line": 134,
+              "line": 101,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "resize",
+          "description": "resize the element",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 6
+            },
+            "end": {
+              "line": 108,
               "column": 7
             }
           },
@@ -7712,11 +7821,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 113,
               "column": 6
             },
             "end": {
-              "line": 145,
+              "line": 119,
               "column": 7
             }
           },
@@ -7736,11 +7845,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 167,
+              "line": 139,
               "column": 7
             }
           },
@@ -7772,16 +7881,16 @@
           }
         },
         {
-          "name": "_computeContexts",
-          "description": "computes the canvas contexts of the element",
+          "name": "_computeBadgeContext",
+          "description": "computes the canvas contexts of the badge element",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 144,
               "column": 6
             },
             "end": {
-              "line": 177,
+              "line": 150,
               "column": 7
             }
           },
@@ -7792,16 +7901,16 @@
           }
         },
         {
-          "name": "_computeSizeProperties",
-          "description": "computes the size properties for the canvas",
+          "name": "_computeBadgeSizeProperties",
+          "description": "computes the size properties for the badge canvas",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 182,
+              "line": 155,
               "column": 6
             },
             "end": {
-              "line": 196,
+              "line": 169,
               "column": 7
             }
           },
@@ -7817,11 +7926,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 171,
               "column": 6
             },
             "end": {
-              "line": 204,
+              "line": 177,
               "column": 7
             }
           },
@@ -7841,11 +7950,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 179,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 184,
               "column": 7
             }
           },
@@ -7861,11 +7970,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 213,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 218,
+              "line": 191,
               "column": 7
             }
           },
@@ -7881,11 +7990,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 2
         },
         "end": {
-          "line": 221,
+          "line": 194,
           "column": 3
         }
       },
@@ -7897,11 +8006,11 @@
           "description": "hide the transparency pattern",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 52,
               "column": 10
             },
             "end": {
-              "line": 88,
+              "line": 55,
               "column": 11
             }
           },
@@ -7913,11 +8022,11 @@
           "description": "if true, clicking on the color badge won't generate a random color",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 60,
               "column": 10
             },
             "end": {
-              "line": 97,
+              "line": 64,
               "column": 11
             }
           },
@@ -7998,12 +8107,16 @@
               "column": 6
             },
             "end": {
-              "line": 75,
+              "line": 79,
               "column": 7
             }
           },
           "metadata": {},
-          "params": [],
+          "params": [
+            {
+              "name": "e"
+            }
+          ],
           "return": {
             "type": "void"
           }
@@ -8018,7 +8131,7 @@
           "column": 2
         },
         "end": {
-          "line": 77,
+          "line": 81,
           "column": 3
         }
       },
@@ -8061,11 +8174,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 130,
               "column": 6
             },
             "end": {
-              "line": 163,
+              "line": 147,
               "column": 7
             }
           },
@@ -8076,6 +8189,9 @@
             },
             {
               "name": "fixedFormat"
+            },
+            {
+              "name": "alphaMode"
             }
           ]
         },
@@ -8085,11 +8201,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 165,
+              "line": 149,
               "column": 6
             },
             "end": {
-              "line": 174,
+              "line": 161,
               "column": 7
             }
           },
@@ -8112,11 +8228,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 86,
+          "line": 90,
           "column": 2
         },
         "end": {
-          "line": 176,
+          "line": 163,
           "column": 3
         }
       },

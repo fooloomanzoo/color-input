@@ -95,6 +95,9 @@
       static get styleTemplate() {
         return `
           ${super.styleTemplate || ''}
+          #input {
+            align-items: center;
+          }
           #input .badge {
             border-radius: var(--input-border-radius, var(--color-badge-radius, 0.2em));
             height: var(--color-badge-height, 100%);

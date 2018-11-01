@@ -6,7 +6,7 @@
   "directories": {
     "test": "test"
   },
-  "scripts": {    
+  "scripts": {
     "postinstall": "bower install",
     "prepublish": "npm run build && git add . && git commit -m \"publish new version\" && npm version patch && git push",
     "gh-pages": "git checkout gh-pages && git pull && bower update -f && git add . && git commit -m \"update\" && git push && git checkout master",
@@ -34,10 +34,11 @@
     "@fooloomanzoo/property-mixins": "^2"
   },
   "devDependencies": {
-    "@webcomponents/webcomponentsjs": "*",
-    "@polymer/iron-component-page": "*",
-    "@polymer/iron-flex-layout": "*",
-    "@polymer/iron-demo-helpers": "*",
-    "@polymer/iron-form": "*"
+    "web-component-tester": "^6.5.0",
+    "@webcomponents/webcomponentsjs": "^1",
+    "@polymer/iron-component-page": "^3",
+    "@polymer/iron-flex-layout": "^2",
+    "@polymer/iron-demo-helpers": "^2",
+    "@polymer/iron-form": "^2"
   }
 }
