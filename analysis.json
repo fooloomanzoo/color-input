@@ -339,6 +339,30 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "withoutAlpha",
+          "type": "boolean | null | undefined",
+          "description": "if true, alpha won't be used",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 123,
+              "column": 10
+            },
+            "end": {
+              "line": 126,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_withoutAlphaChanged\"",
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hslPrecision",
           "type": "number | null | undefined",
           "description": "Precision of hsl-colorStrings, if the format is 'hsl' (for saturation and lightness it is applied according to their percentage colorString)",
@@ -346,11 +370,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 122,
+              "line": 131,
               "column": 10
             },
             "end": {
-              "line": 125,
+              "line": 134,
               "column": 11
             }
           },
@@ -370,11 +394,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 130,
+              "line": 139,
               "column": 10
             },
             "end": {
-              "line": 135,
+              "line": 144,
               "column": 11
             }
           },
@@ -396,11 +420,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 140,
+              "line": 149,
               "column": 10
             },
             "end": {
-              "line": 142,
+              "line": 151,
               "column": 11
             }
           },
@@ -419,11 +443,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 147,
+              "line": 156,
               "column": 10
             },
             "end": {
-              "line": 150,
+              "line": 159,
               "column": 11
             }
           },
@@ -443,11 +467,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 155,
+              "line": 164,
               "column": 10
             },
             "end": {
-              "line": 159,
+              "line": 168,
               "column": 11
             }
           },
@@ -733,11 +757,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 170,
+              "line": 179,
               "column": 6
             },
             "end": {
-              "line": 173,
+              "line": 182,
               "column": 7
             }
           },
@@ -819,11 +843,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 178,
+              "line": 187,
               "column": 6
             },
             "end": {
-              "line": 181,
+              "line": 190,
               "column": 7
             }
           },
@@ -992,11 +1016,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 186,
+              "line": 195,
               "column": 6
             },
             "end": {
-              "line": 199,
+              "line": 208,
               "column": 7
             }
           },
@@ -1014,11 +1038,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 204,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 216,
+              "line": 225,
               "column": 7
             }
           },
@@ -1036,11 +1060,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 221,
+              "line": 230,
               "column": 6
             },
             "end": {
-              "line": 239,
+              "line": 248,
               "column": 7
             }
           },
@@ -1059,11 +1083,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 241,
+              "line": 250,
               "column": 6
             },
             "end": {
-              "line": 332,
+              "line": 341,
               "column": 7
             }
           },
@@ -1085,11 +1109,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 342,
+              "line": 351,
               "column": 6
             },
             "end": {
-              "line": 416,
+              "line": 431,
               "column": 7
             }
           },
@@ -1129,11 +1153,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 418,
+              "line": 433,
               "column": 6
             },
             "end": {
-              "line": 438,
+              "line": 453,
               "column": 7
             }
           },
@@ -1155,11 +1179,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 440,
+              "line": 455,
               "column": 6
             },
             "end": {
-              "line": 484,
+              "line": 499,
               "column": 7
             }
           },
@@ -1187,11 +1211,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 486,
+              "line": 501,
               "column": 6
             },
             "end": {
-              "line": 529,
+              "line": 544,
               "column": 7
             }
           },
@@ -1219,11 +1243,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 531,
+              "line": 546,
               "column": 6
             },
             "end": {
-              "line": 547,
+              "line": 562,
               "column": 7
             }
           },
@@ -1248,11 +1272,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 549,
+              "line": 564,
               "column": 6
             },
             "end": {
-              "line": 571,
+              "line": 594,
               "column": 7
             }
           },
@@ -1277,11 +1301,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 573,
+              "line": 596,
               "column": 6
             },
             "end": {
-              "line": 577,
+              "line": 617,
               "column": 7
             }
           },
@@ -1297,17 +1321,43 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "_withoutAlphaChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 619,
+              "column": 6
+            },
+            "end": {
+              "line": 629,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "withoutAlpha"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hexToRgb",
           "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 584,
+              "line": 636,
               "column": 6
             },
             "end": {
-              "line": 597,
+              "line": 649,
               "column": 7
             }
           },
@@ -1332,11 +1382,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 604,
+              "line": 656,
               "column": 6
             },
             "end": {
-              "line": 609,
+              "line": 661,
               "column": 7
             }
           },
@@ -1359,11 +1409,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 617,
+              "line": 669,
               "column": 6
             },
             "end": {
-              "line": 653,
+              "line": 705,
               "column": 7
             }
           },
@@ -1393,11 +1443,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 660,
+              "line": 712,
               "column": 6
             },
             "end": {
-              "line": 671,
+              "line": 723,
               "column": 7
             }
           },
@@ -1422,11 +1472,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 673,
+              "line": 725,
               "column": 6
             },
             "end": {
-              "line": 680,
+              "line": 732,
               "column": 7
             }
           },
@@ -1445,11 +1495,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 682,
+              "line": 734,
               "column": 6
             },
             "end": {
-              "line": 688,
+              "line": 740,
               "column": 7
             }
           },
@@ -1471,11 +1521,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 690,
+              "line": 742,
               "column": 6
             },
             "end": {
-              "line": 694,
+              "line": 746,
               "column": 7
             }
           },
@@ -1497,11 +1547,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 696,
+              "line": 748,
               "column": 6
             },
             "end": {
-              "line": 703,
+              "line": 755,
               "column": 7
             }
           },
@@ -1526,11 +1576,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 710,
+              "line": 762,
               "column": 5
             },
             "end": {
-              "line": 715,
+              "line": 767,
               "column": 6
             }
           },
@@ -1555,11 +1605,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 722,
+              "line": 774,
               "column": 5
             },
             "end": {
-              "line": 727,
+              "line": 779,
               "column": 6
             }
           },
@@ -1582,11 +1632,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 733,
+              "line": 785,
               "column": 5
             },
             "end": {
-              "line": 739,
+              "line": 791,
               "column": 6
             }
           },
@@ -1605,11 +1655,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 745,
+              "line": 797,
               "column": 5
             },
             "end": {
-              "line": 751,
+              "line": 803,
               "column": 6
             }
           },
@@ -2167,16 +2217,34 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "without-alpha",
+          "description": "if true, alpha won't be used",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 123,
+              "column": 10
+            },
+            "end": {
+              "line": 126,
+              "column": 11
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined",
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hsl-precision",
           "description": "Precision of hsl-colorStrings, if the format is 'hsl' (for saturation and lightness it is applied according to their percentage colorString)",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 122,
+              "line": 131,
               "column": 10
             },
             "end": {
-              "line": 125,
+              "line": 134,
               "column": 11
             }
           },
@@ -2190,11 +2258,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 130,
+              "line": 139,
               "column": 10
             },
             "end": {
-              "line": 135,
+              "line": 144,
               "column": 11
             }
           },
@@ -2208,11 +2276,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 140,
+              "line": 149,
               "column": 10
             },
             "end": {
-              "line": 142,
+              "line": 151,
               "column": 11
             }
           },
@@ -2226,11 +2294,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 155,
+              "line": 164,
               "column": 10
             },
             "end": {
-              "line": 159,
+              "line": 168,
               "column": 11
             }
           },
@@ -2781,6 +2849,30 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "withoutAlpha",
+          "type": "boolean | null | undefined",
+          "description": "if true, alpha won't be used",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 123,
+              "column": 10
+            },
+            "end": {
+              "line": 126,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_withoutAlphaChanged\"",
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hslPrecision",
           "type": "number | null | undefined",
           "description": "Precision of hsl-colorStrings, if the format is 'hsl' (for saturation and lightness it is applied according to their percentage colorString)",
@@ -2788,11 +2880,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 122,
+              "line": 131,
               "column": 10
             },
             "end": {
-              "line": 125,
+              "line": 134,
               "column": 11
             }
           },
@@ -2812,11 +2904,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 130,
+              "line": 139,
               "column": 10
             },
             "end": {
-              "line": 135,
+              "line": 144,
               "column": 11
             }
           },
@@ -2838,11 +2930,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 140,
+              "line": 149,
               "column": 10
             },
             "end": {
-              "line": 142,
+              "line": 151,
               "column": 11
             }
           },
@@ -2861,11 +2953,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 147,
+              "line": 156,
               "column": 10
             },
             "end": {
-              "line": 150,
+              "line": 159,
               "column": 11
             }
           },
@@ -2885,11 +2977,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 155,
+              "line": 164,
               "column": 10
             },
             "end": {
-              "line": 159,
+              "line": 168,
               "column": 11
             }
           },
@@ -3207,11 +3299,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 170,
+              "line": 179,
               "column": 6
             },
             "end": {
-              "line": 173,
+              "line": 182,
               "column": 7
             }
           },
@@ -3295,11 +3387,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 178,
+              "line": 187,
               "column": 6
             },
             "end": {
-              "line": 181,
+              "line": 190,
               "column": 7
             }
           },
@@ -3528,11 +3620,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 186,
+              "line": 195,
               "column": 6
             },
             "end": {
-              "line": 199,
+              "line": 208,
               "column": 7
             }
           },
@@ -3550,11 +3642,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 204,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 216,
+              "line": 225,
               "column": 7
             }
           },
@@ -3572,11 +3664,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 221,
+              "line": 230,
               "column": 6
             },
             "end": {
-              "line": 239,
+              "line": 248,
               "column": 7
             }
           },
@@ -3595,11 +3687,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 241,
+              "line": 250,
               "column": 6
             },
             "end": {
-              "line": 332,
+              "line": 341,
               "column": 7
             }
           },
@@ -3621,11 +3713,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 342,
+              "line": 351,
               "column": 6
             },
             "end": {
-              "line": 416,
+              "line": 431,
               "column": 7
             }
           },
@@ -3665,11 +3757,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 418,
+              "line": 433,
               "column": 6
             },
             "end": {
-              "line": 438,
+              "line": 453,
               "column": 7
             }
           },
@@ -3691,11 +3783,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 440,
+              "line": 455,
               "column": 6
             },
             "end": {
-              "line": 484,
+              "line": 499,
               "column": 7
             }
           },
@@ -3723,11 +3815,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 486,
+              "line": 501,
               "column": 6
             },
             "end": {
-              "line": 529,
+              "line": 544,
               "column": 7
             }
           },
@@ -3755,11 +3847,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 531,
+              "line": 546,
               "column": 6
             },
             "end": {
-              "line": 547,
+              "line": 562,
               "column": 7
             }
           },
@@ -3784,11 +3876,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 549,
+              "line": 564,
               "column": 6
             },
             "end": {
-              "line": 571,
+              "line": 594,
               "column": 7
             }
           },
@@ -3813,11 +3905,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 573,
+              "line": 596,
               "column": 6
             },
             "end": {
-              "line": 577,
+              "line": 617,
               "column": 7
             }
           },
@@ -3833,17 +3925,43 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "_withoutAlphaChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 619,
+              "column": 6
+            },
+            "end": {
+              "line": 629,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "withoutAlpha"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hexToRgb",
           "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 584,
+              "line": 636,
               "column": 6
             },
             "end": {
-              "line": 597,
+              "line": 649,
               "column": 7
             }
           },
@@ -3868,11 +3986,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 604,
+              "line": 656,
               "column": 6
             },
             "end": {
-              "line": 609,
+              "line": 661,
               "column": 7
             }
           },
@@ -3895,11 +4013,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 617,
+              "line": 669,
               "column": 6
             },
             "end": {
-              "line": 653,
+              "line": 705,
               "column": 7
             }
           },
@@ -3929,11 +4047,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 660,
+              "line": 712,
               "column": 6
             },
             "end": {
-              "line": 671,
+              "line": 723,
               "column": 7
             }
           },
@@ -3958,11 +4076,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 673,
+              "line": 725,
               "column": 6
             },
             "end": {
-              "line": 680,
+              "line": 732,
               "column": 7
             }
           },
@@ -3981,11 +4099,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 682,
+              "line": 734,
               "column": 6
             },
             "end": {
-              "line": 688,
+              "line": 740,
               "column": 7
             }
           },
@@ -4007,11 +4125,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 690,
+              "line": 742,
               "column": 6
             },
             "end": {
-              "line": 694,
+              "line": 746,
               "column": 7
             }
           },
@@ -4033,11 +4151,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 696,
+              "line": 748,
               "column": 6
             },
             "end": {
-              "line": 703,
+              "line": 755,
               "column": 7
             }
           },
@@ -4062,11 +4180,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 710,
+              "line": 762,
               "column": 5
             },
             "end": {
-              "line": 715,
+              "line": 767,
               "column": 6
             }
           },
@@ -4091,11 +4209,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 722,
+              "line": 774,
               "column": 5
             },
             "end": {
-              "line": 727,
+              "line": 779,
               "column": 6
             }
           },
@@ -4118,11 +4236,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 733,
+              "line": 785,
               "column": 5
             },
             "end": {
-              "line": 739,
+              "line": 791,
               "column": 6
             }
           },
@@ -4141,11 +4259,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 745,
+              "line": 797,
               "column": 5
             },
             "end": {
-              "line": 751,
+              "line": 803,
               "column": 6
             }
           },
@@ -4701,16 +4819,34 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "without-alpha",
+          "description": "if true, alpha won't be used",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 123,
+              "column": 10
+            },
+            "end": {
+              "line": 126,
+              "column": 11
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined",
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hsl-precision",
           "description": "Precision of hsl-colorStrings, if the format is 'hsl' (for saturation and lightness it is applied according to their percentage colorString)",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 122,
+              "line": 131,
               "column": 10
             },
             "end": {
-              "line": 125,
+              "line": 134,
               "column": 11
             }
           },
@@ -4724,11 +4860,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 130,
+              "line": 139,
               "column": 10
             },
             "end": {
-              "line": 135,
+              "line": 144,
               "column": 11
             }
           },
@@ -4742,11 +4878,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 140,
+              "line": 149,
               "column": 10
             },
             "end": {
-              "line": 142,
+              "line": 151,
               "column": 11
             }
           },
@@ -4760,11 +4896,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 155,
+              "line": 164,
               "column": 10
             },
             "end": {
-              "line": 159,
+              "line": 168,
               "column": 11
             }
           },
@@ -5345,6 +5481,30 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "withoutAlpha",
+          "type": "boolean | null | undefined",
+          "description": "if true, alpha won't be used",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 123,
+              "column": 10
+            },
+            "end": {
+              "line": 126,
+              "column": 11
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_withoutAlphaChanged\"",
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hslPrecision",
           "type": "number | null | undefined",
           "description": "Precision of hsl-colorStrings, if the format is 'hsl' (for saturation and lightness it is applied according to their percentage colorString)",
@@ -5352,11 +5512,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 122,
+              "line": 131,
               "column": 10
             },
             "end": {
-              "line": 125,
+              "line": 134,
               "column": 11
             }
           },
@@ -5376,11 +5536,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 130,
+              "line": 139,
               "column": 10
             },
             "end": {
-              "line": 135,
+              "line": 144,
               "column": 11
             }
           },
@@ -5402,11 +5562,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 140,
+              "line": 149,
               "column": 10
             },
             "end": {
-              "line": 142,
+              "line": 151,
               "column": 11
             }
           },
@@ -5425,11 +5585,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 147,
+              "line": 156,
               "column": 10
             },
             "end": {
-              "line": 150,
+              "line": 159,
               "column": 11
             }
           },
@@ -5449,11 +5609,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 155,
+              "line": 164,
               "column": 10
             },
             "end": {
-              "line": 159,
+              "line": 168,
               "column": 11
             }
           },
@@ -5892,11 +6052,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 170,
+              "line": 179,
               "column": 6
             },
             "end": {
-              "line": 173,
+              "line": 182,
               "column": 7
             }
           },
@@ -5980,11 +6140,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 178,
+              "line": 187,
               "column": 6
             },
             "end": {
-              "line": 181,
+              "line": 190,
               "column": 7
             }
           },
@@ -6214,11 +6374,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 186,
+              "line": 195,
               "column": 6
             },
             "end": {
-              "line": 199,
+              "line": 208,
               "column": 7
             }
           },
@@ -6236,11 +6396,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 204,
+              "line": 213,
               "column": 6
             },
             "end": {
-              "line": 216,
+              "line": 225,
               "column": 7
             }
           },
@@ -6258,11 +6418,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 221,
+              "line": 230,
               "column": 6
             },
             "end": {
-              "line": 239,
+              "line": 248,
               "column": 7
             }
           },
@@ -6281,11 +6441,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 241,
+              "line": 250,
               "column": 6
             },
             "end": {
-              "line": 332,
+              "line": 341,
               "column": 7
             }
           },
@@ -6307,11 +6467,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 342,
+              "line": 351,
               "column": 6
             },
             "end": {
-              "line": 416,
+              "line": 431,
               "column": 7
             }
           },
@@ -6351,11 +6511,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 418,
+              "line": 433,
               "column": 6
             },
             "end": {
-              "line": 438,
+              "line": 453,
               "column": 7
             }
           },
@@ -6377,11 +6537,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 440,
+              "line": 455,
               "column": 6
             },
             "end": {
-              "line": 484,
+              "line": 499,
               "column": 7
             }
           },
@@ -6409,11 +6569,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 486,
+              "line": 501,
               "column": 6
             },
             "end": {
-              "line": 529,
+              "line": 544,
               "column": 7
             }
           },
@@ -6441,11 +6601,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 531,
+              "line": 546,
               "column": 6
             },
             "end": {
-              "line": 547,
+              "line": 562,
               "column": 7
             }
           },
@@ -6470,11 +6630,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 549,
+              "line": 564,
               "column": 6
             },
             "end": {
-              "line": 571,
+              "line": 594,
               "column": 7
             }
           },
@@ -6499,11 +6659,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 573,
+              "line": 596,
               "column": 6
             },
             "end": {
-              "line": 577,
+              "line": 617,
               "column": 7
             }
           },
@@ -6519,17 +6679,43 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "_withoutAlphaChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 619,
+              "column": 6
+            },
+            "end": {
+              "line": 629,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "withoutAlpha"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hexToRgb",
           "description": "convert hex to rgb",
           "privacy": "public",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 584,
+              "line": 636,
               "column": 6
             },
             "end": {
-              "line": 597,
+              "line": 649,
               "column": 7
             }
           },
@@ -6554,11 +6740,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 604,
+              "line": 656,
               "column": 6
             },
             "end": {
-              "line": 609,
+              "line": 661,
               "column": 7
             }
           },
@@ -6581,11 +6767,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 617,
+              "line": 669,
               "column": 6
             },
             "end": {
-              "line": 653,
+              "line": 705,
               "column": 7
             }
           },
@@ -6615,11 +6801,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 660,
+              "line": 712,
               "column": 6
             },
             "end": {
-              "line": 671,
+              "line": 723,
               "column": 7
             }
           },
@@ -6644,11 +6830,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 673,
+              "line": 725,
               "column": 6
             },
             "end": {
-              "line": 680,
+              "line": 732,
               "column": 7
             }
           },
@@ -6667,11 +6853,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 682,
+              "line": 734,
               "column": 6
             },
             "end": {
-              "line": 688,
+              "line": 740,
               "column": 7
             }
           },
@@ -6693,11 +6879,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 690,
+              "line": 742,
               "column": 6
             },
             "end": {
-              "line": 694,
+              "line": 746,
               "column": 7
             }
           },
@@ -6719,11 +6905,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 696,
+              "line": 748,
               "column": 6
             },
             "end": {
-              "line": 703,
+              "line": 755,
               "column": 7
             }
           },
@@ -6748,11 +6934,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 710,
+              "line": 762,
               "column": 5
             },
             "end": {
-              "line": 715,
+              "line": 767,
               "column": 6
             }
           },
@@ -6777,11 +6963,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 722,
+              "line": 774,
               "column": 5
             },
             "end": {
-              "line": 727,
+              "line": 779,
               "column": 6
             }
           },
@@ -6804,11 +6990,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 733,
+              "line": 785,
               "column": 5
             },
             "end": {
-              "line": 739,
+              "line": 791,
               "column": 6
             }
           },
@@ -6827,11 +7013,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 745,
+              "line": 797,
               "column": 5
             },
             "end": {
-              "line": 751,
+              "line": 803,
               "column": 6
             }
           },
@@ -7387,16 +7573,34 @@
           "inheritedFrom": "ColorMixin"
         },
         {
+          "name": "without-alpha",
+          "description": "if true, alpha won't be used",
+          "sourceRange": {
+            "file": "../property-mixins/color-mixin.html",
+            "start": {
+              "line": 123,
+              "column": 10
+            },
+            "end": {
+              "line": 126,
+              "column": 11
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined",
+          "inheritedFrom": "ColorMixin"
+        },
+        {
           "name": "hsl-precision",
           "description": "Precision of hsl-colorStrings, if the format is 'hsl' (for saturation and lightness it is applied according to their percentage colorString)",
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 122,
+              "line": 131,
               "column": 10
             },
             "end": {
-              "line": 125,
+              "line": 134,
               "column": 11
             }
           },
@@ -7410,11 +7614,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 130,
+              "line": 139,
               "column": 10
             },
             "end": {
-              "line": 135,
+              "line": 144,
               "column": 11
             }
           },
@@ -7428,11 +7632,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 140,
+              "line": 149,
               "column": 10
             },
             "end": {
-              "line": 142,
+              "line": 151,
               "column": 11
             }
           },
@@ -7446,11 +7650,11 @@
           "sourceRange": {
             "file": "../property-mixins/color-mixin.html",
             "start": {
-              "line": 155,
+              "line": 164,
               "column": 10
             },
             "end": {
-              "line": 159,
+              "line": 168,
               "column": 11
             }
           },

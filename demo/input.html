@@ -38,10 +38,10 @@
                   margin: 4px;
                 }
               </style>
-              <span>color-input: </span><color-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-input>
+              <span>color-input: </span><color-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}" without-alpha="[[withoutAlpha]]"></color-input>
               <br>
               <br>
-              <span>color-text-input: </span><color-text-input value="{{color}}" alpha="{{alpha}}" format="{{format}}"></color-text-input>
+              <span>color-text-input: </span><color-text-input value="{{color}}" alpha="{{alpha}}" format="{{format}}" without-alpha="[[withoutAlpha]]"></color-text-input>
               <br>
               <div class="vertical-section-container result">
                 <p>
@@ -66,6 +66,8 @@
                   <input type="range" min="0" max="1" step="0.01" value="{{s::input}}"><span> saturation: [[s]] </span>
                   <br>
                   <input type="range" min="0" max="1" step="0.01" value="{{l::input}}"><span> lightness: [[l]] </span>
+                  <br>
+                  <input type="checkbox" checked="{{withoutAlpha::change}}">without alpha
                   <br>
                 </p>
                 <p>

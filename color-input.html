@@ -51,8 +51,8 @@
             <number-input required="[[required]]" title="lightness" auto-resize placeholder="100\u202F%" number-style="percent" saturate min="0" max="1" step="[[_hslPercentStep]]" start-at="0.5" value-as-number="{{l}}"></number-input>
           </template>
           <template is="dom-if" if="[[_equalsNot(format, 'hex', 'auto')]]" restamp>
-            <label>a:</label>
-            <number-input required="[[required]]" title="alpha" value-as-number="{{alpha}}" min="0" max="1" saturate no-clamp auto-resize placeholder="1" start-at="1" step="0.01"></number-input>
+            <label hidden$="[[withoutAlpha]]">a:</label>
+            <number-input hidden$="[[withoutAlpha]]" required="[[required]]" title="alpha" value-as-number="{{alpha}}" min="0" max="1" saturate no-clamp auto-resize placeholder="1" start-at="1" step="0.01"></number-input>
           </template>
           ${super.resetButtonTemplate}
         `
