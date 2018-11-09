@@ -7,16 +7,13 @@
 
   <title>color-text-input test</title>
 
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <script src="../../web-component-tester/browser.js"></script>
-  <script src="../../iron-test-helpers/mock-interactions.js"></script>
-  <script src="../../input-picker-pattern/utils/wct-mixin-test-helper.js"></script>
+  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script src="../../../wct-browser-legacy/browser.js"></script>
 
-  <link rel="import" href="../color-text-input.html">
+  <script type="module" src="../color-text-input.js"></script>
 </head>
 
 <body>
-
   <test-fixture id="Basic">
     <template>
       <color-text-input></color-text-input>
@@ -29,11 +26,19 @@
     </template>
   </test-fixture>
 
-  <script>
-    WCT.helpers.mixinSuite('color-text-input');
+  <script type="module">
+    import {
+      Base
+    } from '../../../@polymer/polymer/polymer-legacy.js';
+    import {
+      getParams,
+      mixinSuite
+    } from '../../input-picker-pattern/utils/wct-mixin-test-helper.js';
+
+    const params = getParams();
+    mixinSuite('color-text-input');
 
     suite('basic', function() {
-
       let element;
 
       setup(function() {
@@ -132,8 +137,6 @@
         done();
       });
     });
-  </script>
-
-</body>
-
+    </script>
+  </body>
 </html>

@@ -7,12 +7,10 @@
 
   <title>color-badge test</title>
 
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <script src="../../web-component-tester/browser.js"></script>
-  <script src="../../iron-test-helpers/mock-interactions.js"></script>
-  <script src="../../input-picker-pattern/utils/wct-mixin-test-helper.js"></script>
+  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+  <script src="../../../wct-browser-legacy/browser.js"></script>
 
-  <link rel="import" href="../color-badge.html">
+  <script type="module" src="../color-badge.js"></script>
 </head>
 
 <body>
@@ -23,11 +21,19 @@
     </template>
   </test-fixture>
 
-  <script>
-    WCT.helpers.mixinSuite('color-badge');
+  <script type="module">
+    import {
+      Base
+    } from '../../../@polymer/polymer/polymer-legacy.js';
+    import {
+      getParams,
+      mixinSuite
+    } from '../../input-picker-pattern/utils/wct-mixin-test-helper.js';
+
+    const params = getParams();
+    mixinSuite('color-badge');
 
     suite('basic', function() {
-
       let element;
 
       setup(function() {
@@ -36,7 +42,7 @@
 
       test('instantiating the element with default properties should work', done => {
         assert.isUndefined(element.hideTransparencyPattern, 'no hideTransparencyPattern is defined');
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           assert.isDefined(element._badgeWidth, '_badgewidth is defined');
           assert.isDefined(element._badgeHeight, '_badgeheight is defined');
           assert.isDefined(element._badgeContext, '_badgecontext is defined');
@@ -47,7 +53,7 @@
       test('calling "randomColor" on the element should work', done => {
         assert.isDefined(element.randomColor, '"randomColor" exists');
         element.randomColor();
-        Polymer.Base.async(() => {
+        Base.async(() => {
           assert.isDefined(element.r, 'r is defined');
           assert.isDefined(element.g, 'g is defined');
           assert.isDefined(element.b, 'b is defined');
@@ -69,7 +75,7 @@
       });
 
       test('double clicking on badge causing random color', done => {
-        Polymer.Base.async(() => {
+        Base.async(() => {
           let badge = element.$.badge;
           // wait a tick to let dom-if stamping finish
           if (badge && !element.noRandomColorOnClick) {
@@ -93,7 +99,5 @@
       });
     });
   </script>
-
-</body>
-
+  </body>
 </html>
