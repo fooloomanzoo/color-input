@@ -4,29 +4,34 @@
   <head>
     <title>color-picker demo</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script type="module">
+      import '../../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+      import '../../../@polymer/iron-demo-helpers/demo-snippet.js';
+      import '../color-input.js';
+      import '../color-text-input.js';
+      import '../color-badge.js';
 
-    <link rel="import" href="../color-input.html">
-    <link rel="import" href="../color-text-input.html">
-    <link rel="import" href="../color-badge.html">
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-        .result {
-          padding: 0.5em;
-        }
-        input {
-          vertical-align: middle;
-        }
-      </style>
-    </custom-style>
+      import {html} from '../../../@polymer/polymer/lib/utils/html-tag.js';
+      const template = html`
+        <custom-style>
+          <style is="custom-style" include="demo-pages-shared-styles">
+            result {
+              padding: 0.5em;
+            }
+            input {
+              vertical-align: middle;
+            }
+          </style>
+        </custom-style>`;
+      document.body.appendChild(template.content);
+    </script>
   </head>
 
   <body>
-
     <div class="vertical-section-container centered">
       <h3>Create a color-input</h3>
       <demo-snippet>
@@ -101,9 +106,9 @@
         <template>
           <dom-bind>
             <template is="dom-bind">
-              <color-input id="rgb" value="{{rgbValue}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" alpha="{{alpha}}" format="rgb" fixed-format></color-input><br><br>
-              <color-input id="hex" value="{{hexValue}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" alpha="{{alpha}}" format="hex" fixed-format></color-input><br><br>
-              <color-input id="hsl" value="{{hslValue}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" alpha="{{alpha}}" format="hsl" fixed-format></color-input><br><br>
+              <color-input id="rgb" value="{{rgbValue}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" alpha="{{alpha}}" format="rgb" fixed-format=""></color-input><br><br>
+              <color-input id="hex" value="{{hexValue}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" alpha="{{alpha}}" format="hex" fixed-format=""></color-input><br><br>
+              <color-input id="hsl" value="{{hslValue}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" alpha="{{alpha}}" format="hsl" fixed-format=""></color-input><br><br>
               alpha: <input type="range" min="0" max="1" step="0.01" value="{{alpha::change}}"><br>
               <p>
                 <b>rgb:</b> [[rgbValue]]<br><br>
@@ -115,7 +120,5 @@
         </template>
       </demo-snippet>
     </div>
-
   </body>
-
 </html>

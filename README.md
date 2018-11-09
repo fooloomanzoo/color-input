@@ -1,6 +1,5 @@
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/fooloomanzoo/color-input)
-[![API](https://img.shields.io/badge/API-available-green.svg)](https://www.webcomponents.org/element/fooloomanzoo/color-input/elements/color-input)
-[![Demo](https://img.shields.io/badge/demo-available-red.svg)](https://www.webcomponents.org/element/fooloomanzoo/color-input/demo/demo/index.html)
+[![Published on NPM](https://img.shields.io/npm/v/@fooloomanzoo/color-input.svg)](https://www.npmjs.com/package/@fooloomanzoo/color-input)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/@fooloomanzoo/color-input)
 
 _[API](https://fooloomanzoo.github.io/color-input/components/color-input/#/elements/color-input)_ and
 _[Demo](https://fooloomanzoo.github.io/color-input/components/color-input/#/elements/color-input/demos/demo/index.html)_
@@ -8,36 +7,9 @@ _[Demo](https://fooloomanzoo.github.io/color-input/components/color-input/#/elem
 ## \<color-input\>
 
 An input for color. It can use the formats `rgb`, `hsl` or `hex`. Additionally you can use `text` for automatically transform a color-string like `red` to its rgb-representation.
-
-<!--If you are looking for a picker for color, please have a look at [color-picker](https://github.com/fooloomanzoo/color-picker).-->
+If you are looking for a picker for color, please have a look at [color-picker](https://github.com/fooloomanzoo/color-picker).
 
 ### Example
-
-<!--
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="color-text-input.html">
-    <link rel="import" href="color-input.html">
-
-    <dom-bind>
-      <template is="dom-bind">
-        <custom-style>
-          <style is="custom-style">
-            html {
-              font-family: 'Roboto', 'Noto', 'Source Sans Pro', sans-serif;
-            }
-          </style>
-        </custom-style>
-
-        <next-code-block></next-code-block>
-      </template>
-    </dom-bind>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
   <span>color-input: </span><color-input value="{{color}}" alpha="{{alpha}}" r="{{r}}" g="{{g}}" b="{{b}}" h="{{h}}" s="{{s}}" l="{{l}}" format="{{format}}"></color-input>
   <br>
@@ -74,7 +46,7 @@ Have a look at [input-picker-pattern#input-shared-style](https://github.com/fool
 
 ### Installation
 ```
-bower install --save fooloomanzoo/color-input
+npm i --save @fooloomanzoo/color-input
 ```
 
 ### License

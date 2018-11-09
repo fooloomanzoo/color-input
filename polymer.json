@@ -1,12 +1,14 @@
 {
+  "moduleResolution": "node",
+  "npm": true,
   "sources": [
-    "color-badge.html",
-    "color-text-input.html",
-    "color-input.html"
+    "color-badge.js",
+    "color-text-input.js",
+    "color-input.js"
   ],
   "lint": {
     "rules": [
-      "polymer-2"
+      "polymer-3"
     ]
   }
 }
