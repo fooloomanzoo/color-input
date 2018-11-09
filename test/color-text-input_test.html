@@ -24,6 +24,7 @@
     import {
       Base
     } from '../../../@polymer/polymer/polymer-legacy.js';
+    import { tap } from '../../../@polymer/iron-test-helpers/mock-interactions.js';
     import {
       getParams,
       mixinSuite
@@ -68,7 +69,7 @@
       test('resetting by pressing reset icon', done => {
         setTimeout(() => {
           let button = element.shadowRoot.querySelector('.icon.reset');
-          MockInteractions.tap(button);
+          tap(button);
           if (element.default) {
             assert.equal(element.value, element.default, 'value is set to default');
             assert.equal(element.value, element[element.propertyForValue], 'propertyForValue is reflection is happening');
