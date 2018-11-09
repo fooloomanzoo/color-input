@@ -42,11 +42,11 @@
 
       test('instantiating the element with default properties should work', done => {
         assert.isDefined(element.propertyForValue, 'propertyForValue is defined');
-        setTimeout(() => {
+        Base.async(() => {
           let button = element.shadowRoot.querySelector('.icon.reset');
           assert.isOk(button, 'element has an reset icon');
           done();
-        }, 0);
+        });
       });
 
       test('compute placeholder strings for differnt formats', done => {
@@ -67,7 +67,7 @@
       });
 
       test('resetting by pressing reset icon', done => {
-        setTimeout(() => {
+        Base.async(() => {
           let button = element.shadowRoot.querySelector('.icon.reset');
           tap(button);
           if (element.default) {
@@ -86,7 +86,7 @@
             assert.isUndefined(element[element.propertyForValue], 'propertyForValue is reflection is happening');
           }
           done();
-        }, 0);
+        });
       });
     });
   </script>

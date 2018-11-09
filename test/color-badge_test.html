@@ -42,7 +42,7 @@
 
       test('instantiating the element with default properties should work', done => {
         assert.isUndefined(element.hideTransparencyPattern, 'no hideTransparencyPattern is defined');
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           assert.isDefined(element._badgeWidth, '_badgewidth is defined');
           assert.isDefined(element._badgeHeight, '_badgeheight is defined');
           assert.isDefined(element._badgeContext, '_badgecontext is defined');

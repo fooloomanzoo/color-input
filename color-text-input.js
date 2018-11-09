@@ -35,6 +35,7 @@ export const ColorFormMixin = dedupingMixin( superClass => {
 
     _computeIsSetFunction(propertyForValue, format) {
       let isSet = this._defaultIsSet;
+      this.__updateByColorString = false;
       switch (propertyForValue) {
         case 'colorString':
           let regexp;
@@ -52,7 +53,7 @@ export const ColorFormMixin = dedupingMixin( superClass => {
               regexp = regexpAuto;
           }
           isSet = function(value) {
-            return (typeof value === 'string' && value !== '' && !(regexp.exec(value) === null));
+            return this.__updateByColorString || (typeof value === 'string' && value !== '' && !(regexp.exec(value) === null));
           }
           break;
         case 'r': // falls through
