@@ -1,12 +1,10 @@
-import { PolymerElement } from '../../@polymer/polymer/polymer-element.js';
-import { html, htmlLiteral } from '../../@polymer/polymer/lib/utils/html-tag.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import { dedupingMixin } from '@polymer/polymer/lib/utils/mixin.js';
 import { ColorMixin } from '@fooloomanzoo/property-mixins/color-mixin.js';
-import { FormElementMixin } from '@fooloomanzoo/input-picker-pattern/form-element-mixin.js';
+import { FormElementMixin, resetButtonTemplate } from '@fooloomanzoo/input-picker-pattern/form-element-mixin.js';
 import { ColorTextInputPattern, ColorFormMixin } from './color-text-input.js';
 import { ColorBadgePattern } from './color-badge.js';
-import '@fooloomanzoo/input-picker-pattern/input-shared-style.js';
-import '@fooloomanzoo/input-picker-pattern/input-pattern.js';
 import '@fooloomanzoo/number-input/number-input.js';
 import '@fooloomanzoo/number-input/integer-input.js';
 import '@fooloomanzoo/text-input/text-input.js';
@@ -20,15 +18,17 @@ export const ColorInputPattern = dedupingMixin( superClass => {
   return class extends superClass {
 
     static get styleTemplate() {
-      return htmlLiteral`
-        ${super.styleTemplate || htmlLiteral``}
-        label {
-          margin-left: 0.4em;
-        }
-        number-input,
-        integer-input {
-          margin-left: 0.2em;
-        }
+      return html`
+        ${super.styleTemplate || html``}
+        <style>
+          label {
+            margin-left: 0.4em;
+          }
+          number-input,
+          integer-input {
+            margin-left: 0.2em;
+          }
+        </style>
       `;
     }
 
@@ -58,7 +58,7 @@ export const ColorInputPattern = dedupingMixin( superClass => {
           <label hidden$="[[withoutAlpha]]">a:</label>
           <number-input hidden$="[[withoutAlpha]]" required="[[required]]" title="alpha" value-as-number="{{alpha}}" min="0" max="1" saturate no-clamp auto-resize placeholder="1" start-at="1" step="0.01"></number-input>
         </template>
-        ${this.resetButtonTemplate}
+        ${resetButtonTemplate}
       `
     }
 
@@ -140,9 +140,7 @@ export class ColorInput extends ColorInputPattern(ColorTextInputPattern(ColorBad
 
   static get template() {
     return html`
-      <style include="${this.styleToInclude}">
-        ${this.styleTemplate}
-      </style>
+      ${this.styleTemplate}
       <div id="input">
         ${this.inputTemplate}
       </div>

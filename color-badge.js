@@ -1,11 +1,10 @@
-import { PolymerElement } from '../../@polymer/polymer/polymer-element.js';
-import { html, htmlLiteral } from '../../@polymer/polymer/lib/utils/html-tag.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import { dedupingMixin } from '@polymer/polymer/lib/utils/mixin.js';
 import { ColorMixin } from '@fooloomanzoo/property-mixins/color-mixin.js';
 import { getBoundingClientRectByRelative } from '@fooloomanzoo/input-picker-pattern/input-pattern.js';
-import '@fooloomanzoo/input-picker-pattern/input-shared-style.js';
-import '@fooloomanzoo/input-picker-pattern/input-pattern.js';
-import './transparency-pattern-style.js';
+import { style as inputStyle } from '@fooloomanzoo/input-picker-pattern/input-shared-style.js';
+import { style as transpenrencyPatternStyle } from './transparency-pattern-style.js';
 /**
  * Mixin for color-badge
  *
@@ -15,23 +14,23 @@ import './transparency-pattern-style.js';
 export const ColorBadgePattern = dedupingMixin( superClass => {
   return class extends superClass {
 
-    static get styleToInclude() {
-      return htmlLiteral`input-shared-style transparency-pattern-style`;
-    }
-
     static get styleTemplate() {
-      return htmlLiteral`
-        ${super.styleTemplate || htmlLiteral``}
-        .badge {
-          border-radius: var(--color-badge-radius, 6px);
-          height: var(--color-badge-height, 32px);
-          width: var(--color-badge-width, 60px);
-          box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
-          border-width: var(--input-border-width, thin);
-          border-style: solid;
-          border-color: var(--input-border-color, rgba(0,0,0,0.2));
-          overflow: hidden;
-        }
+      return html`
+        ${super.styleTemplate || html``}
+        ${inputStyle}
+        ${transpenrencyPatternStyle}
+        <style>
+          .badge {
+            border-radius: var(--color-badge-radius, 6px);
+            height: var(--color-badge-height, 32px);
+            width: var(--color-badge-width, 60px);
+            box-shadow: var(--color-badge-shadow, 0 1px 4px 1px rgba(0,0,0,.1));
+            border-width: var(--input-border-width, thin);
+            border-style: solid;
+            border-color: var(--input-border-color, rgba(0,0,0,0.2));
+            overflow: hidden;
+          }
+        </style>
       `;
     }
 
@@ -232,27 +231,27 @@ export class ColorBadge extends ColorBadgePattern(ColorMixin(PolymerElement)) {
 
   static get template() {
     return html`
-      <style include="${this.styleToInclude}">
-        ${this.styleTemplate}
-      </style>
+      ${this.styleTemplate}
       ${this.colorBadgeTemplate}
     `;
   }
 
   static get styleTemplate() {
-    return htmlLiteral`
-      ${super.styleTemplate || htmlLiteral``}
-      .badge > .slot {
-        position: absolute;
-        box-sizing: border-box;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 100%;
-        overflow: hidden;
-        pointer-events: none;
-        text-overflow: var(--color-badge-text-overflow, ellipsis);
-        padding: var(--color-badge-padding, 4px);
-      }
+    return html`
+      ${super.styleTemplate || html``}
+      <style>
+        .badge > .slot {
+          position: absolute;
+          box-sizing: border-box;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 100%;
+          overflow: hidden;
+          pointer-events: none;
+          text-overflow: var(--color-badge-text-overflow, ellipsis);
+          padding: var(--color-badge-padding, 4px);
+        }
+      </style>
     `;
   }
 

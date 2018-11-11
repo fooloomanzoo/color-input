@@ -1,11 +1,9 @@
-import { PolymerElement } from '../../@polymer/polymer/polymer-element.js';
-import { html, htmlLiteral } from '../../@polymer/polymer/lib/utils/html-tag.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import { dedupingMixin } from '@polymer/polymer/lib/utils/mixin.js';
 import { ColorMixin, regexpHex, regexpHsl, regexpRgb, regexpAuto } from '@fooloomanzoo/property-mixins/color-mixin.js';
-import { FormElementMixin } from '@fooloomanzoo/input-picker-pattern/form-element-mixin.js';
+import { FormElementMixin, resetButtonTemplate } from '@fooloomanzoo/input-picker-pattern/form-element-mixin.js';
 import { ColorBadgePattern } from './color-badge.js';
-import '@fooloomanzoo/input-picker-pattern/input-shared-style.js';
-import '@fooloomanzoo/input-picker-pattern/input-pattern.js';
 import '@fooloomanzoo/text-input/text-input.js';
 
 /**
@@ -94,21 +92,23 @@ export const ColorTextInputPattern = dedupingMixin( superClass => {
   return class extends superClass {
 
     static get styleTemplate() {
-      return htmlLiteral`
-        ${super.styleTemplate || ''}
-        #input {
-          align-items: center;
-        }
-        #input .badge {
-          border-radius: var(--input-border-radius, var(--color-badge-radius, 0.2em));
-          height: var(--color-badge-height, 100%);
-          width: var(--color-badge-width, 1.5em);
-          box-shadow: var(--color-badge-shadow, none);
-          background-color: rgba(255,255,255,0.75);
-        }
-        text-input {
-          margin-left: 0.25em;
-        }
+      return html`
+        ${super.styleTemplate || html``}
+        <style>
+          #input {
+            align-items: center;
+          }
+          #input .badge {
+            border-radius: var(--input-border-radius, var(--color-badge-radius, 0.2em));
+            height: var(--color-badge-height, 100%);
+            width: var(--color-badge-width, 1.5em);
+            box-shadow: var(--color-badge-shadow, none);
+            background-color: rgba(255,255,255,0.75);
+          }
+          text-input {
+            margin-left: 0.25em;
+          }
+        </style>
       `;
     }
 
@@ -116,19 +116,13 @@ export const ColorTextInputPattern = dedupingMixin( superClass => {
       return html`
         ${this.colorBadgeTemplate}
         ${this.textInputTemplate}
-        ${this.resetButtonTemplate}
+        ${resetButtonTemplate}
       `
     }
 
     static get textInputTemplate() {
       return html`
         <text-input required="[[required]]" value="{{colorString}}" auto-resize title="[[title]]" pattern="[[_computeFormatPattern(format, fixedFormat, alphaMode)]]" placeholder="[[_computeFormatPlaceholder(format, alphaMode, _hexAlphaSupported)]]"></text-input>
-      `
-    }
-
-    static get resetButtonTemplate() {
-      return html`
-        <button class="icon reset" invisible$="[[!valueIsSet]]" hidden$="[[disabled]]" on-click="reset"><svg viewBox="0 0 24 24"><g><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></g></svg></button>
       `
     }
 
@@ -209,9 +203,7 @@ export class ColorTextInput extends ColorTextInputPattern(ColorBadgePattern(Colo
 
   static get template() {
     return html`
-      <style include="${this.styleToInclude}">
-        ${this.styleTemplate}
-      </style>
+      ${this.styleTemplate}
       <div id="input">
         ${this.inputTemplate}
       </div>

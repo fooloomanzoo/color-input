@@ -1,13 +1,6 @@
-import { PolymerElement, html } from '../../@polymer/polymer/polymer-element.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 
-/*
-`transparency-pattern-style`
-styles for used a displaying a transperency pattern behind a canvas
-*/
-const styleElement = document.createElement('dom-module');
-
-styleElement.innerHTML =
-`<template>
+export const style = html`
   <style>
     :host {
       --computed-transparency-pattern-position: calc(var(--transparency-pattern-size, 0.75em) / 2);
@@ -34,7 +27,4 @@ styleElement.innerHTML =
       left: 0;
       top: 0;
     }
-  </style>
-</template>`;
-
-styleElement.register('transparency-pattern-style');
+  </style>`;
