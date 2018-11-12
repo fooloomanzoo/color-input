@@ -261,4 +261,7 @@ export class ColorBadge extends ColorBadgePattern(ColorMixin(PolymerElement)) {
     `
   }
 }
-customElements.define(ColorBadge.is, ColorBadge);
+
+if (!customElements.get(ColorBadge.is)) {
+  customElements.define(ColorBadge.is, ColorBadge);
+}

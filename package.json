@@ -30,11 +30,11 @@
   "author": "fooloomanzoo",
   "license": "MIT",
   "dependencies": {
-    "@polymer/polymer": "^3",
-    "@fooloomanzoo/input-picker-pattern": "^3",
-    "@fooloomanzoo/number-input": "^3",
-    "@fooloomanzoo/text-input": "^3",
-    "@fooloomanzoo/property-mixins": "^3"
+    "@fooloomanzoo/input-picker-pattern": "^3.0.8",
+    "@fooloomanzoo/number-input": "^3.0.4",
+    "@fooloomanzoo/property-mixins": "^3",
+    "@fooloomanzoo/text-input": "^3.0.6",
+    "@polymer/polymer": "^3"
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "^2",

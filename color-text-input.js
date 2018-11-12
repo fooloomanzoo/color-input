@@ -196,7 +196,6 @@ export const ColorTextInputPattern = dedupingMixin( superClass => {
 * @demo demo/form.html in a form
 **/
 export class ColorTextInput extends ColorTextInputPattern(ColorBadgePattern(ColorFormMixin(ColorMixin(FormElementMixin(PolymerElement))))) {
-
   static get is() {
     return 'color-text-input';
   }
@@ -210,4 +209,7 @@ export class ColorTextInput extends ColorTextInputPattern(ColorBadgePattern(Colo
     `;
   }
 }
-customElements.define(ColorTextInput.is, ColorTextInput);
+
+if (!customElements.get(ColorTextInput.is)) {
+  customElements.define(ColorTextInput.is, ColorTextInput);
+}

@@ -147,4 +147,7 @@ export class ColorInput extends ColorInputPattern(ColorTextInputPattern(ColorBad
     `;
   }
 }
-customElements.define(ColorInput.is, ColorInput);
+
+if (!customElements.get(ColorInput.is)) {
+  customElements.define(ColorInput.is, ColorInput);
+}
