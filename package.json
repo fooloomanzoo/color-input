@@ -31,9 +31,9 @@
   "license": "MIT",
   "dependencies": {
     "@fooloomanzoo/input-picker-pattern": "^3.0.8",
-    "@fooloomanzoo/number-input": "^3.0.4",
-    "@fooloomanzoo/property-mixins": "^3",
-    "@fooloomanzoo/text-input": "^3.0.6",
+    "@fooloomanzoo/number-input": "^3.0.9",
+    "@fooloomanzoo/property-mixins": "^3.0.9",
+    "@fooloomanzoo/text-input": "^3.0.7",
     "@polymer/polymer": "^3"
   },
   "devDependencies": {
