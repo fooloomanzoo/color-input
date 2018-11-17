@@ -1,8 +1,7 @@
 [![Published on NPM](https://img.shields.io/npm/v/@fooloomanzoo/color-input.svg)](https://www.npmjs.com/package/@fooloomanzoo/color-input)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/@fooloomanzoo/color-input)
 
-_[API](https://fooloomanzoo.github.io/color-input/components/color-input/#/elements/color-input)_ and
-_[Demo](https://fooloomanzoo.github.io/color-input/components/color-input/#/elements/color-input/demos/demo/index.html)_
+_[API & Demo](https://fooloomanzoo.github.io/color-input)_
 
 ## \<color-input\>
 
